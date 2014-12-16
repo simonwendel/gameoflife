@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="742be32f-9f59-4dc3-9f73-a82fa7e36c58" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <comments>
+    <comment Id="5e480a2e-f71d-4a30-91ae-a9252d9a57bc" name="Comment1">
+      <body>
+      Shouldn't know about each other!</body>
+    </comment>
+  </comments>
+  <layers>
+    <layer Id="69390f40-3f3d-4c5a-86c9-7da404503ed2" name="GameOfLife.Console">
+      <references>
+        <reference Id="26ccdb39-9c35-41ad-bacb-620449d345fe" name="GameOfLife.Console">
+          <ArtifactNode Label="GameOfLife.Console" Category="CodeSchema_Project" Id="(Assembly=../GameOfLife.Console/GameOfLife.Console.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=GameOfLife)" Label="GameOfLife.exe" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.exe" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="df2425ba-132e-409e-8973-6eb0b124e112" name="GameOfLife.Web">
+      <references>
+        <reference Id="ba539ddf-56c2-4809-b00b-7d88579694f8" name="GameOfLife.Web">
+          <ArtifactNode Label="GameOfLife.Web" Category="CodeSchema_Project" Id="(Assembly=../../GameOfLife.Web/GameOfLife.Web.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=GameOfLife.Web)" Label="GameOfLife.Web.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+  </layers>
+</layerModel>

@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="9800bdfd-8bb7-4e6b-96e9-e0a02c2b3d07" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="5a0cf0a8-f2f8-4d2c-a9c8-4bc63c45ff68" name="GameOfLife.Web">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="4959ddf3-e848-40fa-9235-a80861ea7a0c" direction="Forward">
+          <layerMoniker Id="8f6a7129-14d0-4b66-841c-feac7b5bf793" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="2b069bf7-d66e-4dee-978f-a3c27400285c" direction="Forward">
+          <layerMoniker Id="d878b05a-9fee-4aa5-8fb8-4c55441cf3b3" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="07f32aad-422c-495c-bbe5-86afc891f765" direction="Forward">
+          <layerMoniker Id="64243bc8-3e17-451c-a324-ae279a0d3d5a" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="b6a36d40-2e5b-48f1-945d-9478c9f02f65" name="GameOfLife.Web">
+          <ArtifactNode Label="GameOfLife.Web" Category="CodeSchema_Project" Id="(Assembly=../GameOfLife.Web/GameOfLife.Web.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=GameOfLife.Web)" Label="GameOfLife.Web.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="d878b05a-9fee-4aa5-8fb8-4c55441cf3b3" name="GameOfLife.LinqLife">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="c185c5d0-c34f-46a1-a51b-123dc423cd8c" direction="Forward">
+          <layerMoniker Id="64243bc8-3e17-451c-a324-ae279a0d3d5a" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="1b2c02ea-4db6-447c-a144-a0cd05a0d248" name="GameOfLife.LinqLife">
+          <ArtifactNode Label="GameOfLife.LinqLife" Category="CodeSchema_Project" Id="(Assembly=../GameOfLife.LinqLife/GameOfLife.LinqLife.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=GameOfLife.LinqLife)" Label="GameOfLife.LinqLife.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="8f6a7129-14d0-4b66-841c-feac7b5bf793" name="GameOfLife.Library">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="4e1e9a28-7f2e-4f98-84bd-e3de8fdf851b" direction="Forward">
+          <layerMoniker Id="64243bc8-3e17-451c-a324-ae279a0d3d5a" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="84c7ae55-d16a-4a5f-b69e-ca296576d3c8" name="GameOfLife.Library">
+          <ArtifactNode Label="GameOfLife.Library" Category="CodeSchema_Project" Id="(Assembly=../GameOfLife.Library/GameOfLife.Library.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=GameOfLife.Library)" Label="GameOfLife.Library.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="64243bc8-3e17-451c-a324-ae279a0d3d5a" name="GameOfLife.Basics">
+      <references>
+        <reference Id="b56b1964-7254-46e8-84d1-6062d6d00dda" name="GameOfLife.Basics">
+          <ArtifactNode Label="GameOfLife.Basics" Category="CodeSchema_Project" Id="(Assembly=../GameOfLife.Basics/GameOfLife.Basics.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=GameOfLife.Basics)" Label="GameOfLife.Basics.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+  </layers>
+</layerModel>

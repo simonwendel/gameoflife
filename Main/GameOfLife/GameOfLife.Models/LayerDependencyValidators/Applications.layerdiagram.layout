@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerDiagram dslVersion="1.0.0.0" Id="9fb2860b-178b-420d-b0c0-c1d39af1a023" absoluteBounds="0, 0, 11, 8.5" name="Applications">
+  <layerModelMoniker Id="742be32f-9f59-4dc3-9f73-a82fa7e36c58" />
+  <nestedChildShapes>
+    <layerShape Id="63aa16e3-bfb1-4d80-96e7-312b06a46904" absoluteBounds="1.75, 1.875, 2, 0.75" customColor="161, 199, 231">
+      <layerMoniker Id="69390f40-3f3d-4c5a-86c9-7da404503ed2" />
+    </layerShape>
+    <commentShape Id="32d04ea0-abae-4db4-b3d1-f8d9306d2a46" absoluteBounds="2.75, 0.75, 2.375, 0.5" customColor="255, 255, 204">
+      <commentMoniker Id="5e480a2e-f71d-4a30-91ae-a9252d9a57bc" />
+      <relativeChildShapes />
+    </commentShape>
+    <layerShape Id="89b63c99-478d-4995-9773-986b3b0a7c43" absoluteBounds="4.25, 1.875, 2, 0.75" customColor="161, 199, 231">
+      <layerMoniker Id="df2425ba-132e-409e-8973-6eb0b124e112" />
+    </layerShape>
+  </nestedChildShapes>
+</layerDiagram>

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{a9b89910-4d3e-4f59-b46e-31e27f58ae6e}</ProjectGuid>
+    <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
+    <Name>GameOfLife.Models</Name>
+    <RootNamespace>GameOfLife.Models</RootNamespace>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <ValidateArchitecture>true</ValidateArchitecture>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
+  <ItemGroup>
+    <Content Include="Assemblies.dgml">
+      <SubType>Content</SubType>
+    </Content>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="ModelDefinition\GameOfLife.Models.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Folder Include="LayerDependencyValidators" />
+  </ItemGroup>
+  <ItemGroup>
+    <Validate Include="LayerDependencyValidators\Applications.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="LayerDependencyValidators\Applications.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>LayerDependencyValidators\Applications.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="LayerDependencyValidators\Applications.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>LayerDependencyValidators\Applications.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="LayerDependencyValidators\ConsoleLayers.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="LayerDependencyValidators\ConsoleLayers.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>LayerDependencyValidators\ConsoleLayers.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="LayerDependencyValidators\ConsoleLayers.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>LayerDependencyValidators\ConsoleLayers.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="LayerDependencyValidators\TestLayers.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="LayerDependencyValidators\TestLayers.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>LayerDependencyValidators\TestLayers.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="LayerDependencyValidators\TestLayers.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>LayerDependencyValidators\TestLayers.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="LayerDependencyValidators\WebLayers.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="LayerDependencyValidators\WebLayers.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>LayerDependencyValidators\WebLayers.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="LayerDependencyValidators\WebLayers.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>LayerDependencyValidators\WebLayers.layerdiagram</DependentUpon>
+    </Validate>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameOfLife.Basics\GameOfLife.Basics.csproj">
+      <Name>GameOfLife.Basics</Name>
+      <Project>{0cb24a0a-476f-463d-93d2-0e3baa645b1e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GameOfLife.Console\GameOfLife.Console.csproj">
+      <Name>GameOfLife.Console</Name>
+      <Project>{1a6205f5-cc95-4dab-9c60-d685c0b33f8d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GameOfLife.IntegrationTests\GameOfLife.IntegrationTests.csproj">
+      <Name>GameOfLife.IntegrationTests</Name>
+      <Project>{cb373919-b1b7-4ead-ac49-2ea2d95c478b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GameOfLife.Library\GameOfLife.Library.csproj">
+      <Name>GameOfLife.Library</Name>
+      <Project>{94d38de1-196e-4ffd-b1d7-fe0d67b901b1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GameOfLife.LinqLife\GameOfLife.LinqLife.csproj">
+      <Name>GameOfLife.LinqLife</Name>
+      <Project>{c614b613-1aff-4c15-8db7-6ab7952fdda6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GameOfLife.UnitTests\GameOfLife.UnitTests.csproj">
+      <Name>GameOfLife.UnitTests</Name>
+      <Project>{cc060c10-da9f-4fdc-893c-e4768c41b487}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GameOfLife.Web\GameOfLife.Web.csproj">
+      <Name>GameOfLife.Web</Name>
+      <Project>{e216d2ab-6b64-4ea1-82f5-20edbde01944}</Project>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
