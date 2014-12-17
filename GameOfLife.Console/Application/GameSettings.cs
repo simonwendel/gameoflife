@@ -21,13 +21,13 @@ namespace GameOfLife.Console.Application
     /// The command line options for the console interface.
     /// </summary>
     [ExcludeFromCodeCoverage]
-    internal class GameSettings : CommandLineOptionsBase
+    internal class GameSettings
     {
         /// <summary>
         /// Gets or sets the number of generations to progress the game. Required.
         /// </summary>
         [Option(
-            shortName: "g",
+            shortName: 'g',
             longName: "generations",
             Required = true,
             HelpText = "The number of generations to progress the game.")]
@@ -37,7 +37,7 @@ namespace GameOfLife.Console.Application
         /// Gets or sets the rules to run the game by. If omitted it defaults to the Standard rules.
         /// </summary>
         [Option(
-            shortName: "r",
+            shortName: 'r',
             longName: "rules",
             DefaultValue = Rule.Standard,
             HelpText = "Run according to rules Standard | Sierpinskish. Defaults to Standard.")]
@@ -47,7 +47,7 @@ namespace GameOfLife.Console.Application
         /// Gets or sets the initial pattern from the library. If omitted defaults to the RandomPattern.
         /// </summary>
         [Option(
-            shortName: "p",
+            shortName: 'p',
             longName: "pattern",
             DefaultValue = LifeForm.RandomPattern,
             HelpText = "Select life form of Empty, Acorn, AircraftCarrier, FivePoint or RandomPattern, which is default.")]

@@ -28,7 +28,7 @@ namespace GameOfLife.Console.Application
         internal static void Main(string[] args)
         {
             var options = new GameSettings();
-            if (!CommandLineParser.Default.ParseArguments(args, options))
+            if (!CommandLine.Parser.Default.ParseArguments(args, options))
             {
                 // requirements of cmdline arguments not met, or some other fatal error
                 // pertaining to the args array.
