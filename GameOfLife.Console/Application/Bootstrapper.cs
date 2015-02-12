@@ -1,5 +1,5 @@
 ﻿// <copyright file="Bootstrapper.cs" company="N/A"> 
-//      Copyright (C) Simon Wendel 2013.
+//      Copyright (C) Simon Wendel 2013-2015.
 // </copyright> 
 
 namespace GameOfLife.Console.Application
