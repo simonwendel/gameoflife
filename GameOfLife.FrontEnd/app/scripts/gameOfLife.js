@@ -3,8 +3,8 @@
 // </copyright>
 
 ;(function() {
+    'use strict';
 
     angular
         .module('gameOfLife.app', []);
-
 })();
