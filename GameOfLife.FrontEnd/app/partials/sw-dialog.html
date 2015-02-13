@@ -1,0 +1,33 @@
+<div class="sw-dialog">
+    <div id="options">
+        <div class="editor-label">
+            <label for="NumberOfGenerations">Number of generations</label>
+        </div>
+        <div class="editor-field">
+            <input class="text-box single-line" id="NumberOfGenerations"
+                   name="NumberOfGenerations" type="text" value="{{ vm.numberOfGenerations }}">
+        </div>
+        <div class="editor-label">
+            <label for="Rules">Game rules</label>
+        </div>
+        <div class="editor-field">
+            <select id="Rules" name="Rules"
+                    ng-model="vm.selectedRule"
+                    ng-options="rule as rule.name for rule in vm.rules">
+            </select>
+        </div>
+        <div class="editor-label">
+            <label for="LifeForm">Life form</label>
+        </div>
+        <div class="editor-field">
+            <select id="LifeForm" name="LifeForm"
+                    ng-model="vm.selectedLifeForm"
+                    ng-options="lifeForm as lifeForm.name for lifeForm in vm.lifeForms">
+            </select>
+        </div>
+
+    </div>
+    <div>
+        <span id="output">{{ vm.message }}</span>
+    </div>
+</div>
