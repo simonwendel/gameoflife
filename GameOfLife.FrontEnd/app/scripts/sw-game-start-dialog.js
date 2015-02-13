@@ -1,4 +1,4 @@
-// <copyright file="sw-dialog.js" company="N/A">
+// <copyright file="sw-game-start-dialog.js" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
@@ -7,11 +7,11 @@
 
     angular
         .module('gameOfLife.app')
-        .directive('swDialog', dialog);
+        .directive('swGameStartDialog', gameStartDialog);
 
-    function dialog() {
+    function gameStartDialog() {
         return {
-            templateUrl: 'partials/sw-dialog.html',
+            templateUrl: '../partials/sw-game-start-dialog.html',
             restrict: 'E',
             link: postLink,
             controller: DialogController,
@@ -19,7 +19,7 @@
         };
     }
 
-    function postLink(scope) {
+    function postLink() {
         jQuery('.sw-dialog').dialog({
             modal: true,
             title: 'Game Of Life',
@@ -29,14 +29,14 @@
                 text: 'Run game',
                 click: function() {
                     var options = jQuery('.sw-dialog :input').serialize();
-                    scope.callback(options);
+                    runGame(options);
                 }
             }]
         });
     }
 
     /** @ngInject */
-    function DialogController($scope) {
+    function DialogController() {
         var vm = this;
 
         vm.numberOfGenerations = 30;
