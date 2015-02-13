@@ -28,27 +28,25 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<div class="container">
+<div class="container" ng-controller="GameController as vm">
 
     <div id="dialog">
         <div id="options">
             <div class="editor-label"><label for="NumberOfGenerations">Number of generations</label></div>
             <div class="editor-field"><input class="text-box single-line" id="NumberOfGenerations"
-                                             name="NumberOfGenerations" type="text" value="30"></div>
+                                             name="NumberOfGenerations" type="text" value="{{ vm.numberOfGenerations }}"></div>
             <div class="editor-label"><label for="Rules">Game rules</label></div>
             <div class="editor-field">
-                <select id="Rules" name="Rules">
-                    <option selected="selected" value="0">Standard</option>
-                    <option value="1">Sierpinskish</option>
-                </select></div>
+                <select id="Rules" name="Rules"
+                        ng-model="vm.selectedRule"
+                        ng-options="rule as rule.name for rule in vm.rules">
+                </select>
+            </div>
             <div class="editor-label"><label for="LifeForm">Life form</label></div>
             <div class="editor-field">
-                <select id="LifeForm" name="LifeForm">
-                    <option value="0">Empty</option>
-                    <option value="1">Acorn</option>
-                    <option value="2">AircraftCarrier</option>
-                    <option value="3">FivePoint</option>
-                    <option selected="selected" value="4">RandomPattern</option>
+                <select id="LifeForm" name="LifeForm"
+                        ng-model="vm.selectedLifeForm"
+                        ng-options="lifeForm as lifeForm.name for lifeForm in vm.lifeForms">
                 </select></div>
 
         </div>
@@ -84,7 +82,8 @@
 
 <!-- build:js scripts/main.js -->
 <script src="scripts/main.js"></script>
-<script src="scripts/gameOfLife.js"></script>
+<script src="scripts/gameoflife.js"></script>
+<script src="scripts/gamecontroller.js"></script>
 <!-- endbuild -->
 </body>
 </html>
