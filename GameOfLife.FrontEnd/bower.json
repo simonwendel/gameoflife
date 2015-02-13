@@ -12,7 +12,7 @@
     "jquery-ui": {
       "main": [
         "jquery-ui.js",
-        "themes/base/all.css"
+        "themes/blitzer/jquery-ui.css"
       ]
     }
   }
