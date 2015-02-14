@@ -18,15 +18,13 @@
     function initialSettings() {
         var availableRules = [
                 {value: 0, name: 'Standard'},
-                {value: 1, name: 'Sierpinskish'}
-            ],
+                {value: 1, name: 'Sierpinskish'}],
             availableLifeForms = [
                 {value: 0, name: 'Empty'},
                 {value: 1, name: 'Acorn'},
                 {value: 2, name: 'AircraftCarrier'},
                 {value: 3, name: 'FivePoint'},
-                {value: 4, name: 'RandomPattern'}
-            ];
+                {value: 4, name: 'RandomPattern'}];
 
         return {
             numberOfGenerations: 30,
@@ -34,6 +32,6 @@
             selectedRule: availableRules[0],
             lifeForms: availableLifeForms,
             selectedLifeForm: availableLifeForms[4]
-        }
+        };
     }
 })();

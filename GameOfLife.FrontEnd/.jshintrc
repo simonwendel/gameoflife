@@ -38,7 +38,7 @@
     "laxbreak": false,
     "laxcomma": false,
     "loopfunc": true,
-    "maxerr": false,
+    "maxerr": 500,
     "moz": false,
     "multistr": false,
     "notypeof": false,
@@ -53,6 +53,7 @@
     "node": true,
     "globals": {
         "angular": false,
-        "$": false
+        "$": false,
+        "jQuery": false
     }
 }
