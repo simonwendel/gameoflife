@@ -1,7 +1,7 @@
 /* jshint node:true */
 'use strict';
 
-var distDir = 'dist',
+var distDir = '../GameOfLife.Web/app',
 
     gulp = require('gulp'),
     $ = require('gulp-load-plugins')();
