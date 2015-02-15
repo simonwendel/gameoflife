@@ -11,7 +11,8 @@
     /** @ngInject */
     function game() {
         return {
-            getInitialSettings: initialSettings
+            getInitialSettings: initialSettings,
+            runGame: runGame
         };
     }
 
@@ -33,5 +34,11 @@
             lifeForms: availableLifeForms,
             selectedLifeForm: availableLifeForms[4]
         };
+    }
+
+    function runGame(options) {
+        return jQuery.post(
+            '/Home/RunGame',
+            options);
     }
 })();

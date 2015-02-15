@@ -9,7 +9,10 @@
         .module('gameOfLife.app')
         .directive('swGameStartDialog', gameStartDialog);
 
-    function gameStartDialog() {
+    /** @ngInject */
+    function gameStartDialog(game) {
+        gameService = game;
+
         return {
             templateUrl: 'partials/sw-game-start-dialog.html',
             restrict: 'E',
@@ -18,6 +21,8 @@
             controllerAs: 'vm'
         };
     }
+
+    var gameService;
 
     function postLink() {
         jQuery('.sw-dialog').dialog({
@@ -29,32 +34,27 @@
                 text: 'Run game',
                 click: function() {
                     var options = jQuery('.sw-dialog :input').serialize();
-                    runGame(options);
+                    runGame(options).done(function(data) {
+                        var output = jQuery('#output').empty();
+                        output.append(data);
+                    });
                 }
             }]
         });
     }
 
-    /** @ngInject */
-    function DialogController(game) {
+    function DialogController() {
         var vm = this,
-            initSettings = game.getInitialSettings();
+            initSettings = gameService.getInitialSettings();
 
         vm.numberOfGenerations = initSettings.numberOfGenerations;
         vm.rules = initSettings.rules;
         vm.selectedRule = initSettings.selectedRule;
         vm.lifeForms = initSettings.lifeForms;
         vm.selectedLifeForm = initSettings.selectedLifeForm;
-        vm.runGame = runGame;
     }
 
     function runGame(options) {
-        jQuery.post(
-            '/Home/RunGame',
-            options,
-            function(data) {
-                var output = jQuery('#output').empty();
-                output.append(data);
-            });
+        return gameService.runGame(options);
     }
 })();
