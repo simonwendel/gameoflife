@@ -48,7 +48,7 @@ namespace GameOfLife.Web.Controllers
         /// JSON-formatted string.
         /// </summary>
         /// <param name="settings">The game settings to run the game by.</param>
-        /// <returns>A JSON-formatted string of the game results.</returns>
+        /// <returns>A HTML string of the game results.</returns>
         [HttpPost]
         public ActionResult RunGame(GameSettingsModel settings)
         {
