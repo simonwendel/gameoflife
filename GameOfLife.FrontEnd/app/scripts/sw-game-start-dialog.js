@@ -11,7 +11,7 @@
 
     function gameStartDialog() {
         return {
-            templateUrl: '../partials/sw-game-start-dialog.html',
+            templateUrl: 'partials/sw-game-start-dialog.html',
             restrict: 'E',
             link: postLink,
             controller: DialogController,
