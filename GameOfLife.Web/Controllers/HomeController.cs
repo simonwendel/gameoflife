@@ -45,7 +45,7 @@ namespace GameOfLife.Web.Controllers
 
         /// <summary>
         /// Runs the game and returns information about the results via a 
-        /// JSON-formatted string.
+        /// HTML string.
         /// </summary>
         /// <param name="settings">The game settings to run the game by.</param>
         /// <returns>A HTML string of the game results.</returns>
