@@ -50,7 +50,7 @@
 
     function runGame(options) {
         jQuery.post(
-            'Home/RunGame',
+            '/Home/RunGame',
             options,
             function(data) {
                 var output = jQuery('#output').empty();
