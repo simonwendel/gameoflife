@@ -23,51 +23,6 @@ namespace GameOfLife.UnitTests.Web.Controllers
     public class HomeControllerTests
     {
         /// <summary>
-        /// When the Index action is called on the HomeController it will simply
-        /// return the view of the same name.
-        /// </summary>
-        [TestMethod]
-        public void IndexActionRetrievesDefaultView()
-        {
-            // arrange
-            using (var target = new HomeController(Mock.Of<IBootstrapper>()))
-            {
-                // act
-                var results = target.Index() as ViewResult;
-                var model = results.Model as GameSettingsModel;
-
-                // assert
-                Assert.IsNotNull(
-                    results,
-                    message: "The result was not a view.");
-
-                Assert.AreEqual(
-                    expected: string.Empty,
-                    actual: results.ViewName,
-                    message: "The framework did not automatically infer view name.");
-
-                Assert.IsNotNull(
-                    model,
-                    message: "No model set or wrong model type.");
-
-                Assert.AreEqual(
-                    expected: 30,
-                    actual: model.NumberOfGenerations,
-                    message: "Default number of generations not set.");
-
-                Assert.AreEqual(
-                    expected: LifeForm.RandomPattern,
-                    actual: model.LifeForm,
-                    message: "Default pattern not set.");
-
-                Assert.AreEqual(
-                    expected: Rule.Standard,
-                    actual: model.Rules,
-                    message: "Default rules not set.");
-            }
-        }
-
-        /// <summary>
         /// Passing a null reference for the settings to the RunGame action 
         /// throws an exception.
         /// </summary>

@@ -29,21 +29,6 @@ namespace GameOfLife.Web.Controllers
         }
 
         /// <summary>
-        /// Retrieves the start page.
-        /// </summary>
-        /// <returns>A view result to be rendered by the framework and displaying 
-        /// the start page.</returns>
-        public ActionResult Index()
-        {
-            return View(new GameSettingsModel
-                {
-                    NumberOfGenerations = 30,
-                    LifeForm = LifeForm.RandomPattern,
-                    Rules = Rule.Standard
-                });
-        }
-
-        /// <summary>
         /// Runs the game and returns information about the results via a 
         /// HTML string.
         /// </summary>
