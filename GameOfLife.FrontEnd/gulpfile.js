@@ -25,7 +25,7 @@ gulp.task('jshint', function() {
         .pipe($.jshint.reporter('fail'));
 });
 
-gulp.task('html', ['styles'], function() {
+gulp.task('source', ['styles'], function() {
     var lazypipe = require('lazypipe'),
         cssChannel = lazypipe()
             .pipe($.csso)
@@ -122,7 +122,7 @@ gulp.task('watch', ['connect'], function() {
     gulp.watch('bower.json', ['wiredep']);
 });
 
-gulp.task('build', ['jshint', 'html', 'images', 'fonts', 'extras'], function() {
+gulp.task('build', ['jshint', 'source', 'images', 'fonts', 'extras'], function() {
     return gulp.src(distDir + '/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
