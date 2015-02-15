@@ -4,6 +4,7 @@
 var distDir = '../GameOfLife.Web/app',
 
     gulp = require('gulp'),
+    ngAnnotate = require('gulp-ng-annotate'),
     $ = require('gulp-load-plugins')();
 
 gulp.task('styles', function() {
@@ -31,8 +32,9 @@ gulp.task('html', ['styles'], function() {
             .pipe($.replace, 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap', 'fonts'),
         assets = $.useref.assets({searchPath: '{.tmp,app}'});
 
-    return gulp.src('app/*.html')
+    return gulp.src('app/**/*.html')
         .pipe(assets)
+        .pipe($.if('*.js', ngAnnotate()))
         .pipe($.if('*.js', $.uglify()))
         .pipe($.if('*.css', cssChannel()))
         .pipe(assets.restore())
