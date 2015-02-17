@@ -54,7 +54,21 @@ textarea {
 }
 
 .editor-field {
+    position: relative;
     margin: 0.5em 0 0 0;
+    width: 100%;
+
+    input {
+        padding: 2px;
+        width: 100%;
+    }
+
+    select {
+        padding: 1px 0;
+        width: 100%;
+        line-height: normal;
+        height: 18px;
+    }
 }
 
 /* Styles for validation helpers
