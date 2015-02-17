@@ -43,6 +43,20 @@ gulp.task('source', ['styles'], function() {
         .pipe(gulp.dest(distDir));
 });
 
+gulp.task('source-no-process', ['styles'], function() {
+    var lazypipe = require('lazypipe'),
+        cssChannel = lazypipe()
+            .pipe($.csso)
+            .pipe($.replace, 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap', 'fonts'),
+        assets = $.useref.assets({searchPath: '{.tmp,app}'});
+
+    return gulp.src('app/**/*.html')
+        .pipe(assets)
+        .pipe(assets.restore())
+        .pipe($.useref())
+        .pipe(gulp.dest(distDir));
+});
+
 gulp.task('images', function() {
     return gulp.src('app/images/**/*')
         .pipe($.cache($.imagemin({
@@ -123,6 +137,10 @@ gulp.task('watch', ['connect'], function() {
 });
 
 gulp.task('build', ['jshint', 'source', 'images', 'fonts', 'extras'], function() {
+    return gulp.src(distDir + '/**/*').pipe($.size({title: 'build', gzip: true}));
+});
+
+gulp.task('build-no-process', ['source-no-process', 'images', 'fonts', 'extras'], function() {
     return gulp.src(distDir + '/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
