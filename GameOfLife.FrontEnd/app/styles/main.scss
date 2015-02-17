@@ -21,6 +21,26 @@ section {
     display: block;
 }
 
+/* CSS for the sw-game-start-dialog directive
+-----------------------------------------------------------*/
+
+.sw-dialog {
+    position: absolute;
+    height: auto;
+    width: auto;
+    top: 20px;
+    left: 20px;
+    display: block;
+
+    .ui-dialog-content {
+        width: auto;
+        min-height:
+        71px;
+        max-height: none;
+        height: auto;
+    }
+}
+
 /* Warning for old  browsers with browsehappy link
 -----------------------------------------------------------*/
 
@@ -73,6 +93,7 @@ textarea {
 
 /* Styles for validation helpers
 -----------------------------------------------------------*/
+
 .field-validation-error {
     color: #ff0000;
 }
@@ -93,10 +114,4 @@ textarea {
 
 .validation-summary-valid {
     display: none;
-}
-
-/* For hiding the x-button on the dialog
------------------------------------------------------------*/
-.no-close .ui-dialog-titlebar-close {
-    display: none
 }
