@@ -16,45 +16,52 @@
         return {
             templateUrl: 'partials/sw-game-start-dialog.html',
             restrict: 'E',
-            link: postLink,
             controller: DialogController,
             controllerAs: 'vm'
         };
     }
 
-    var gameService;
+    var gameService,
+        vm,
+        scope;
 
-    function postLink() {
-        jQuery('.sw-dialog').dialog({
-            modal: true,
-            title: 'Game Of Life',
-            closeOnEscape: false,
-            dialogClass: 'no-close',
-            buttons: [{
-                text: 'Run game',
-                click: function() {
-                    var options = jQuery('.sw-dialog :input').serialize();
-                    runGame(options).done(function(data) {
-                        var output = jQuery('#output').empty();
-                        output.append(data);
-                    });
-                }
-            }]
-        });
-    }
+    /** @ngInject */
+    function DialogController($scope) {
+        var initSettings = gameService.getInitialSettings();
 
-    function DialogController() {
-        var vm = this,
-            initSettings = gameService.getInitialSettings();
+        vm = this;
+        scope = $scope;
 
         vm.numberOfGenerations = initSettings.numberOfGenerations;
         vm.rules = initSettings.rules;
         vm.selectedRule = initSettings.selectedRule;
         vm.lifeForms = initSettings.lifeForms;
         vm.selectedLifeForm = initSettings.selectedLifeForm;
+
+        vm.results = {success: false};
+        vm.error = {failed: false};
+
+        vm.runGame = runGame;
     }
 
-    function runGame(options) {
-        return gameService.runGame(options);
+    function runGame() {
+        var options = jQuery('.sw-dialog :input').serialize();
+
+        vm.results.success = false;
+        vm.error.failed = false;
+
+        gameService
+            .runGame(options)
+            .done(function(data) {
+                vm.results.success = true;
+                vm.results.population = data.Population;
+                vm.results.generation = data.Generation;
+                vm.results.lastRuntime = data.LastRuntime;
+                scope.$apply();
+            }).fail(function(data) {
+                vm.error.failed = true;
+                vm.error.message = data.Message;
+                scope.$apply();
+            });
     }
 })();
