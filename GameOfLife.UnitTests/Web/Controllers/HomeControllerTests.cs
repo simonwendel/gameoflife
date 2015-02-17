@@ -60,17 +60,18 @@ namespace GameOfLife.UnitTests.Web.Controllers
             using (var target = new HomeController(mockBoot.Object))
             {
                 // act
-                var result = target.RunGame(settings) as ViewResult;
+                var result = target.RunGame(settings) as JsonResult;
+                dynamic data = result.Data;
 
                 // assert
                 Assert.IsNotNull(
                     result,
-                    message: "Result was not a view.");
+                    message: "Result was not a JSON-formatted string.");
 
                 Assert.AreEqual(
-                    expected: "Error",
-                    actual: result.ViewName,
-                    message: "Error view not returned.");
+                    expected: "Booting the game failed.",
+                    actual: data.Message,
+                    message: "Error message not correctly returned.");
 
                 mockBoot.Verify(
                     x => x.Boot<LinqGame>(It.IsAny<RulesBase>()),
@@ -104,22 +105,22 @@ namespace GameOfLife.UnitTests.Web.Controllers
             using (var target = new HomeController(mockBoot.Object))
             {
                 // act
-                var result = target.RunGame(settings) as ViewResult;
+                var result = target.RunGame(settings) as JsonResult;
+                dynamic data = result.Data;
 
                 // assert
                 Assert.IsNotNull(
                     result,
-                    message: "The result was not a view.");
+                    message: "The result was not a JSON-formatted string.");
 
-                Assert.AreEqual(
-                    expected: "Success",
-                    actual: result.ViewName,
-                    message: "The writer output expected was not returned.");
+                Assert.IsNotNull(
+                    data.Population);
 
-                Assert.AreSame(
-                    expected: mockGame.Object,
-                    actual: result.Model,
-                    message: "The game was not passed as the model of the success view.");
+                Assert.IsNotNull(
+                    data.Generation);
+
+                Assert.IsNotNull(
+                    data.LastRuntime);
 
                 mockBoot.Verify(
                     x => x.Boot<LinqGame>(It.IsAny<RulesBase>()),

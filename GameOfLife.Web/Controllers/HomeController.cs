@@ -30,12 +30,12 @@ namespace GameOfLife.Web.Controllers
 
         /// <summary>
         /// Runs the game and returns information about the results via a 
-        /// HTML string.
+        /// JSON-formatted string.
         /// </summary>
         /// <param name="settings">The game settings to run the game by.</param>
-        /// <returns>A HTML string of the game results.</returns>
+        /// <returns>A JSON-formatted string of the game results.</returns>
         [HttpPost]
-        public ActionResult RunGame(GameSettingsModel settings)
+        public JsonResult RunGame(GameSettingsModel settings)
         {
             if (settings == null)
             {
@@ -51,11 +51,11 @@ namespace GameOfLife.Web.Controllers
                 game.InitializeFrom(lifeForm.GetPattern());
                 game.RunThrough(settings.NumberOfGenerations);
 
-                return View("Success", model: game);
+                return Json(game);
             }
             catch (BootFailedException)
             {
-                return View("Error", model: "Booting the game failed.");
+                return Json(new { Message = "Booting the game failed." });
             }
         }
     }
