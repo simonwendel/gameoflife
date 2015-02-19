@@ -1,7 +1,7 @@
 /* jshint node:true */
 'use strict';
 
-var distDir = '../GameOfLife.Web/app',
+var distDir = '../GameOfLife.WebServer/app',
 
     gulp = require('gulp'),
     ngAnnotate = require('gulp-ng-annotate'),
