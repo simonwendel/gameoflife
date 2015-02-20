@@ -2,7 +2,7 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright> 
 
-namespace GameOfLife.UnitTests.Web.Controllers
+namespace GameOfLife.UnitTests.WebServer.Controllers
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
@@ -11,8 +11,8 @@ namespace GameOfLife.UnitTests.Web.Controllers
     using GameOfLife.Library.Factories;
     using GameOfLife.Library.Rules;
     using GameOfLife.LinqLife;
-    using GameOfLife.Web.Controllers;
-    using GameOfLife.Web.Models;
+    using GameOfLife.WebServer.Controllers;
+    using GameOfLife.WebServer.Models;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Moq;
 
@@ -61,7 +61,7 @@ namespace GameOfLife.UnitTests.Web.Controllers
             {
                 // act
                 var result = target.RunGame(settings) as JsonResult;
-                dynamic data = result.Data;
+                var error = result.Data as GameBootError;
 
                 // assert
                 Assert.IsNotNull(
@@ -70,7 +70,7 @@ namespace GameOfLife.UnitTests.Web.Controllers
 
                 Assert.AreEqual(
                     expected: "Booting the game failed.",
-                    actual: data.Message,
+                    actual: error.Message,
                     message: "Error message not correctly returned.");
 
                 mockBoot.Verify(

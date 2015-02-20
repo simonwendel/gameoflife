@@ -2,14 +2,14 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright> 
 
-namespace GameOfLife.Web.Controllers
+namespace GameOfLife.WebServer.Controllers
 {
     using System;
     using System.Web.Mvc;
     using GameOfLife.Basics;
     using GameOfLife.Library.Factories;
     using GameOfLife.LinqLife;
-    using GameOfLife.Web.Models;
+    using GameOfLife.WebServer.Models;
 
     /// <summary>
     /// Handles all requests to /Home/ or /.
@@ -55,7 +55,7 @@ namespace GameOfLife.Web.Controllers
             }
             catch (BootFailedException)
             {
-                return Json(new { Message = "Booting the game failed." });
+                return Json(new GameBootError { Message = "Booting the game failed." });
             }
         }
     }

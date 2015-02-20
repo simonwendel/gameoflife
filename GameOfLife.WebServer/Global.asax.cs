@@ -7,6 +7,7 @@ namespace GameOfLife.WebServer
     using System.Web.Http;
     using System.Web.Mvc;
     using System.Web.Routing;
+    using GameOfLife.WebServer.Dependencies;
 
     /// <summary>
     /// The main API application for Game Of Life.
@@ -22,6 +23,12 @@ namespace GameOfLife.WebServer
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            DependencyResolver.SetResolver(
+                new ResolverBootstrapper(new[] 
+                { 
+                    new IOModule() 
+                }));
         }
     }
 }

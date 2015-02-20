@@ -2,19 +2,19 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright> 
 
-namespace GameOfLife.UnitTests.Web.Dependencies
+namespace GameOfLife.UnitTests.WebServer.Dependencies
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Basics;
-    using GameOfLife.Web.Dependencies;
-    using GameOfLife.Web.IO;
+    using GameOfLife.WebServer.Dependencies;
+    using GameOfLife.WebServer.IO;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Ninject;
 
     /// <summary>
     /// Unit tests (and somewhat integration tests) the IOModule class from 
-    /// the GameOfLife.Web.Dependencies namespace.
+    /// the GameOfLife.WebServer.Dependencies namespace.
     /// </summary>
     [TestClass, ExcludeFromCodeCoverage]
     public class IOModuleTests
@@ -32,7 +32,7 @@ namespace GameOfLife.UnitTests.Web.Dependencies
             {
                 // assert
                 Assert.IsTrue(
-                    kernel.HasModule("GameOfLife.Web.Dependencies.IOModule"),
+                    kernel.HasModule("GameOfLife.WebServer.Dependencies.IOModule"),
                     message: "The IO module was not loaded");
 
                 Assert.IsNotNull(

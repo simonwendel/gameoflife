@@ -2,7 +2,7 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright> 
 
-namespace GameOfLife.Web.IO
+namespace GameOfLife.WebServer.IO
 {
     using GameOfLife.Basics;
 

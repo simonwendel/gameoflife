@@ -21,6 +21,8 @@
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
     <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -119,9 +121,9 @@
     <Compile Include="LinqLife\LinqGameTests.cs" />
     <Compile Include="LinqLife\UniverseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Web\Controllers\HomeControllerTests.cs" />
-    <Compile Include="Web\Dependencies\IOModuleTests.cs" />
-    <Compile Include="Web\IO\EmptyWriterTests.cs" />
+    <Compile Include="WebServer\Controllers\HomeControllerTests.cs" />
+    <Compile Include="WebServer\Dependencies\IOModuleTests.cs" />
+    <Compile Include="WebServer\IO\EmptyWriterTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameOfLife.Console\GameOfLife.Console.csproj">
@@ -140,9 +142,9 @@
       <Project>{c614b613-1aff-4c15-8db7-6ab7952fdda6}</Project>
       <Name>GameOfLife.LinqLife</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GameOfLife.Web\GameOfLife.Web.csproj">
-      <Project>{e216d2ab-6b64-4ea1-82f5-20edbde01944}</Project>
-      <Name>GameOfLife.Web</Name>
+    <ProjectReference Include="..\GameOfLife.WebServer\GameOfLife.WebServer.csproj">
+      <Project>{992ddb6b-1025-493f-95a6-e79ebc77ff73}</Project>
+      <Name>GameOfLife.WebServer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +179,13 @@
   </Choose>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

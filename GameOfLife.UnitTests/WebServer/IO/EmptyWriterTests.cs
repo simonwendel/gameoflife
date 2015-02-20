@@ -2,16 +2,16 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright> 
 
-namespace GameOfLife.UnitTests.Web.IO
+namespace GameOfLife.UnitTests.WebServer.IO
 {
     using System;
     using GameOfLife.Basics;
-    using GameOfLife.Web.IO;
+    using GameOfLife.WebServer.IO;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Moq;
 
     /// <summary>
-    /// Unit tests the EmptyWriter class from the GameOfLife.Web.IO namespace.
+    /// Unit tests the EmptyWriter class from the GameOfLife.WebServer.IO namespace.
     /// </summary>
     [TestClass]
     public class EmptyWriterTests
