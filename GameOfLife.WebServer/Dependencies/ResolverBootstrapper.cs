@@ -6,7 +6,7 @@ namespace GameOfLife.WebServer.Dependencies
 {
     using System;
     using System.Collections.Generic;
-    using System.Web.Mvc;
+    using System.Web.Http.Dependencies;
     using GameOfLife.Basics;
     using Ninject;
     using Ninject.Modules;
@@ -69,6 +69,15 @@ namespace GameOfLife.WebServer.Dependencies
         public IEnumerable<object> GetServices(Type serviceType)
         {
             return kernel.GetAll(serviceType);
+        }
+
+        /// <summary>
+        /// Starts a resolution scope.
+        /// </summary>
+        /// <returns>The dependency scope.</returns>
+        public IDependencyScope BeginScope()
+        {
+            return this;
         }
 
         /// <summary>

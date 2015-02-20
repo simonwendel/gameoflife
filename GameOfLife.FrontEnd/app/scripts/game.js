@@ -38,7 +38,7 @@
 
     function runGame(options) {
         return jQuery.post(
-            '/Home/RunGame',
+            '/api/game',
             options);
     }
 })();

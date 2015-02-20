@@ -1,4 +1,4 @@
-﻿// <copyright file="HomeControllerTests.cs" company="N/A"> 
+﻿// <copyright file="GameControllerTests.cs" company="N/A"> 
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright> 
 
@@ -6,7 +6,7 @@ namespace GameOfLife.UnitTests.WebServer.Controllers
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Web.Mvc;
+    using System.Web.Http;
     using GameOfLife.Basics;
     using GameOfLife.Library.Factories;
     using GameOfLife.Library.Rules;
@@ -17,32 +17,32 @@ namespace GameOfLife.UnitTests.WebServer.Controllers
     using Moq;
 
     /// <summary>
-    /// Unit tests the HomeController class from the GameOfLife.Web.Controllers namespace.
+    /// Unit tests the GameController class from the GameOfLife.WebServer.Controllers namespace.
     /// </summary>
     [TestClass, ExcludeFromCodeCoverage]
-    public class HomeControllerTests
+    public class GameControllerTests
     {
         /// <summary>
-        /// Passing a null reference for the settings to the RunGame action 
+        /// Passing a null reference for the settings to the Post action 
         /// throws an exception.
         /// </summary>
-        [TestMethod, ExpectedException(typeof(ArgumentNullException))]
+        [TestMethod, ExpectedException(typeof(NullReferenceException))]
         public void NullGameSettingsPassedIntoRunGameThrowsException()
         {
             // arrange
-            using (var target = new HomeController(Mock.Of<IBootstrapper>()))
+            using (var target = new GameController(Mock.Of<IBootstrapper>()))
             {
                 // act
-                target.RunGame(null);
+                target.Post(null);
             }
         }
 
         /// <summary>
-        /// If the bootstrapper fails when calling the RunGame action method 
+        /// If the bootstrapper fails when calling the Post action method 
         /// the game will be aborted.
         /// </summary>
-        [TestMethod]
-        public void RunGameFailsWhenBootstrapperFailsToBootGame()
+        [TestMethod, ExpectedException(typeof(HttpResponseException))]
+        public void RunningGameFailsWhenBootstrapperFailsToBootGame()
         {
             // arrange
             var mockBoot = new Mock<IBootstrapper>();
@@ -57,34 +57,20 @@ namespace GameOfLife.UnitTests.WebServer.Controllers
                 Rules = Rule.Standard
             };
 
-            using (var target = new HomeController(mockBoot.Object))
+            using (var target = new GameController(mockBoot.Object))
             {
+                RequestFactory.CreateRequestFor(target);
+
                 // act
-                var result = target.RunGame(settings) as JsonResult;
-                var error = result.Data as GameBootError;
-
-                // assert
-                Assert.IsNotNull(
-                    result,
-                    message: "Result was not a JSON-formatted string.");
-
-                Assert.AreEqual(
-                    expected: "Booting the game failed.",
-                    actual: error.Message,
-                    message: "Error message not correctly returned.");
-
-                mockBoot.Verify(
-                    x => x.Boot<LinqGame>(It.IsAny<RulesBase>()),
-                    Times.Once());
+                target.Post(settings);
             }
         }
 
         /// <summary>
-        /// If all goes well, the RunGame action returns an JSON-formatted string 
-        /// with a message of the game success.
+        /// If all goes well, the Post action returns an GameBase with state.
         /// </summary>
         [TestMethod]
-        public void RunGameSucceedsWhenGameSuccessfullyRuns()
+        public void PostSucceedsWhenGameSuccessfullyRuns()
         {
             // arrange
             string writeOut = "Some kind of output expected.";
@@ -102,25 +88,15 @@ namespace GameOfLife.UnitTests.WebServer.Controllers
                 Rules = Rule.Standard
             };
 
-            using (var target = new HomeController(mockBoot.Object))
+            using (var target = new GameController(mockBoot.Object))
             {
                 // act
-                var result = target.RunGame(settings) as JsonResult;
-                dynamic data = result.Data;
+                var result = target.Post(settings);
 
                 // assert
-                Assert.IsNotNull(
-                    result,
-                    message: "The result was not a JSON-formatted string.");
-
-                Assert.IsNotNull(
-                    data.Population);
-
-                Assert.IsNotNull(
-                    data.Generation);
-
-                Assert.IsNotNull(
-                    data.LastRuntime);
+                Assert.AreSame(
+                    expected: mockGame.Object,
+                    actual: result);
 
                 mockBoot.Verify(
                     x => x.Boot<LinqGame>(It.IsAny<RulesBase>()),

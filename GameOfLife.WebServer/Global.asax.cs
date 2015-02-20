@@ -19,16 +19,10 @@ namespace GameOfLife.WebServer
         /// </summary>
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-
-            DependencyResolver.SetResolver(
-                new ResolverBootstrapper(new[] 
-                { 
-                    new IOModule() 
-                }));
         }
     }
 }
+
+// eof
