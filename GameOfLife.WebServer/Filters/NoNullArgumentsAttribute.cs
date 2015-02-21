@@ -4,6 +4,7 @@
 
 namespace GameOfLife.WebServer.Filters
 {
+    using System;
     using System.Linq;
     using System.Net;
     using System.Net.Http;
@@ -14,6 +15,7 @@ namespace GameOfLife.WebServer.Filters
     /// Action filter to validate all models coming into the Web API, returning a detailed HTTP 400 
     /// Bad Request response if any parameter to the action method is null.
     /// </summary>
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
     public class NoNullArgumentsAttribute : ActionFilterAttribute
     {
         /// <summary>

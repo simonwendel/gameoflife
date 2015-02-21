@@ -4,6 +4,7 @@
 
 namespace GameOfLife.WebServer.Filters
 {
+    using System;
     using System.Net;
     using System.Net.Http;
     using System.Web.Http.Controllers;
@@ -13,6 +14,7 @@ namespace GameOfLife.WebServer.Filters
     /// Action filter to validate all models coming into the Web API, returning a detailed HTTP 400 
     /// Bad Request response with model validation data if model isn't valid.
     /// </summary>
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
     public class ValidateModelAttribute : ActionFilterAttribute
     {
         /// <summary>
