@@ -68,7 +68,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Console\BootstrapLinqGameIntegration.cs" />
+    <Compile Include="Bootstrapping\BootstrapLinqGameIntegration.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="LinqLife\LinqGameIntegration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

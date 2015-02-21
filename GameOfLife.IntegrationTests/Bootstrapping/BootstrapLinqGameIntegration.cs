@@ -2,7 +2,7 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright> 
 
-namespace GameOfLife.IntegrationTests.Console
+namespace GameOfLife.IntegrationTests.Bootstrapping
 {
     using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Console.Application;
