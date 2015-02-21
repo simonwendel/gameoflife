@@ -11,6 +11,7 @@ namespace GameOfLife.WebServer.Controllers
     using GameOfLife.Basics;
     using GameOfLife.Library.Factories;
     using GameOfLife.LinqLife;
+    using GameOfLife.WebServer.Filters;
     using GameOfLife.WebServer.Models;
 
     /// <summary>
@@ -35,6 +36,7 @@ namespace GameOfLife.WebServer.Controllers
         /// </summary>
         /// <param name="settings">Settings to start the game with.</param>
         /// <returns>A <see cref="GameBase" /> object with state of the game run.</returns>
+        [NoNullArguments]
         public GameBase Post(GameSettingsModel settings)
         {
             try
