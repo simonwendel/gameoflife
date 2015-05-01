@@ -15,7 +15,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("GameOfLife.IntegrationTests")]
-[assembly: AssemblyCopyright("Copyright © Simon Wendel 2013")]
+[assembly: AssemblyCopyright("Copyright © Simon Wendel 2013-2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

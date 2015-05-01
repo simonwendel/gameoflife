@@ -16,7 +16,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Game Of Life")]
-[assembly: AssemblyCopyright("Copyright © Simon Wendel 2013")]
+[assembly: AssemblyCopyright("Copyright © Simon Wendel 2013-2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguageAttribute("en")]
