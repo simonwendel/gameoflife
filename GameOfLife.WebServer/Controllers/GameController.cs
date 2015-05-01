@@ -35,7 +35,7 @@ namespace GameOfLife.WebServer.Controllers
         /// Handles POST to /API/game
         /// </summary>
         /// <param name="settings">Settings to start the game with.</param>
-        /// <returns>A <see cref="GameBase" /> object with state of the game run.</returns>
+        /// <returns>An <see cref="GameBase" /> object with state of the game run.</returns>
         [NoNullArguments]
         public GameBase Post(GameSettingsModel settings)
         {
