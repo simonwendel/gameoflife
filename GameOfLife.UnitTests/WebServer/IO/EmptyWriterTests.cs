@@ -4,16 +4,14 @@
 
 namespace GameOfLife.UnitTests.WebServer.IO
 {
-    using System;
-    using GameOfLife.Basics;
     using GameOfLife.WebServer.IO;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Moq;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// Unit tests the EmptyWriter class from the GameOfLife.WebServer.IO namespace.
     /// </summary>
-    [TestClass]
+    [TestClass, ExcludeFromCodeCoverage]
     public class EmptyWriterTests
     {
         /// <summary>
