@@ -1,6 +1,6 @@
-﻿// <copyright file="IOModule.cs" company="N/A"> 
+﻿// <copyright file="IOModule.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.WebServer.Dependencies
 {
@@ -11,7 +11,7 @@ namespace GameOfLife.WebServer.Dependencies
     /// <summary>
     /// Registers IO dependencies for the MVC application.
     /// </summary>
-    public class IOModule : NinjectModule
+    internal class IOModule : NinjectModule
     {
         /// <summary>
         /// Binds dependencies with the IoC container at run-time.
