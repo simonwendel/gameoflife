@@ -37,3 +37,9 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+// internals should be visible to the test assembly
+[assembly: InternalsVisibleTo("GameOfLife.UnitTests")]
+
+// Make internal interfaces visible to Moq. ugly, but needed.
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]

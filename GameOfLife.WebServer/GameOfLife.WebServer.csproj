@@ -171,9 +171,11 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Dependencies\IObjectFactory.cs" />
     <Compile Include="Dependencies\IOModule.cs" />
     <Compile Include="Dependencies\ResolverBootstrapper.cs" />
     <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Dependencies\ServiceActivator.cs" />
     <Compile Include="Filters\NoNullArgumentsAttribute.cs" />
     <Compile Include="Filters\ValidateModelAttribute.cs" />
     <Compile Include="Global.asax.cs">
