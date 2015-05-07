@@ -4,8 +4,8 @@
       <Value>bootstrapper</Value>
       <Value>bootstrappers</Value>
       <Value>ninject</Value>
-      <Value>sierpinskish</Value><!-- still totally a word! ;-) -->
-      <Value>sierpiński</Value><!-- a name's a word. -->
+      <Value>sierpinskish</Value>
+      <Value>sierpiński</Value>
       <Value>linq</Value>
     </CollectionProperty>
   </GlobalSettings>
@@ -21,6 +21,7 @@
       <AnalyzerSettings>
         <StringProperty Name="CompanyName">N/A</StringProperty>
         <StringProperty Name="Copyright">Copyright (C) Simon Wendel 2013-2015.</StringProperty>
+        <BooleanProperty Name="IgnorePrivates">True</BooleanProperty>
       </AnalyzerSettings>
     </Analyzer>
     <Analyzer AnalyzerId="StyleCop.CSharp.ReadabilityRules">
