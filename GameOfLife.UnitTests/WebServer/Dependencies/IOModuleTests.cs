@@ -4,13 +4,12 @@
 
 namespace GameOfLife.UnitTests.WebServer.Dependencies
 {
-    using System;
-    using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Basics;
     using GameOfLife.WebServer.Dependencies;
     using GameOfLife.WebServer.IO;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Ninject;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// Unit tests (and somewhat integration tests) the IOModule class from 
