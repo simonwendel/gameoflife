@@ -40,7 +40,7 @@ namespace GameOfLife.WebServer.Dependencies
             catch (Exception ex)
             {
                 throw new BootFailedException(
-                    message: "Boot of the game failed.",
+                    message: "Booting the game failed successfully.", // true dat!
                     inner: ex);
             }
         }
