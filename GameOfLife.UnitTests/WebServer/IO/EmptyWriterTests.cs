@@ -1,12 +1,12 @@
-﻿// <copyright file="EmptyWriterTests.cs" company="N/A"> 
+﻿// <copyright file="EmptyWriterTests.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.UnitTests.WebServer.IO
 {
+    using System.Diagnostics.CodeAnalysis;
     using GameOfLife.WebServer.IO;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// Unit tests the EmptyWriter class from the GameOfLife.WebServer.IO namespace.
