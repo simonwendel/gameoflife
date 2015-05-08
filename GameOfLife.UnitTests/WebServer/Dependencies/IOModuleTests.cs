@@ -1,25 +1,25 @@
-﻿// <copyright file="IOModuleTests.cs" company="N/A"> 
+﻿// <copyright file="IOModuleTests.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.UnitTests.WebServer.Dependencies
 {
+    using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Basics;
     using GameOfLife.WebServer.Dependencies;
     using GameOfLife.WebServer.IO;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Ninject;
-    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
-    /// Unit tests (and somewhat integration tests) the IOModule class from 
+    /// Unit tests (and somewhat integration tests) the IOModule class from
     /// the GameOfLife.WebServer.Dependencies namespace.
     /// </summary>
     [TestClass, ExcludeFromCodeCoverage]
     public class IOModuleTests
     {
         /// <summary>
-        /// When passing an IOModule instance to the Ninject standard kernel 
+        /// When passing an IOModule instance to the Ninject standard kernel
         /// the bindings we expect are actually bound.
         /// </summary>
         [TestMethod]
