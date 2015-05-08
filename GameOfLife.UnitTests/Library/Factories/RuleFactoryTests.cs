@@ -1,18 +1,19 @@
-﻿// <copyright file="RuleFactoryTests.cs" company="N/A"> 
+﻿// <copyright file="RuleFactoryTests.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.UnitTests.Library.Factories
 {
+    using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Library.Factories;
     using GameOfLife.Library.Rules;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
-    /// Static unit tests of the RuleFactory class from the 
+    /// Static unit tests of the RuleFactory class from the
     /// GameOfLife.Library.Rules
     /// </summary>
-    [TestClass]
+    [TestClass, ExcludeFromCodeCoverage]
     public class RuleFactoryTests
     {
         /// <summary>

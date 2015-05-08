@@ -1,18 +1,19 @@
-﻿// <copyright file="LifeFormFactoryTests.cs" company="N/A"> 
+﻿// <copyright file="LifeFormFactoryTests.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.UnitTests.Library.Factories
 {
+    using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Library.Factories;
     using GameOfLife.Library.LifeForms;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
-    /// Static unit tests for the LifeFormFactory class from the 
+    /// Static unit tests for the LifeFormFactory class from the
     /// GameOfLife.Library.Factories namespace.
     /// </summary>
-    [TestClass]
+    [TestClass, ExcludeFromCodeCoverage]
     public class LifeFormFactoryTests
     {
         /// <summary>
