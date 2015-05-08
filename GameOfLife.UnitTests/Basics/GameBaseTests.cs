@@ -1,6 +1,6 @@
-﻿// <copyright file="GameBaseTests.cs" company="N/A"> 
+﻿// <copyright file="GameBaseTests.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.UnitTests.Basics
 {
@@ -12,14 +12,14 @@ namespace GameOfLife.UnitTests.Basics
     using Moq;
 
     /// <summary>
-    /// Tests the abstract GameBase class from the GameOfLife.Basics 
+    /// Tests the abstract GameBase class from the GameOfLife.Basics
     /// namespace by creating a proxy test class.
     /// </summary>
     [TestClass, ExcludeFromCodeCoverage]
     public class GameBaseTests
     {
         /// <summary>
-        /// The RunThrough method on all GamesBase derived classes correctly 
+        /// The RunThrough method on all GamesBase derived classes correctly
         /// steps the game forward.
         /// </summary>
         [TestMethod]
@@ -39,7 +39,7 @@ namespace GameOfLife.UnitTests.Basics
         }
 
         /// <summary>
-        /// If passing a null reference IWriter to the GameBase constructor it 
+        /// If passing a null reference IWriter to the GameBase constructor it
         /// will throw an exception.
         /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage(
@@ -47,7 +47,9 @@ namespace GameOfLife.UnitTests.Basics
             "CA1806:DoNotIgnoreMethodResults",
             MessageId = "GameOfLife.UnitTests.Basics.GameBaseTests+TestGame",
             Justification = "The object can never be used, since we expect an exception.")]
-        [TestMethod, ExpectedException(typeof(ArgumentNullException))]
+        [TestMethod]
+        [ExpectedException(
+            typeof(ArgumentNullException))]
         public void GameBaseNullWriterToConstructorThrowsException()
         {
             // act
@@ -55,7 +57,7 @@ namespace GameOfLife.UnitTests.Basics
         }
 
         /// <summary>
-        /// If passing a null reference RulesBase to the GameBase constructor 
+        /// If passing a null reference RulesBase to the GameBase constructor
         /// it will throw an exception.
         /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage(
@@ -63,7 +65,9 @@ namespace GameOfLife.UnitTests.Basics
             "CA1806:DoNotIgnoreMethodResults",
             MessageId = "GameOfLife.UnitTests.Basics.GameBaseTests+TestGame",
             Justification = "The object can never be used, since we expect an exception.")]
-        [TestMethod, ExpectedException(typeof(ArgumentNullException))]
+        [TestMethod]
+        [ExpectedException(
+            typeof(ArgumentNullException))]
         public void GameBaseNullRulesToConstructorThrowsException()
         {
             // act
@@ -93,7 +97,7 @@ namespace GameOfLife.UnitTests.Basics
         }
 
         /// <summary>
-        /// The passed in RulesBase implementation is exposed to derived classes 
+        /// The passed in RulesBase implementation is exposed to derived classes
         /// of GameBase correctly.
         /// </summary>
         [TestMethod]
@@ -170,7 +174,7 @@ namespace GameOfLife.UnitTests.Basics
             /// <summary>
             /// Initializes the game from an integer pattern.
             /// </summary>
-            /// <param name="pattern">An integer pattern, where <value>1</value> is a cell and 
+            /// <param name="pattern">An integer pattern, where <value>1</value> is a cell and
             /// <value>0</value> is not.</param>
             public override void InitializeFrom(int[][] pattern)
             {

@@ -1,6 +1,6 @@
-﻿// <copyright file="GameControllerTests.cs" company="N/A"> 
+﻿// <copyright file="GameControllerTests.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.UnitTests.WebServer.Controllers
 {
@@ -23,10 +23,12 @@ namespace GameOfLife.UnitTests.WebServer.Controllers
     public class GameControllerTests
     {
         /// <summary>
-        /// Passing a null reference for the settings to the Post action 
+        /// Passing a null reference for the settings to the Post action
         /// throws an exception.
         /// </summary>
-        [TestMethod, ExpectedException(typeof(NullReferenceException))]
+        [TestMethod]
+        [ExpectedException(
+            typeof(NullReferenceException))]
         public void NullGameSettingsPassedIntoRunGameThrowsException()
         {
             // arrange
@@ -38,10 +40,12 @@ namespace GameOfLife.UnitTests.WebServer.Controllers
         }
 
         /// <summary>
-        /// If the bootstrapper fails when calling the Post action method 
+        /// If the bootstrapper fails when calling the Post action method
         /// the game will be aborted.
         /// </summary>
-        [TestMethod, ExpectedException(typeof(HttpResponseException))]
+        [TestMethod]
+        [ExpectedException(
+            typeof(HttpResponseException))]
         public void RunningGameFailsWhenBootstrapperFailsToBootGame()
         {
             // arrange
@@ -117,7 +121,7 @@ namespace GameOfLife.UnitTests.WebServer.Controllers
         }
 
         /// <summary>
-        /// Creates a mock GameBase derived object, that appears to 
+        /// Creates a mock GameBase derived object, that appears to
         /// be fully functional.
         /// </summary>
         /// <param name="writeOut">The string outputted by the WriteOut method.</param>

@@ -1,6 +1,6 @@
-﻿// <copyright file="LinqGameTests.cs" company="N/A"> 
+﻿// <copyright file="LinqGameTests.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.UnitTests.LinqLife
 {
@@ -19,7 +19,7 @@ namespace GameOfLife.UnitTests.LinqLife
     public class LinqGameTests
     {
         /// <summary>
-        /// The LinqGame class constructs properly and starts with an empty 
+        /// The LinqGame class constructs properly and starts with an empty
         /// universe at generation zero.
         /// </summary>
         [TestMethod]
@@ -65,10 +65,12 @@ namespace GameOfLife.UnitTests.LinqLife
         }
 
         /// <summary>
-        /// When passed a null integer pattern to the InitializeFrom method, the 
+        /// When passed a null integer pattern to the InitializeFrom method, the
         /// LinqGame will throw an exception.
         /// </summary>
-        [TestMethod, ExpectedException(typeof(ArgumentNullException))]
+        [TestMethod]
+        [ExpectedException(
+            typeof(ArgumentNullException))]
         public void LinqGamePassedNullInitializationPatternThrowsException()
         {
             // arrange

@@ -1,6 +1,6 @@
-﻿// <copyright file="ConsoleStatWriterTests.cs" company="N/A"> 
+﻿// <copyright file="ConsoleStatWriterTests.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.UnitTests.Console.IO
 {
@@ -32,7 +32,9 @@ namespace GameOfLife.UnitTests.Console.IO
         /// <summary>
         /// Passing a null reference game to the WriteOut method throws an exception.
         /// </summary>
-        [TestMethod, ExpectedException(typeof(ArgumentNullException))]
+        [TestMethod]
+        [ExpectedException(
+            typeof(ArgumentNullException))]
         public void NullGameBaseToWriteOutThrowsException()
         {
             // act
