@@ -8,8 +8,8 @@ namespace GameOfLife.WebServer.Dependencies
     using GameOfLife.Basics;
 
     /// <summary>
-    /// Provides inversion of control by acting as both an MVC dependency resolver
-    /// and a bootstrapper.
+    /// Provides an <see cref="IBootstrapper"/> implementation using the <see cref="IObjectFactory"/>
+    /// service to wire up dependencies.
     /// </summary>
     internal class ObjectFactoryBootstrapper : IBootstrapper
     {
