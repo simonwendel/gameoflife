@@ -1,14 +1,15 @@
-﻿// <copyright file="WebApiConfig.cs" company="N/A"> 
+﻿// <copyright file="WebApiConfig.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.WebServer
 {
     using System.Web.Http;
+    using System.Web.Http.Dispatcher;
     using System.Web.Http.Filters;
     using GameOfLife.WebServer.Dependencies;
     using GameOfLife.WebServer.Filters;
-    using Microsoft.Owin.Security.OAuth;
+    using Ninject.Modules;
 
     /// <summary>
     /// Sets up the Web API for the GameOfLife backend.
@@ -21,22 +22,25 @@ namespace GameOfLife.WebServer
         /// <param name="config">The current configuration to add to.</param>
         public static void Register(HttpConfiguration config)
         {
-            RegisterDependencyResolver(config);
+            RegisterServiceActivator(config);
             RegisterFilters(config.Filters);
             RegisterRoutes(config);
         }
 
         /// <summary>
-        /// Registers dependency resolver for the web application, providing Web API style 
+        /// Registers dependency resolver for the web application, providing Web API style
         /// resolution.
         /// </summary>
         /// <param name="config">The current configuration being wired up.</param>
-        private static void RegisterDependencyResolver(HttpConfiguration config)
+        private static void RegisterServiceActivator(HttpConfiguration config)
         {
-            config.DependencyResolver = new ResolverBootstrapper(new[] 
-                { 
-                    new IOModule() 
-                });
+            var objectFactory = new NinjectFactory(new INinjectModule[]
+            {
+                new GameModule(),
+                new IOModule()
+            });
+
+            config.Services.Replace(typeof(IHttpControllerActivator), new ServiceActivator(objectFactory));
         }
 
         /// <summary>
