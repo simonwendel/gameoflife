@@ -172,6 +172,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Dependencies\GameModule.cs" />
+    <Compile Include="Dependencies\NinjectFactory.cs" />
     <Compile Include="Dependencies\IObjectFactory.cs" />
     <Compile Include="Dependencies\IOModule.cs" />
     <Compile Include="Dependencies\ObjectFactoryBootstrapper.cs" />
