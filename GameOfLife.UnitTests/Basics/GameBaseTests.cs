@@ -23,7 +23,7 @@ namespace GameOfLife.UnitTests.Basics
         /// steps the game forward.
         /// </summary>
         [TestMethod]
-        public void RunThroughCorrectlyStepsForwardInTime()
+        public void RunThrough_GivenInteger_StepsForwardInTime()
         {
             // arrange
             var game = new TestGame(Mock.Of<IWriter>(), new StandardRules());
@@ -50,7 +50,7 @@ namespace GameOfLife.UnitTests.Basics
         [TestMethod]
         [ExpectedException(
             typeof(ArgumentNullException))]
-        public void GameBaseNullWriterToConstructorThrowsException()
+        public void Constructor_GivenNullWriter_ThrowsException()
         {
             // act
             new TestGame(null, new StandardRules());
@@ -68,7 +68,7 @@ namespace GameOfLife.UnitTests.Basics
         [TestMethod]
         [ExpectedException(
             typeof(ArgumentNullException))]
-        public void GameBaseNullRulesToConstructorThrowsException()
+        public void Constructor_GivenNullRules_ThrowsException()
         {
             // act
             new TestGame(Mock.Of<IWriter>(), null);
@@ -78,7 +78,7 @@ namespace GameOfLife.UnitTests.Basics
         /// The passed in IWriter gets properly used by the GameBase WriteOut method.
         /// </summary>
         [TestMethod]
-        public void GameBaseWriteOutMethodCorrectlyUsesWriter()
+        public void WriteOut_WhenInvoked_UsesWriterInstance()
         {
             // arrange
             var mockWriter = new Mock<IWriter>();
@@ -101,7 +101,7 @@ namespace GameOfLife.UnitTests.Basics
         /// of GameBase correctly.
         /// </summary>
         [TestMethod]
-        public void GameBaseRulesProperlySet()
+        public void Rules_WhenAccessed_ReturnsObjectPassedToConstructor()
         {
             // arrange
             var rules = new StandardRules();
@@ -122,39 +122,24 @@ namespace GameOfLife.UnitTests.Basics
         /// </summary>
         private class TestGame : GameBase
         {
-            /// <summary>The generation the game is at.</summary>
             private int generation;
 
-            /// <summary>
-            /// Initializes a new instance of the TestGame class.
-            /// </summary>
-            /// <param name="writer">The writer to write state to console.</param>
-            /// <param name="rules">The rules for running the game.</param>
             public TestGame(IWriter writer, RulesBase rules)
                 : base(writer, rules)
             {
                 generation = 0;
             }
 
-            /// <summary>
-            /// Gets the population at the current time, which is always <value>0</value>.
-            /// </summary>
             public override int Population
             {
                 get { return 0; }
             }
 
-            /// <summary>
-            /// Gets the current generation.
-            /// </summary>
             public override int Generation
             {
                 get { return generation; }
             }
 
-            /// <summary>
-            /// Gets the otherwise hidden rules from the base class.
-            /// </summary>
             public new RulesBase Rules
             {
                 get
@@ -163,19 +148,11 @@ namespace GameOfLife.UnitTests.Basics
                 }
             }
 
-            /// <summary>
-            /// Steps the game one generation into the future.
-            /// </summary>
             public override void StepForward()
             {
                 ++generation;
             }
 
-            /// <summary>
-            /// Initializes the game from an integer pattern.
-            /// </summary>
-            /// <param name="pattern">An integer pattern, where <value>1</value> is a cell and
-            /// <value>0</value> is not.</param>
             public override void InitializeFrom(int[][] pattern)
             {
                 throw new NotImplementedException();
@@ -183,5 +160,3 @@ namespace GameOfLife.UnitTests.Basics
         }
     }
 }
-
-// eof
