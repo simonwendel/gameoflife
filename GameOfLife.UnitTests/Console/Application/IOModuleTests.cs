@@ -1,6 +1,6 @@
-﻿// <copyright file="IOModuleTests.cs" company="N/A"> 
+﻿// <copyright file="IOModuleTests.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.UnitTests.Console.Application
 {
@@ -12,18 +12,18 @@ namespace GameOfLife.UnitTests.Console.Application
     using Ninject;
 
     /// <summary>
-    /// Tests the IOModule class from the GameOfLife.Console.Application 
+    /// Tests the IOModule class from the GameOfLife.Console.Application
     /// namespace.
     /// </summary>
     [TestClass, ExcludeFromCodeCoverage]
     public class IOModuleTests
     {
         /// <summary>
-        /// When passing an IOModule instance to the Ninject standard kernel 
+        /// When passing an IOModule instance to the Ninject standard kernel
         /// the bindings we expect are actually bound.
         /// </summary>
         [TestMethod]
-        public void ConsoleIOModuleTestsLoadCorrectlyBindsServices()
+        public void Load_WhenPassedToKernel_CorrectlyBindsServices()
         {
             // act
             using (var module = new IOModule())
