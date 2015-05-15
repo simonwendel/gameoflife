@@ -23,7 +23,7 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
         /// the bindings we expect are actually bound.
         /// </summary>
         [TestMethod]
-        public void WebIOModuleTestsLoadCorrectlyBindsServices()
+        public void Load_WhenPassedToKernel_CorrectlyBindsServices()
         {
             // act
             using (var module = new GameModule())
@@ -34,11 +34,11 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
                 // assert
                 Assert.IsTrue(
                     kernel.HasModule("GameOfLife.WebServer.Dependencies.GameModule"),
-                    message: "The IO module was not loaded");
+                    message: "The Game module was not loaded");
 
                 Assert.IsNotNull(
                     kernel.Get<IBootstrapper>() as ObjectFactoryBootstrapper,
-                    message: "The IWriter interface was resolved incorrectly.");
+                    message: "The IBootstrapper interface was resolved incorrectly.");
             }
         }
     }
