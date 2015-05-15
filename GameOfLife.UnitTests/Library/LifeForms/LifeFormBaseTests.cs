@@ -1,6 +1,6 @@
-﻿// <copyright file="LifeFormBaseTests.cs" company="N/A"> 
+﻿// <copyright file="LifeFormBaseTests.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.UnitTests.Library.LifeForms
 {
@@ -15,11 +15,11 @@ namespace GameOfLife.UnitTests.Library.LifeForms
     public class LifeFormBaseTests
     {
         /// <summary>
-        /// When the pattern has a stabilizing point in time, the IsStable property get accessor 
+        /// When the pattern has a stabilizing point in time, the IsStable property get accessor
         /// returns true.
         /// </summary>
         [TestMethod]
-        public void StablePatternReturnsTrueFromIsStable()
+        public void IsStable_GivenStablePattern_ReturnsTrue()
         {
             // arrange
             var stable = new StableLifeForm();
@@ -34,11 +34,11 @@ namespace GameOfLife.UnitTests.Library.LifeForms
         }
 
         /// <summary>
-        /// When the pattern doesn't have a stabilizing point in time, the IsStable property get accessor 
+        /// When the pattern doesn't have a stabilizing point in time, the IsStable property get accessor
         /// returns false.
         /// </summary>
         [TestMethod]
-        public void UnstablePatternReturnsFalseFromIsStable()
+        public void IsStable_GivenUnstablePattern_ReturnsFalse()
         {
             // arrange
             var unstable = new UnstableLifeForm();
@@ -52,14 +52,8 @@ namespace GameOfLife.UnitTests.Library.LifeForms
                 message: "The life form was stable.");
         }
 
-        /// <summary>
-        /// A test class modeling an unstable life form.
-        /// </summary>
         private class UnstableLifeForm : LifeFormBase
         {
-            /// <summary>
-            /// Initializes a new instance of the UnstableLifeForm class.
-            /// </summary>
             public UnstableLifeForm()
                 : base()
             {
@@ -68,14 +62,8 @@ namespace GameOfLife.UnitTests.Library.LifeForms
             }
         }
 
-        /// <summary>
-        /// A test class for modeling a stable life form.
-        /// </summary>
         private class StableLifeForm : LifeFormBase
         {
-            /// <summary>
-            /// Initializes a new instance of the StableLifeForm class.
-            /// </summary>
             public StableLifeForm()
                 : base(0, 0)
             {
