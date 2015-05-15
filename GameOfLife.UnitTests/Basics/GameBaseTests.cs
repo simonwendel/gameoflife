@@ -75,10 +75,10 @@ namespace GameOfLife.UnitTests.Basics
         }
 
         /// <summary>
-        /// The passed in IFormatter gets properly used by the GameBase WriteOut method.
+        /// The passed in IFormatter gets properly used by the GameBase Format method.
         /// </summary>
         [TestMethod]
-        public void WriteOut_WhenInvoked_UsesFormatterInstance()
+        public void Format_WhenInvoked_UsesFormatterInstance()
         {
             // arrange
             var mockFormatter = new Mock<IFormatter>();
@@ -88,7 +88,7 @@ namespace GameOfLife.UnitTests.Basics
             var game = new TestGame(mockFormatter.Object, new StandardRules());
 
             // act
-            game.WriteOut();
+            game.Format();
 
             // assert
             mockFormatter.Verify(

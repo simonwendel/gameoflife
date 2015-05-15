@@ -1,9 +1,9 @@
-﻿// <copyright file="Program.cs" company="N/A"> 
+﻿// <copyright file="Program.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 /*
- * This class is excluded from code coverage metrics, as it is 
+ * This class is excluded from code coverage metrics, as it is
  * a plain and standard application entry point.
  */
 
@@ -43,7 +43,7 @@ namespace GameOfLife.Console.Application
                 var game = bootstrapper.Boot<LinqGame>(rules: rules);
                 game.InitializeFrom(lifeForm.GetPattern());
                 game.RunThrough(generations: options.NumberOfGenerations);
-                var state = game.WriteOut();
+                var state = game.Format();
                 Console.WriteLine(state);
             }
         }

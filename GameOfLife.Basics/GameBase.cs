@@ -107,7 +107,7 @@ namespace GameOfLife.Basics
         /// Formats the game perhaps for output.
         /// </summary>
         /// <returns>A string representation of the game state.</returns>
-        public virtual string WriteOut()
+        public virtual string Format()
         {
             return formatter.Format(this);
         }

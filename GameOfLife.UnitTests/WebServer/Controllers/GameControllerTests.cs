@@ -77,8 +77,8 @@ namespace GameOfLife.UnitTests.WebServer.Controllers
         public void PostSucceedsWhenGameSuccessfullyRuns()
         {
             // arrange
-            string writeOut = "Some kind of output expected.";
-            var mockGame = BuildMockGame(writeOut);
+            string formattedOutput = "Some kind of output expected.";
+            var mockGame = BuildMockGame(formattedOutput);
 
             var mockBoot = new Mock<IBootstrapper>();
             mockBoot
@@ -115,7 +115,7 @@ namespace GameOfLife.UnitTests.WebServer.Controllers
                     Times.Once());
 
                 mockGame.Verify(
-                    x => x.WriteOut(),
+                    x => x.Format(),
                     Times.Never());
             }
         }
@@ -124,9 +124,9 @@ namespace GameOfLife.UnitTests.WebServer.Controllers
         /// Creates a mock GameBase derived object, that appears to
         /// be fully functional.
         /// </summary>
-        /// <param name="writeOut">The string outputted by the WriteOut method.</param>
+        /// <param name="formattedOutput">The string outputted by the Format method.</param>
         /// <returns>A mocked GameBase for testing.</returns>
-        private static Mock<GameBase> BuildMockGame(string writeOut)
+        private static Mock<GameBase> BuildMockGame(string formattedOutput)
         {
             var mockGame = new Mock<GameBase>(
                 Mock.Of<IFormatter>(),
@@ -139,8 +139,8 @@ namespace GameOfLife.UnitTests.WebServer.Controllers
                 .Setup(x => x.RunThrough(It.IsAny<int>()));
 
             mockGame
-                .Setup(x => x.WriteOut())
-                .Returns(writeOut);
+                .Setup(x => x.Format())
+                .Returns(formattedOutput);
 
             return mockGame;
         }
