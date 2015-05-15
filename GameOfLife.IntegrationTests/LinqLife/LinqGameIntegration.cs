@@ -23,7 +23,7 @@ namespace GameOfLife.IntegrationTests.LinqLife
         /// yield an empty universe when done.
         /// </summary>
         [TestMethod]
-        public void StepEmptyUniverseForwardOneGenerationLinqGame()
+        public void StepForward_GivenEmptyUniverse_ResultsInEmptyUniverse()
         {
             // arrange
             var game = new LinqGame(Mock.Of<IFormatter>(), new StandardRules());
@@ -48,7 +48,7 @@ namespace GameOfLife.IntegrationTests.LinqLife
         /// it's stable population of 4 cells.
         /// </summary>
         [TestMethod]
-        public void StepFivePointForwardWithStandardRulesLinqGame()
+        public void StepForward_GivenFivePoint_ResultsInPopulationOfFour()
         {
             // arrange
             var pattern = new FivePoint();
@@ -78,7 +78,7 @@ namespace GameOfLife.IntegrationTests.LinqLife
         /// the test takes 3 minutes to completion.
         /// </remarks>
         [TestMethod, Ignore]
-        public void StabilizeAcornLifeFormLinqGame()
+        public void RunThrough_GivenAcornAndStabilizingStep_ResultsInAcornStablePopulation()
         {
             // arrange
             var pattern = new Acorn();
