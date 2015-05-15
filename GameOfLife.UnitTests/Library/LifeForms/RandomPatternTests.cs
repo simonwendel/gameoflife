@@ -1,6 +1,6 @@
-﻿// <copyright file="RandomPatternTests.cs" company="N/A"> 
+﻿// <copyright file="RandomPatternTests.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.UnitTests.Library.LifeForms
 {
@@ -19,7 +19,7 @@ namespace GameOfLife.UnitTests.Library.LifeForms
         /// Succeeds at creating a random pattern.
         /// </summary>
         [TestMethod]
-        public void SuccessfullyCreatesRandomPattern()
+        public void Constructor_WhenGivenDimensions_PreparesRandomPatternCorrectly()
         {
             // arrange
             int rows = 13;
