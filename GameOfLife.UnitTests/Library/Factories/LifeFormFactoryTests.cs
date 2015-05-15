@@ -20,7 +20,7 @@ namespace GameOfLife.UnitTests.Library.Factories
         /// The factory successfully builds the Empty life form when asked to.
         /// </summary>
         [TestMethod]
-        public void EmptyLifeFormSuccessfullyBuilt()
+        public void Build_GivenEmptyLifeForm_ReturnsEmptyLifeFormObject()
         {
             // act
             var lifeForm = LifeFormFactory.Build(LifeForm.Empty) as Empty;
@@ -35,7 +35,7 @@ namespace GameOfLife.UnitTests.Library.Factories
         /// The factory successfully builds the Acorn life form when asked to.
         /// </summary>
         [TestMethod]
-        public void AcornLifeFormSuccessfullyBuilt()
+        public void Build_GivenAcorn_ReturnsAcornObject()
         {
             // act
             var lifeForm = LifeFormFactory.Build(LifeForm.Acorn) as Acorn;
@@ -50,7 +50,7 @@ namespace GameOfLife.UnitTests.Library.Factories
         /// The factory successfully builds the AircraftCarrier life form when asked to.
         /// </summary>
         [TestMethod]
-        public void AircraftCarrierLifeFormSuccessfullyBuilt()
+        public void Build_GivenAircraftCarrier_ReturnsAircraftCarrierObject()
         {
             // act
             var lifeForm = LifeFormFactory.Build(LifeForm.AircraftCarrier) as AircraftCarrier;
@@ -65,7 +65,7 @@ namespace GameOfLife.UnitTests.Library.Factories
         /// The factory successfully builds the FivePoint life form when asked to.
         /// </summary>
         [TestMethod]
-        public void FivePointLifeFormSuccessfullyBuilt()
+        public void Build_GivenFivePoint_ReturnsFivePointObject()
         {
             // act
             var lifeForm = LifeFormFactory.Build(LifeForm.FivePoint) as FivePoint;
@@ -80,7 +80,7 @@ namespace GameOfLife.UnitTests.Library.Factories
         /// The factory successfully builds the RandomPattern life form when asked to.
         /// </summary>
         [TestMethod]
-        public void RandomPatternLifeFormSuccessfullyBuilt()
+        public void Build_GivenRandomPattern_ReturnsRandomPatternObject()
         {
             // act
             var lifeForm = LifeFormFactory.Build(LifeForm.RandomPattern) as RandomPattern;
