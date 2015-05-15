@@ -1,6 +1,6 @@
-﻿// <copyright file="StatWriter.cs" company="N/A"> 
+﻿// <copyright file="StatsFormatter.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.Console.IO
 {
@@ -10,36 +10,36 @@ namespace GameOfLife.Console.IO
     using GameOfLife.Console.Resources;
 
     /// <summary>
-    /// Implements a writer that outputs stats to the system console.
+    /// Implements a formatter that outputs stats to the system console.
     /// </summary>
-    internal class StatWriter : IWriter
+    internal class StatsFormatter : IFormatter
     {
         /// <summary>
         /// Writes game state statistics to a string headed to the system console.
         /// </summary>
         /// <param name="game">The game to output.</param>
         /// <returns>A string suitable for console output.</returns>
-        public string WriteOut(GameBase game)
+        public string Format(GameBase game)
         {
             if (game == null)
             {
                 throw new ArgumentNullException(paramName: "game");
             }
 
-            var rule = ConsoleStrings.ConsoleStatWriter_HorizontalRule;
+            var rule = ConsoleStrings.StatsFormatter_HorizontalRule;
             var generations = string.Format(
                 CultureInfo.CurrentCulture,
-                ConsoleStrings.ConsoleStatWriter_AtGenerations,
+                ConsoleStrings.StatsFormatter_AtGenerations,
                 game.Generation);
 
             var population = string.Format(
                 CultureInfo.CurrentCulture,
-                ConsoleStrings.ConsoleStatWriter_PopulationIs,
+                ConsoleStrings.StatsFormatter_PopulationIs,
                 game.Population);
 
             var timeOut = string.Format(
                 CultureInfo.CurrentCulture,
-                ConsoleStrings.ConsoleStatWriter_RanInMs,
+                ConsoleStrings.StatsFormatter_RanInMs,
                 game.LastRuntime);
 
             return string.Concat(

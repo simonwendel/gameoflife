@@ -26,7 +26,7 @@ namespace GameOfLife.UnitTests.Basics
         public void RunThrough_GivenInteger_StepsForwardInTime()
         {
             // arrange
-            var game = new TestGame(Mock.Of<IWriter>(), new StandardRules());
+            var game = new TestGame(Mock.Of<IFormatter>(), new StandardRules());
 
             // act
             game.RunThrough(10);
@@ -39,7 +39,7 @@ namespace GameOfLife.UnitTests.Basics
         }
 
         /// <summary>
-        /// If passing a null reference IWriter to the GameBase constructor it
+        /// If passing a null reference IFormatter to the GameBase constructor it
         /// will throw an exception.
         /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage(
@@ -50,7 +50,7 @@ namespace GameOfLife.UnitTests.Basics
         [TestMethod]
         [ExpectedException(
             typeof(ArgumentNullException))]
-        public void Constructor_GivenNullWriter_ThrowsException()
+        public void Constructor_GivenNullFormatter_ThrowsException()
         {
             // act
             new TestGame(null, new StandardRules());
@@ -71,28 +71,28 @@ namespace GameOfLife.UnitTests.Basics
         public void Constructor_GivenNullRules_ThrowsException()
         {
             // act
-            new TestGame(Mock.Of<IWriter>(), null);
+            new TestGame(Mock.Of<IFormatter>(), null);
         }
 
         /// <summary>
-        /// The passed in IWriter gets properly used by the GameBase WriteOut method.
+        /// The passed in IFormatter gets properly used by the GameBase WriteOut method.
         /// </summary>
         [TestMethod]
-        public void WriteOut_WhenInvoked_UsesWriterInstance()
+        public void WriteOut_WhenInvoked_UsesFormatterInstance()
         {
             // arrange
-            var mockWriter = new Mock<IWriter>();
-            mockWriter
-                .Setup(x => x.WriteOut(It.IsAny<GameBase>()));
+            var mockFormatter = new Mock<IFormatter>();
+            mockFormatter
+                .Setup(x => x.Format(It.IsAny<GameBase>()));
 
-            var game = new TestGame(mockWriter.Object, new StandardRules());
+            var game = new TestGame(mockFormatter.Object, new StandardRules());
 
             // act
             game.WriteOut();
 
             // assert
-            mockWriter.Verify(
-                x => x.WriteOut(It.IsAny<GameBase>()),
+            mockFormatter.Verify(
+                x => x.Format(It.IsAny<GameBase>()),
                 Times.Once());
         }
 
@@ -105,7 +105,7 @@ namespace GameOfLife.UnitTests.Basics
         {
             // arrange
             var rules = new StandardRules();
-            var game = new TestGame(Mock.Of<IWriter>(), rules);
+            var game = new TestGame(Mock.Of<IFormatter>(), rules);
 
             // act
             var property = game.Rules;
@@ -124,8 +124,8 @@ namespace GameOfLife.UnitTests.Basics
         {
             private int generation;
 
-            public TestGame(IWriter writer, RulesBase rules)
-                : base(writer, rules)
+            public TestGame(IFormatter formatter, RulesBase rules)
+                : base(formatter, rules)
             {
                 generation = 0;
             }

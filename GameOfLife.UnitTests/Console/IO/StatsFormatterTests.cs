@@ -1,4 +1,4 @@
-﻿// <copyright file="ConsoleStatWriterTests.cs" company="N/A">
+﻿// <copyright file="StatsFormatterTests.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
@@ -12,13 +12,13 @@ namespace GameOfLife.UnitTests.Console.IO
     using Moq;
 
     /// <summary>
-    /// Unit tests the ConsoleStatWriter class from the GameOfLife.Application.IO namespace.
+    /// Unit tests the StatsFormatter class from the GameOfLife.Application.IO namespace.
     /// </summary>
     [TestClass, ExcludeFromCodeCoverage]
-    public class ConsoleStatWriterTests
+    public class StatsFormatterTests
     {
-        /// <summary>The target console stat writer to test.</summary>
-        private StatWriter target;
+        /// <summary>The target stats formatter to test.</summary>
+        private StatsFormatter target;
 
         /// <summary>
         /// Sets up the test fixture.
@@ -26,38 +26,38 @@ namespace GameOfLife.UnitTests.Console.IO
         [TestInitialize]
         public void Setup()
         {
-            target = new StatWriter();
+            target = new StatsFormatter();
         }
 
         /// <summary>
-        /// Passing a null reference game to the WriteOut method throws an exception.
+        /// Passing a null reference game to the Format method throws an exception.
         /// </summary>
         [TestMethod]
         [ExpectedException(
             typeof(ArgumentNullException))]
-        public void WriteOut_GivenNullGameBase_ThrowsException()
+        public void Format_GivenNullGameBase_ThrowsException()
         {
             // act
-            target.WriteOut(null);
+            target.Format(null);
         }
 
         /// <summary>
-        /// Writing a game to console works.
+        /// Formatting a game to works.
         /// </summary>
         [TestMethod]
-        public void WriteOut_GivenGameBase_ReturnsFormattedString()
+        public void Format_GivenGameBase_ReturnsFormattedString()
         {
             // arrange
             var mockRules = new Mock<RulesBase>(new[] { 1 }, new[] { 2 });
             var mockGame = new Mock<GameBase>(
-                Mock.Of<IWriter>(),
+                Mock.Of<IFormatter>(),
                 mockRules.Object);
 
             mockGame.SetupGet(x => x.Generation).Returns(10);
             mockGame.SetupGet(x => x.Population).Returns(80);
 
             // act
-            var actual = target.WriteOut(mockGame.Object);
+            var actual = target.Format(mockGame.Object);
 
             // assert
             mockGame.VerifyGet(

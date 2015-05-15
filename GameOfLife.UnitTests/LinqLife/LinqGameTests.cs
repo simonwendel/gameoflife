@@ -29,7 +29,7 @@ namespace GameOfLife.UnitTests.LinqLife
             var mockRules = new Mock<RulesBase>(new[] { 1 }, new[] { 2 });
 
             // act
-            var game = new LinqGame(Mock.Of<IWriter>(), mockRules.Object);
+            var game = new LinqGame(Mock.Of<IFormatter>(), mockRules.Object);
 
             // assert
             Assert.AreEqual(
@@ -51,7 +51,7 @@ namespace GameOfLife.UnitTests.LinqLife
         {
             // arrange
             var mockRules = new Mock<RulesBase>(new[] { 1 }, new[] { 2 });
-            var game = new LinqGame(Mock.Of<IWriter>(), mockRules.Object);
+            var game = new LinqGame(Mock.Of<IFormatter>(), mockRules.Object);
             var pattern = new FivePoint();
 
             // act
@@ -75,7 +75,7 @@ namespace GameOfLife.UnitTests.LinqLife
         {
             // arrange
             var mockRules = new Mock<RulesBase>(new[] { 1 }, new[] { 2 });
-            var game = new LinqGame(Mock.Of<IWriter>(), mockRules.Object);
+            var game = new LinqGame(Mock.Of<IFormatter>(), mockRules.Object);
 
             // act
             game.InitializeFrom(null);

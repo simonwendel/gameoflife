@@ -129,7 +129,7 @@ namespace GameOfLife.UnitTests.WebServer.Controllers
         private static Mock<GameBase> BuildMockGame(string writeOut)
         {
             var mockGame = new Mock<GameBase>(
-                Mock.Of<IWriter>(),
+                Mock.Of<IFormatter>(),
                 new StandardRules());
 
             mockGame

@@ -18,7 +18,7 @@ namespace GameOfLife.WebServer.Dependencies
         /// </summary>
         public override void Load()
         {
-            Bind<IWriter>().ToConstant(new EmptyWriter());
+            Bind<IFormatter>().ToConstant(new EmptyFormatter());
         }
     }
 }

@@ -78,7 +78,7 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
 
         private static GameBase CreateMockGameBaseImplementation()
         {
-            var mockGameBase = new Mock<GameBase>(Mock.Of<IWriter>(), CreateMockRulesBaseImplementation());
+            var mockGameBase = new Mock<GameBase>(Mock.Of<IFormatter>(), CreateMockRulesBaseImplementation());
             return mockGameBase.Object;
         }
     }

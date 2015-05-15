@@ -18,7 +18,7 @@ namespace GameOfLife.Console.Application
         /// </summary>
         public override void Load()
         {
-            Bind<IWriter>().ToConstant(new StatWriter());
+            Bind<IFormatter>().ToConstant(new StatsFormatter());
         }
     }
 }

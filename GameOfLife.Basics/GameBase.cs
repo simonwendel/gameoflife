@@ -1,6 +1,6 @@
-﻿// <copyright file="GameBase.cs" company="N/A"> 
+﻿// <copyright file="GameBase.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.Basics
 {
@@ -13,7 +13,7 @@ namespace GameOfLife.Basics
     public abstract class GameBase
     {
         /// <summary>The object performing game state output.</summary>
-        private IWriter writer;
+        private IFormatter formatter;
 
         /// <summary>The rules governing the game.</summary>
         private RulesBase rules;
@@ -24,13 +24,13 @@ namespace GameOfLife.Basics
         /// <summary>
         /// Initializes a new instance of the GameBase class.
         /// </summary>
-        /// <param name="writer">The object performing game state output.</param>
+        /// <param name="formatter">The object performing game state output.</param>
         /// <param name="rules">The rules to run the game.</param>
-        protected GameBase(IWriter writer, RulesBase rules)
+        protected GameBase(IFormatter formatter, RulesBase rules)
         {
-            if (writer == null)
+            if (formatter == null)
             {
-                throw new ArgumentNullException(paramName: "writer");
+                throw new ArgumentNullException(paramName: "formatter");
             }
 
             if (rules == null)
@@ -38,13 +38,13 @@ namespace GameOfLife.Basics
                 throw new ArgumentNullException(paramName: "rules");
             }
 
-            this.writer = writer;
+            this.formatter = formatter;
             this.rules = rules;
             stopwatch = new Stopwatch();
         }
 
         /// <summary>
-        /// Gets the population 
+        /// Gets the population
         /// </summary>
         public abstract int Population { get; }
 
@@ -78,7 +78,7 @@ namespace GameOfLife.Basics
         /// <summary>
         /// Initializes the game from an integer pattern.
         /// </summary>
-        /// <param name="pattern">An integer pattern, where <value>1</value> is a cell and 
+        /// <param name="pattern">An integer pattern, where <value>1</value> is a cell and
         /// <value>0</value> is not.</param>
         public abstract void InitializeFrom(int[][] pattern);
 
@@ -104,12 +104,12 @@ namespace GameOfLife.Basics
         }
 
         /// <summary>
-        /// Writes the game to some kind of output.
+        /// Formats the game perhaps for output.
         /// </summary>
         /// <returns>A string representation of the game state.</returns>
         public virtual string WriteOut()
         {
-            return writer.WriteOut(this);
+            return formatter.Format(this);
         }
     }
 }

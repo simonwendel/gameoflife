@@ -1,4 +1,4 @@
-﻿// <copyright file="EmptyWriterTests.cs" company="N/A">
+﻿// <copyright file="EmptyFormatterTests.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
@@ -9,23 +9,23 @@ namespace GameOfLife.UnitTests.WebServer.IO
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
-    /// Unit tests the EmptyWriter class from the GameOfLife.WebServer.IO namespace.
+    /// Unit tests the EmptyFormatter class from the GameOfLife.WebServer.IO namespace.
     /// </summary>
     [TestClass, ExcludeFromCodeCoverage]
-    public class EmptyWriterTests
+    public class EmptyFormatterTests
     {
         /// <summary>
-        /// When the WriteOut method is called, an empty string will be returned,
+        /// When the Format method is called, an empty string will be returned,
         /// regardless of the state of the game.
         /// </summary>
         [TestMethod]
-        public void EmptyWriterReturnsEmptyString()
+        public void EmptyFormatterReturnsEmptyString()
         {
             // arrange
-            var target = new EmptyWriter();
+            var target = new EmptyFormatter();
 
             // act
-            string results = target.WriteOut(null);
+            string results = target.Format(null);
 
             // assert
             Assert.AreEqual(

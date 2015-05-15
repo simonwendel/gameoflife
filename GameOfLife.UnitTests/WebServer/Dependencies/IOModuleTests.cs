@@ -35,8 +35,8 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
                     message: "The IO module was not loaded");
 
                 Assert.IsNotNull(
-                    kernel.Get<IWriter>() as EmptyWriter,
-                    message: "The IWriter interface was resolved incorrectly.");
+                    kernel.Get<IFormatter>() as EmptyFormatter,
+                    message: "The IFormatter interface was resolved incorrectly.");
             }
         }
     }

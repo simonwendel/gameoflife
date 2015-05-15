@@ -35,8 +35,8 @@ namespace GameOfLife.UnitTests.Console.Application
                     message: "The IO module was not loaded");
 
                 Assert.IsNotNull(
-                    kernel.Get<IWriter>() as StatWriter,
-                    message: "The IWriter interface was resolved incorrectly.");
+                    kernel.Get<IFormatter>() as StatsFormatter,
+                    message: "The IFormatter interface was resolved incorrectly.");
             }
         }
     }

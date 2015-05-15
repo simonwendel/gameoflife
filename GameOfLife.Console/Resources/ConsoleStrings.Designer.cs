@@ -63,36 +63,36 @@ namespace GameOfLife.Console.Resources {
         /// <summary>
         ///   Looks up a localized string similar to At generation {0} .
         /// </summary>
-        internal static string ConsoleStatWriter_AtGenerations {
+        internal static string StatsFormatter_AtGenerations {
             get {
-                return ResourceManager.GetString("ConsoleStatWriter_AtGenerations", resourceCulture);
+                return ResourceManager.GetString("StatsFormatter_AtGenerations", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to ---------------------------------------------.
         /// </summary>
-        internal static string ConsoleStatWriter_HorizontalRule {
+        internal static string StatsFormatter_HorizontalRule {
             get {
-                return ResourceManager.GetString("ConsoleStatWriter_HorizontalRule", resourceCulture);
+                return ResourceManager.GetString("StatsFormatter_HorizontalRule", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to population is {0} cells..
         /// </summary>
-        internal static string ConsoleStatWriter_PopulationIs {
+        internal static string StatsFormatter_PopulationIs {
             get {
-                return ResourceManager.GetString("ConsoleStatWriter_PopulationIs", resourceCulture);
+                return ResourceManager.GetString("StatsFormatter_PopulationIs", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Game ran in {0} milliseconds..
         /// </summary>
-        internal static string ConsoleStatWriter_RanInMs {
+        internal static string StatsFormatter_RanInMs {
             get {
-                return ResourceManager.GetString("ConsoleStatWriter_RanInMs", resourceCulture);
+                return ResourceManager.GetString("StatsFormatter_RanInMs", resourceCulture);
             }
         }
     }

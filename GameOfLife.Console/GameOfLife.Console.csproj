@@ -73,7 +73,7 @@
     <Compile Include="Application\GameSettings.cs" />
     <Compile Include="Application\Program.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="IO\StatWriter.cs" />
+    <Compile Include="IO\StatsFormatter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +106,7 @@
     <EmbeddedResource Include="Resources\ConsoleStrings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ConsoleStrings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

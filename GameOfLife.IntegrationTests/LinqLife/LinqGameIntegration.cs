@@ -1,6 +1,6 @@
-﻿// <copyright file="LinqGameIntegration.cs" company="N/A"> 
+﻿// <copyright file="LinqGameIntegration.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.IntegrationTests.LinqLife
 {
@@ -19,14 +19,14 @@ namespace GameOfLife.IntegrationTests.LinqLife
     public class LinqGameIntegration
     {
         /// <summary>
-        /// Steps an empty universe once with the standard rules, which 
+        /// Steps an empty universe once with the standard rules, which
         /// yield an empty universe when done.
         /// </summary>
         [TestMethod]
         public void StepEmptyUniverseForwardOneGenerationLinqGame()
         {
             // arrange
-            var game = new LinqGame(Mock.Of<IWriter>(), new StandardRules());
+            var game = new LinqGame(Mock.Of<IFormatter>(), new StandardRules());
 
             // act
             game.StepForward();
@@ -44,7 +44,7 @@ namespace GameOfLife.IntegrationTests.LinqLife
         }
 
         /// <summary>
-        /// Steps a FivePoint pattern one step forward, so it reaches 
+        /// Steps a FivePoint pattern one step forward, so it reaches
         /// it's stable population of 4 cells.
         /// </summary>
         [TestMethod]
@@ -52,7 +52,7 @@ namespace GameOfLife.IntegrationTests.LinqLife
         {
             // arrange
             var pattern = new FivePoint();
-            var game = new LinqGame(Mock.Of<IWriter>(), new StandardRules());
+            var game = new LinqGame(Mock.Of<IFormatter>(), new StandardRules());
             game.InitializeFrom(pattern.GetPattern());
 
             // act
@@ -74,7 +74,7 @@ namespace GameOfLife.IntegrationTests.LinqLife
         /// Runs the Acorn life form to stable population after 5206 gens.
         /// </summary>
         /// <remarks>
-        /// This is ignored now, since the LinqLife performance is poor and 
+        /// This is ignored now, since the LinqLife performance is poor and
         /// the test takes 3 minutes to completion.
         /// </remarks>
         [TestMethod, Ignore]
@@ -82,7 +82,7 @@ namespace GameOfLife.IntegrationTests.LinqLife
         {
             // arrange
             var pattern = new Acorn();
-            var game = new LinqGame(Mock.Of<IWriter>(), new StandardRules());
+            var game = new LinqGame(Mock.Of<IFormatter>(), new StandardRules());
             game.InitializeFrom(pattern.GetPattern());
 
             // act

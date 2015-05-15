@@ -117,19 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ConsoleStatWriter_AtGenerations" xml:space="preserve">
+  <data name="StatsFormatter_AtGenerations" xml:space="preserve">
     <value>At generation {0} </value>
     <comment>The string showing the current generation the game is in.</comment>
   </data>
-  <data name="ConsoleStatWriter_HorizontalRule" xml:space="preserve">
+  <data name="StatsFormatter_HorizontalRule" xml:space="preserve">
     <value>---------------------------------------------</value>
     <comment>A HR-ish string to use when delimiting sections of textual output.</comment>
   </data>
-  <data name="ConsoleStatWriter_PopulationIs" xml:space="preserve">
+  <data name="StatsFormatter_PopulationIs" xml:space="preserve">
     <value>population is {0} cells.</value>
     <comment>The string showing the current population in the game.</comment>
   </data>
-  <data name="ConsoleStatWriter_RanInMs" xml:space="preserve">
+  <data name="StatsFormatter_RanInMs" xml:space="preserve">
     <value>Game ran in {0} milliseconds.</value>
     <comment>The string showing the number of milliseconds it took to run the game.</comment>
   </data>

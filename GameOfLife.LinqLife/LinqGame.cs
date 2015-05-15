@@ -1,6 +1,6 @@
-﻿// <copyright file="LinqGame.cs" company="N/A"> 
+﻿// <copyright file="LinqGame.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.LinqLife
 {
@@ -23,10 +23,10 @@ namespace GameOfLife.LinqLife
         /// <summary>
         /// Initializes a new instance of the LinqGame class.
         /// </summary>
-        /// <param name="writer">The writer to output state by.</param>
+        /// <param name="formatter">The formatter to output state by.</param>
         /// <param name="rules">The rules for running the game.</param>
-        public LinqGame(IWriter writer, RulesBase rules)
-            : base(writer, rules)
+        public LinqGame(IFormatter formatter, RulesBase rules)
+            : base(formatter, rules)
         {
             generation = 0;
             universe = new Universe();
@@ -63,7 +63,7 @@ namespace GameOfLife.LinqLife
             List<Cell> cellsToCheck = currentState.AllCells;
 
             // linq magic, where we check all cells already in the universe
-            // and also all of their neighbors. since the speed of light is 
+            // and also all of their neighbors. since the speed of light is
             // 1 in game of life, this is sufficient.
             cellsToCheck.AddRange(
                 from cell in currentState.AllCells
@@ -92,7 +92,7 @@ namespace GameOfLife.LinqLife
         /// <summary>
         /// Initializes the game from an integer pattern.
         /// </summary>
-        /// <param name="pattern">An integer pattern, where <value>1</value> is a cell and 
+        /// <param name="pattern">An integer pattern, where <value>1</value> is a cell and
         /// <value>0</value> is not.</param>
         public override void InitializeFrom(int[][] pattern)
         {
