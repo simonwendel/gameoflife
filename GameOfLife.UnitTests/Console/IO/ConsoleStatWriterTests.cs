@@ -35,7 +35,7 @@ namespace GameOfLife.UnitTests.Console.IO
         [TestMethod]
         [ExpectedException(
             typeof(ArgumentNullException))]
-        public void NullGameBaseToWriteOutThrowsException()
+        public void WriteOut_GivenNullGameBase_ThrowsException()
         {
             // act
             target.WriteOut(null);
@@ -45,7 +45,7 @@ namespace GameOfLife.UnitTests.Console.IO
         /// Writing a game to console works.
         /// </summary>
         [TestMethod]
-        public void WriteOutGameToConsoleSuccessfully()
+        public void WriteOut_GivenGameBase_ReturnsFormattedString()
         {
             // arrange
             var mockRules = new Mock<RulesBase>(new[] { 1 }, new[] { 2 });
@@ -57,7 +57,7 @@ namespace GameOfLife.UnitTests.Console.IO
             mockGame.SetupGet(x => x.Population).Returns(80);
 
             // act
-            target.WriteOut(mockGame.Object);
+            var actual = target.WriteOut(mockGame.Object);
 
             // assert
             mockGame.VerifyGet(
@@ -67,6 +67,8 @@ namespace GameOfLife.UnitTests.Console.IO
             mockGame.VerifyGet(
                 x => x.Population,
                 Times.Once());
+
+            Assert.AreNotEqual(string.Empty, actual);
         }
     }
 }
