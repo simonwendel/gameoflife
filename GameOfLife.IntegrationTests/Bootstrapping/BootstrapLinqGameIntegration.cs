@@ -1,6 +1,6 @@
-﻿// <copyright file="BootstrapLinqGameIntegration.cs" company="N/A"> 
+﻿// <copyright file="BootstrapLinqGameIntegration.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.IntegrationTests.Bootstrapping
 {
@@ -18,11 +18,11 @@ namespace GameOfLife.IntegrationTests.Bootstrapping
     public class BootstrapLinqGameIntegration
     {
         /// <summary>
-        /// Bootstraps a LinqGame with standard rules and the FivePoint pattern, 
+        /// Bootstraps a LinqGame with standard rules and the FivePoint pattern,
         /// steps it, and correct results are returned.
         /// </summary>
         [TestMethod]
-        public void BootstrappingAndRunningALinqGameWorks()
+        public void StepForward_InitializedAndBootstrapped_AdvancesUniverse()
         {
             // arrange
             using (var bootstrapper = new Bootstrapper())
@@ -35,7 +35,7 @@ namespace GameOfLife.IntegrationTests.Bootstrapping
                 game.InitializeFrom(lifeForm.GetPattern());
                 game.StepForward();
 
-                // assert 
+                // assert
                 Assert.AreEqual(
                     expected: 4,
                     actual: game.Population,
