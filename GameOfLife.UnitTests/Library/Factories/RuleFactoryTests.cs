@@ -20,7 +20,7 @@ namespace GameOfLife.UnitTests.Library.Factories
         /// The factory successfully builds a StandardRules object when asked to.
         /// </summary>
         [TestMethod]
-        public void StandardRulesBuildsCorrectly()
+        public void Build_GivenStandard_ReturnsStandardRulesObject()
         {
             // act
             var rules = RuleFactory.Build(Rule.Standard) as StandardRules;
@@ -35,7 +35,7 @@ namespace GameOfLife.UnitTests.Library.Factories
         /// The factory successfully builds a SierpinskishRules object when asked to.
         /// </summary>
         [TestMethod]
-        public void SierpinskishRulesBuildsCorrectly()
+        public void Build_GivenSierpinskish_ReturnesSierpinskishRulesObject()
         {
             // act
             var rules = RuleFactory.Build(Rule.Sierpinskish) as SierpinskishRules;
