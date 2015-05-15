@@ -1,6 +1,6 @@
-﻿// <copyright file="AircraftCarrierTests.cs" company="N/A"> 
+﻿// <copyright file="AircraftCarrierTests.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.UnitTests.Library.LifeForms
 {
@@ -19,7 +19,7 @@ namespace GameOfLife.UnitTests.Library.LifeForms
         /// The aircraft carrier initial pattern is correctly constructed.
         /// </summary>
         [TestMethod]
-        public void AircraftCarrierIsCorrectlyConstructed()
+        public void Constructor_WhenInvoked_PreparesAircraftCarrierCorrectly()
         {
             // act
             var carrier = new AircraftCarrier();

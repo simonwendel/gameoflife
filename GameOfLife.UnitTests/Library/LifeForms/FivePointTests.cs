@@ -1,6 +1,6 @@
-﻿// <copyright file="FivePointTests.cs" company="N/A"> 
+﻿// <copyright file="FivePointTests.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.UnitTests.Library.LifeForms
 {
@@ -16,11 +16,11 @@ namespace GameOfLife.UnitTests.Library.LifeForms
     public class FivePointTests
     {
         /// <summary>
-        /// When the FivePoint class is instantiated all properties are set as 
+        /// When the FivePoint class is instantiated all properties are set as
         /// per our expectations.
         /// </summary>
         [TestMethod]
-        public void FivePointIsCorrectlyConstructed()
+        public void Constructor_WhenInvoked_PreparesFivePointCorrectly()
         {
             // act
             var fivePoint = new FivePoint();

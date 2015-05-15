@@ -1,6 +1,6 @@
-﻿// <copyright file="AcornTests.cs" company="N/A"> 
+﻿// <copyright file="AcornTests.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.UnitTests.Library.LifeForms
 {
@@ -19,7 +19,7 @@ namespace GameOfLife.UnitTests.Library.LifeForms
         /// The acorn initial pattern is correctly constructed.
         /// </summary>
         [TestMethod]
-        public void AcornIsCorrectlyConstructed()
+        public void Constructor_WhenInvoked_PreparesAcornCorrectly()
         {
             // act
             var acorn = new Acorn();
