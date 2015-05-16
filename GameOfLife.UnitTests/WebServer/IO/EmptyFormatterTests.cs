@@ -19,7 +19,7 @@ namespace GameOfLife.UnitTests.WebServer.IO
         /// regardless of the state of the game.
         /// </summary>
         [TestMethod]
-        public void EmptyFormatterReturnsEmptyString()
+        public void Format_WhenInvoked_ReturnsEmptyString()
         {
             // arrange
             var target = new EmptyFormatter();
