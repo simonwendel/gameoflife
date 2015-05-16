@@ -42,7 +42,7 @@ namespace GameOfLife.UnitTests.Library.Rules
         /// Conway's Game of Life.
         /// </summary>
         [TestMethod]
-        public void TheStandardRulesConstructorInitializesCorrectly()
+        public void Constructor_WhenInvoked_PreparesStandardRulesCorrectly()
         {
             // arrange
             var birthCount = new[] { 3 };
@@ -62,7 +62,7 @@ namespace GameOfLife.UnitTests.Library.Rules
         /// Dead cell evaluated for number of neighbors n:[0->8].
         /// </summary>
         [TestMethod]
-        public void DeadCellEvaluatedStandardRules()
+        public void AliveNextGeneration_GivenDeadCell_ReturnsStateAccordingToStandard()
         {
             // arrange
             var expectedStates = new[]
@@ -100,7 +100,7 @@ namespace GameOfLife.UnitTests.Library.Rules
         /// Live cell evaluated for number of neighbors n:[0->8].
         /// </summary>
         [TestMethod]
-        public void LiveCellEvaluatedStandardRules()
+        public void AliveNextGeneration_GivenLiveCell_ReturnsStateAccordingToStandard()
         {
             // arrange
             var expectedStates = new[]
