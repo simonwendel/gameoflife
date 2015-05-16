@@ -22,35 +22,10 @@ namespace GameOfLife.UnitTests.LinqLife
         private Universe universe;
 
         /// <summary>
-        /// Sets up the test fixture.
-        /// </summary>
-        [TestInitialize]
-        public void Setup()
-        {
-            universe = new Universe();
-        }
-
-        /// <summary>
-        /// The universe is empty on creation.
-        /// </summary>
-        [TestMethod]
-        public void UniverseIsInitiallyEmptyOnCreation()
-        {
-            // act
-            int population = universe.Population;
-
-            // assert
-            Assert.AreEqual(
-                expected: 0,
-                actual: population,
-                message: "The universe was not empty.");
-        }
-
-        /// <summary>
         /// Adding cell at a location works.
         /// </summary>
         [TestMethod]
-        public void AddingCellToUniverseWorks()
+        public void Add_GivenCoordinates_AddsCellAndReturnsTrue()
         {
             // act
             bool addWorked = universe.Add(12, 23);
@@ -75,7 +50,7 @@ namespace GameOfLife.UnitTests.LinqLife
         /// exists fails, and the AddAt returns <value>false</value>.
         /// </summary>
         [TestMethod]
-        public void AddingEqualCellsTwiceFails()
+        public void Add_GivenSameCoordinatesTwice_DoesNotAddCellAndReturnsFalse()
         {
             // act
             universe.Add(12, 23);
@@ -97,96 +72,72 @@ namespace GameOfLife.UnitTests.LinqLife
         }
 
         /// <summary>
-        /// The universe correctly counts the number of neighboring cells
-        /// to some location.
+        /// When passed a pattern where all columns are not of equal height, that is the pattern is
+        /// not perfectly rectangular, the Universe constructor will throw an exception.
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage(
+            "Microsoft.Usage",
+            "CA1806:DoNotIgnoreMethodResults",
+            MessageId = "GameOfLife.LinqLife.Universe",
+            Justification = "The object can never be used, since we expect an exception.")]
         [TestMethod]
-        public void UniverseCountsThreeNeighborsCorrectly()
+        [ExpectedException(
+            typeof(ArgumentException))]
+        public void Constructor_GivenIrregularPattern_ThrowsException()
         {
             // arrange
-            universe.Add(1, 1);
-            universe.Add(2, 2);
-            universe.Add(2, 0);
+            var pattern = new int[][]
+            {
+                new[] { 1, 2 },
+                new[] { 2, 3, 5 },
+                new[] { 0 }
+            };
 
             // act
-            int neighbors = universe.Neighbors(2, 1);
-
-            // assert
-            Assert.AreEqual(
-                expected: 3,
-                actual: neighbors,
-                message: "The cell did not have exactly 3 neighbors.");
+            new Universe(pattern);
         }
 
         /// <summary>
-        /// The universe correctly counts the number of neighbors to some location.
+        /// When the Universe pattern constructor is passed a null pattern,
+        /// it will throw an exception.
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage(
+            "Microsoft.Usage",
+            "CA1806:DoNotIgnoreMethodResults",
+            MessageId = "GameOfLife.LinqLife.Universe",
+            Justification = "The object can never be used, since we expect an exception.")]
         [TestMethod]
-        public void UniverseCountsEightNeighborsCorrectly()
+        [ExpectedException(
+            typeof(ArgumentNullException))]
+        public void Constructor_GivenNullPattern_ThrowsException()
         {
-            // arrange
-            for (int x = 0; x < 3; ++x)
-            {
-                for (int y = 0; y < 3; ++y)
-                {
-                    universe.Add(x, y);
-                }
-            }
-
-            // act
-            int neighbors = universe.Neighbors(1, 1);
-
             // assert
-            Assert.AreEqual(
-                expected: 8,
-                actual: neighbors,
-                message: "The cell did not have exactly 8 neighbors.");
+            new Universe(pattern: null);
         }
 
         /// <summary>
-        /// The universe correctly returns all neighbors to a location.
+        /// When the Universe copy constructor is passed a null universe to copy,
+        /// it will throw an exception.
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage(
+            "Microsoft.Usage",
+            "CA1806:DoNotIgnoreMethodResults",
+            MessageId = "GameOfLife.LinqLife.Universe",
+            Justification = "The object can never be used, since we expect an exception.")]
         [TestMethod]
-        public void UniverseReturnsEightNeighborsCorrectly()
+        [ExpectedException(
+            typeof(ArgumentNullException))]
+        public void Constructor_GivenNullSourceUniverse_ThrowsException()
         {
-            // arrange
-            var expectedNeighbors = new List<Cell>();
-
-            for (int x = 0; x < 3; ++x)
-            {
-                for (int y = 0; y < 3; ++y)
-                {
-                    if (x != 1 || y != 1)
-                    {
-                        expectedNeighbors.Add(new Cell(x, y));
-                    }
-
-                    universe.Add(x, y);
-                }
-            }
-
-            // act
-            IEnumerable<Cell> neighbors = universe.ListNeighbors(1, 1);
-
             // assert
-            Assert.AreEqual(
-                expected: 8,
-                actual: neighbors.Count(),
-                message: "The cell did not have exactly 8 neighbors.");
-
-            foreach (var cell in expectedNeighbors)
-            {
-                Assert.IsTrue(
-                    neighbors.Contains(cell),
-                    message: "An expected cell was not returned in all neighbors collection.");
-            }
+            new Universe(source: null);
         }
 
         /// <summary>
         /// The universe correctly initializes from an integer pattern.
         /// </summary>
         [TestMethod]
-        public void UniverseInitializesCorrectlyFromIntegerPattern()
+        public void Constructor_GivenPattern_PreparesUniverseCorrectly()
         {
             // arrange
             var pattern = new FivePoint();
@@ -222,113 +173,11 @@ namespace GameOfLife.UnitTests.LinqLife
         }
 
         /// <summary>
-        /// When passed in a zero width pattern, the Universe constructor throws an exception.
-        /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage(
-            "Microsoft.Usage",
-            "CA1806:DoNotIgnoreMethodResults",
-            MessageId = "GameOfLife.LinqLife.Universe",
-            Justification = "The object can never be used, since we expect an exception.")]
-        [TestMethod]
-        [ExpectedException(
-            typeof(ArgumentException))]
-        public void UniverseZeroWidthIntegerPatternThrowsException()
-        {
-            // arrange
-            var pattern = new int[][] { };
-
-            // act
-            new Universe(pattern);
-        }
-
-        /// <summary>
-        /// When passed in a zero height pattern, the Universe constructor throws an exception.
-        /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage(
-            "Microsoft.Usage",
-            "CA1806:DoNotIgnoreMethodResults",
-            MessageId = "GameOfLife.LinqLife.Universe",
-            Justification = "The object can never be used, since we expect an exception.")]
-        [TestMethod]
-        [ExpectedException(
-            typeof(ArgumentException))]
-        public void UniverseZeroHeightIntegerPatternThrowsException()
-        {
-            // arrange
-            var pattern = new int[][] { new int[] { } };
-
-            // act
-            new Universe(pattern);
-        }
-
-        /// <summary>
-        /// When passed a pattern where all columns are not of equal height, that is the pattern is
-        /// not perfectly rectangular, the Universe constructor will throw an exception.
-        /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage(
-            "Microsoft.Usage",
-            "CA1806:DoNotIgnoreMethodResults",
-            MessageId = "GameOfLife.LinqLife.Universe",
-            Justification = "The object can never be used, since we expect an exception.")]
-        [TestMethod]
-        [ExpectedException(
-            typeof(ArgumentException))]
-        public void UniverseInconsistentIntegerPatternHeightsThrowsException()
-        {
-            // arrange
-            var pattern = new int[][]
-            {
-                new[] { 1, 2 },
-                new[] { 2, 3, 5 },
-                new[] { 0 }
-            };
-
-            // act
-            new Universe(pattern);
-        }
-
-        /// <summary>
-        /// When the Universe copy constructor is passed a null universe to copy,
-        /// it will throw an exception.
-        /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage(
-            "Microsoft.Usage",
-            "CA1806:DoNotIgnoreMethodResults",
-            MessageId = "GameOfLife.LinqLife.Universe",
-            Justification = "The object can never be used, since we expect an exception.")]
-        [TestMethod]
-        [ExpectedException(
-            typeof(ArgumentNullException))]
-        public void UniverseCopyConstructorPassedNullThrowsException()
-        {
-            // assert
-            new Universe(source: null);
-        }
-
-        /// <summary>
-        /// When the Universe pattern constructor is passed a null pattern,
-        /// it will throw an exception.
-        /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage(
-            "Microsoft.Usage",
-            "CA1806:DoNotIgnoreMethodResults",
-            MessageId = "GameOfLife.LinqLife.Universe",
-            Justification = "The object can never be used, since we expect an exception.")]
-        [TestMethod]
-        [ExpectedException(
-            typeof(ArgumentNullException))]
-        public void UniversePatternConstructorPassedNullThrowsException()
-        {
-            // assert
-            new Universe(pattern: null);
-        }
-
-        /// <summary>
         /// When passed a proper source universe to copy, the copy constructor initializes the
         /// universe properly.
         /// </summary>
         [TestMethod]
-        public void UniverseCopyConstructorCorrectlyInitializesUniverse()
+        public void Constructor_GivenSourceUniverse_PreparesCopy()
         {
             // arrange
             var pattern = new FivePoint();
@@ -362,6 +211,157 @@ namespace GameOfLife.UnitTests.LinqLife
             Assert.IsTrue(
                 copy.HasCell(2, 3),
                 message: "An expected cell was not found.");
+        }
+
+        /// <summary>
+        /// When passed in a zero height pattern, the Universe constructor throws an exception.
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage(
+            "Microsoft.Usage",
+            "CA1806:DoNotIgnoreMethodResults",
+            MessageId = "GameOfLife.LinqLife.Universe",
+            Justification = "The object can never be used, since we expect an exception.")]
+        [TestMethod]
+        [ExpectedException(
+            typeof(ArgumentException))]
+        public void Constructor_GivenZeroHeightPattern_ThrowsException()
+        {
+            // arrange
+            var pattern = new int[][] { new int[] { } };
+
+            // act
+            new Universe(pattern);
+        }
+
+        /// <summary>
+        /// When passed in a zero width pattern, the Universe constructor throws an exception.
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage(
+            "Microsoft.Usage",
+            "CA1806:DoNotIgnoreMethodResults",
+            MessageId = "GameOfLife.LinqLife.Universe",
+            Justification = "The object can never be used, since we expect an exception.")]
+        [TestMethod]
+        [ExpectedException(
+            typeof(ArgumentException))]
+        public void Constructor_GivenZeroWidthPattern_ThrowsException()
+        {
+            // arrange
+            var pattern = new int[][] { };
+
+            // act
+            new Universe(pattern);
+        }
+
+        /// <summary>
+        /// The universe correctly returns all neighbors to a location.
+        /// </summary>
+        [TestMethod]
+        public void ListNeighbors_GivenLocationWithEightCellsBordering_ReturnsEightCellList()
+        {
+            // arrange
+            var expectedNeighbors = new List<Cell>();
+
+            for (int x = 0; x < 3; ++x)
+            {
+                for (int y = 0; y < 3; ++y)
+                {
+                    if (x != 1 || y != 1)
+                    {
+                        expectedNeighbors.Add(new Cell(x, y));
+                    }
+
+                    universe.Add(x, y);
+                }
+            }
+
+            // act
+            IEnumerable<Cell> neighbors = universe.ListNeighbors(1, 1);
+
+            // assert
+            Assert.AreEqual(
+                expected: 8,
+                actual: neighbors.Count(),
+                message: "The cell did not have exactly 8 neighbors.");
+
+            foreach (var cell in expectedNeighbors)
+            {
+                Assert.IsTrue(
+                    neighbors.Contains(cell),
+                    message: "An expected cell was not returned in all neighbors collection.");
+            }
+        }
+
+        /// <summary>
+        /// The universe correctly counts the number of neighbors to some location.
+        /// </summary>
+        [TestMethod]
+        public void Neighbors_GivenLocationWithEightCellsBordering_ReturnsEight()
+        {
+            // arrange
+            for (int x = 0; x < 3; ++x)
+            {
+                for (int y = 0; y < 3; ++y)
+                {
+                    universe.Add(x, y);
+                }
+            }
+
+            // act
+            int neighbors = universe.Neighbors(1, 1);
+
+            // assert
+            Assert.AreEqual(
+                expected: 8,
+                actual: neighbors,
+                message: "The cell did not have exactly 8 neighbors.");
+        }
+
+        /// <summary>
+        /// The universe correctly counts the number of neighboring cells
+        /// to some location.
+        /// </summary>
+        [TestMethod]
+        public void Neighbors_GivenLocationWithThreeCellsBordering_ReturnsThree()
+        {
+            // arrange
+            universe.Add(1, 1);
+            universe.Add(2, 2);
+            universe.Add(2, 0);
+
+            // act
+            int neighbors = universe.Neighbors(2, 1);
+
+            // assert
+            Assert.AreEqual(
+                expected: 3,
+                actual: neighbors,
+                message: "The cell did not have exactly 3 neighbors.");
+        }
+
+        /// <summary>
+        /// The universe is empty on creation.
+        /// </summary>
+        [TestMethod]
+        public void Population_WhenInvokedOnNewUniverse_ReturnsZero()
+        {
+            // act
+            int population = universe.Population;
+
+            // assert
+            Assert.AreEqual(
+                expected: 0,
+                actual: population,
+                message: "The universe was not empty.");
+        }
+
+        /// <summary>
+        /// Sets up the test fixture.
+        /// </summary>
+        [TestInitialize]
+        public void Setup()
+        {
+            universe = new Universe();
         }
     }
 }
