@@ -23,7 +23,7 @@ namespace GameOfLife.UnitTests.LinqLife
         /// universe at generation zero.
         /// </summary>
         [TestMethod]
-        public void LinqGameConstructsProperly()
+        public void Constructor_WhenInvoked_PreparesLinqGameCorrectly()
         {
             // arrange
             var mockRules = new Mock<RulesBase>(new[] { 1 }, new[] { 2 });
@@ -47,7 +47,7 @@ namespace GameOfLife.UnitTests.LinqLife
         /// LinqGame correctly initializes from an integer pattern.
         /// </summary>
         [TestMethod]
-        public void LinqGameInitializesFromIntegerPatternCorrectly()
+        public void InitializeFrom_GivenPattern_InitializesGameCorrectly()
         {
             // arrange
             var mockRules = new Mock<RulesBase>(new[] { 1 }, new[] { 2 });
@@ -71,7 +71,7 @@ namespace GameOfLife.UnitTests.LinqLife
         [TestMethod]
         [ExpectedException(
             typeof(ArgumentNullException))]
-        public void LinqGamePassedNullInitializationPatternThrowsException()
+        public void InitializeFrom_GivenNullPattern_ThrowsException()
         {
             // arrange
             var mockRules = new Mock<RulesBase>(new[] { 1 }, new[] { 2 });
