@@ -13,32 +13,41 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
     using Moq;
 
     /// <summary>
-    /// Tests the service activator used for resolving dependencies and wiring up 
+    /// Tests the service activator used for resolving dependencies and wiring up
     /// API controllers.
     /// </summary>
     [TestClass, ExcludeFromCodeCoverage]
     public class ServiceActivatorTests
     {
         /// <summary>
-        /// The create method on the activator should delegate responsibility of 
+        /// The create method on the activator should delegate responsibility of
         /// actually building objects to the IObjectFactory on which it depends.
         /// </summary>
         [TestMethod]
-        public void CreateUsesObjectFactoryToCreateController()
+        public void Create_GivenRequest_CallsObjectFactoryAndReturnsController()
         {
             // arrange
+            var expected = Mock.Of<IHttpController>();
+
             var mockFactory = new Mock<IObjectFactory>();
-            mockFactory.Setup(x => x.Build(It.IsAny<Type>()));
+            mockFactory
+                .Setup(x => x.Build(It.IsAny<Type>()))
+                .Returns(expected);
+
             var serviceActivator = new ServiceActivator(mockFactory.Object);
 
             // act
-            serviceActivator.Create(
+            var actual = serviceActivator.Create(
                 Mock.Of<HttpRequestMessage>(),
                 Mock.Of<HttpControllerDescriptor>(),
                 typeof(ServiceActivatorTests));
 
             // assert
-            mockFactory.Verify(x => x.Build(It.IsAny<Type>()), Times.Once);
+            Assert.AreSame(expected, actual, "Wrong IHttpController reference was returned.");
+
+            mockFactory.Verify(
+                x => x.Build(It.IsAny<Type>()),
+                Times.Once);
         }
     }
 }
