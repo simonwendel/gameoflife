@@ -26,12 +26,48 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
         }
 
         /// <summary>
+        /// The non-generic Build method should simply return according to injected modules.
+        /// </summary>
+        [TestMethod]
+        public void Build_GivenRegisteredType_ReturnsCorrectlyTypedObject()
+        {
+            // arrange
+            var expected = new TestClass();
+            var module = new TestModule(typeof(ITestInterface), expected);
+            var factory = new NinjectFactory(module);
+
+            // act
+            var actual = factory.Build(typeof(ITestInterface));
+
+            // assert
+            Assert.AreSame(actual, expected, "The correct reference was not returned.");
+        }
+
+        /// <summary>
+        /// The generic Build method should simply return according to injected modules.
+        /// </summary>
+        [TestMethod]
+        public void BuildOfT_GivenRegisteredType_ReturnsCorrectlyTypedObject()
+        {
+            // arrange
+            var expected = new TestClass();
+            var module = new TestModule(typeof(ITestInterface), expected);
+            var factory = new NinjectFactory(module);
+
+            // act
+            var actual = factory.Build<ITestInterface>();
+
+            // assert
+            Assert.AreSame(actual, expected, "The correct reference was not returned.");
+        }
+
+        /// <summary>
         /// Provide should call the Rebind{T} method on the StandardKernel to register
         /// a constant in the IoC container. Relies on Microsoft Fakes Framework.
         /// </summary>
         [TestMethod]
         [TestCategory(TestUsing.Fakes)]
-        public void ProvideRegistersAnObjectWithNinject()
+        public void ProvideOfT_GivenTypeAndObject_BindsObjectWithNinject()
         {
             using (ShimsContext.Create())
             {
@@ -56,51 +92,14 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
             }
         }
 
-        /// <summary>
-        /// The non-generic Build method should simply return according to injected modules.
-        /// </summary>
-        [TestMethod]
-        public void NonGenericBuildReturnsObjectAccordingToNinjectModules()
-        {
-            // arrange
-            var expected = new TestClass();
-            var module = new TestModule(typeof(ITestInterface), expected);
-            var factory = new NinjectFactory(module);
-
-            // act
-            var actual = factory.Build(typeof(ITestInterface));
-
-            // assert
-            Assert.AreSame(actual, expected, "The correct reference was not returned.");
-        }
-
-        /// <summary>
-        /// The generic Build method should simply return according to injected modules.
-        /// </summary>
-        [TestMethod]
-        public void GenericBuildReturnsObjectAccordingToNinjectModules()
-        {
-            // arrange
-            var expected = new TestClass();
-            var module = new TestModule(typeof(ITestInterface), expected);
-            var factory = new NinjectFactory(module);
-
-            // act
-            var actual = factory.Build<ITestInterface>();
-
-            // assert
-            Assert.AreSame(actual, expected, "The correct reference was not returned.");
-        }
-
         private class TestClass : ITestInterface
         {
         }
 
         private class TestModule : NinjectModule
         {
-            private Type type;
-
             private object constant;
+            private Type type;
 
             public TestModule(Type type, object constant)
             {
