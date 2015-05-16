@@ -131,7 +131,6 @@
     <Compile Include="Library\LifeForms\EmptyTests.cs" />
     <Compile Include="Library\Rules\SierpinskishRulesConstructorTests.cs" />
     <Compile Include="Library\Rules\SierpinskishRulesTests.cs" />
-    <Compile Include="Library\Rules\StandardRulesConstructorTests.cs" />
     <Compile Include="Library\Rules\StandardRulesTests.cs" />
     <Compile Include="Library\Factories\RuleFactoryTests.cs" />
     <Compile Include="LinqLife\CellTests.cs" />
