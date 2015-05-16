@@ -1,4 +1,4 @@
-﻿// <copyright file="FivePoint.cs" company="N/A"> 
+﻿// <copyright file="FivePoint.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
@@ -13,8 +13,8 @@ namespace GameOfLife.Library.LifeForms
     /// -X--
     /// X-X-
     /// ---
-    /// </para>  
-    /// into 
+    /// </para>
+    /// into
     /// <para>
     /// -X--
     /// X-X-
@@ -31,7 +31,7 @@ namespace GameOfLife.Library.LifeForms
         public FivePoint()
             : base(stabilizesAt: 1, stablePopulation: 4)
         {
-            var pattern = new[] 
+            var pattern = new[]
             {
                 new[] { 1, 0, 1, 0 },
                 new[] { 0, 1, 0, 0 },
@@ -43,5 +43,3 @@ namespace GameOfLife.Library.LifeForms
         }
     }
 }
-
-// eof

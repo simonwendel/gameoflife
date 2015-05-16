@@ -49,5 +49,3 @@ namespace GameOfLife.IntegrationTests.Bootstrapping
         }
     }
 }
-
-// eof

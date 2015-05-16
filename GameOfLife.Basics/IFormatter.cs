@@ -17,5 +17,3 @@ namespace GameOfLife.Basics
         string Format(GameBase game);
     }
 }
-
-// eof

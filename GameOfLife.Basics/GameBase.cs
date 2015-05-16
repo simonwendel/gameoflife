@@ -113,5 +113,3 @@ namespace GameOfLife.Basics
         }
     }
 }
-
-// eof

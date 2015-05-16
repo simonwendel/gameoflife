@@ -1,10 +1,9 @@
-﻿// <copyright file="GameController.cs" company="N/A"> 
+﻿// <copyright file="GameController.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.Webserver.Controllers
 {
-    using System;
     using System.Net;
     using System.Net.Http;
     using System.Web.Http;
@@ -59,5 +58,3 @@ namespace GameOfLife.Webserver.Controllers
         }
     }
 }
-
-// eof

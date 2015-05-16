@@ -140,5 +140,3 @@ namespace GameOfLife.UnitTests.Webserver.Controllers
         }
     }
 }
-
-// eof

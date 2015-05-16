@@ -1,6 +1,6 @@
-﻿// <copyright file="Bootstrapper.cs" company="N/A"> 
+﻿// <copyright file="Bootstrapper.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.Console.Application
 {
@@ -31,12 +31,12 @@ namespace GameOfLife.Console.Application
         }
 
         /// <summary>
-        /// Resolves all dependencies for the type specified and returns an object 
+        /// Resolves all dependencies for the type specified and returns an object
         /// of that type, or <value>null</value> if unsuccessful.
         /// </summary>
         /// <typeparam name="T">The type of the object to create.</typeparam>
         /// <param name="rules">The rules of the game.</param>
-        /// <returns>An instance of the specified type, or <value>null</value> if 
+        /// <returns>An instance of the specified type, or <value>null</value> if
         /// unsuccessful resolving dependencies.</returns>
         public GameBase Boot<T>(RulesBase rules) where T : GameBase
         {
@@ -65,7 +65,7 @@ namespace GameOfLife.Console.Application
         /// <summary>
         /// Does the actual disposing according to the disposing flag.
         /// </summary>
-        /// <param name="disposing">If <value>true</value>, all undisposed 
+        /// <param name="disposing">If <value>true</value>, all undisposed
         /// resources will be disposed.</param>
         protected virtual void Dispose(bool disposing)
         {
@@ -126,5 +126,3 @@ namespace GameOfLife.Console.Application
         }
     }
 }
-
-// eof

@@ -11,7 +11,6 @@ namespace GameOfLife.Console.Application
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using CommandLine;
     using GameOfLife.Library.Factories;
     using GameOfLife.LinqLife;
 
@@ -49,5 +48,3 @@ namespace GameOfLife.Console.Application
         }
     }
 }
-
-// eof

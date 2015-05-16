@@ -1,6 +1,6 @@
-﻿// <copyright file="GameSettingsModel.cs" company="N/A"> 
+﻿// <copyright file="GameSettingsModel.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.Webserver.Models
 {
@@ -49,5 +49,3 @@ namespace GameOfLife.Webserver.Models
         public LifeForm LifeForm { get; set; }
     }
 }
-
-// eof

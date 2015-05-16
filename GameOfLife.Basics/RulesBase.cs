@@ -1,6 +1,6 @@
-﻿// <copyright file="RulesBase.cs" company="N/A"> 
+﻿// <copyright file="RulesBase.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.Basics
 {
@@ -38,7 +38,7 @@ namespace GameOfLife.Basics
         /// </summary>
         /// <param name="cellAlive">A value indicating whether the cell in question is alive or not.</param>
         /// <param name="numberOfNeighbors">The number of neighbors the cell has.</param>
-        /// <returns><value>true</value> if the cell should be alive, or 
+        /// <returns><value>true</value> if the cell should be alive, or
         /// <value>false</value> if not.</returns>
         public bool AliveNextGeneration(bool cellAlive, int numberOfNeighbors)
         {
@@ -56,5 +56,3 @@ namespace GameOfLife.Basics
         }
     }
 }
-
-// eof

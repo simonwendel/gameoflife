@@ -92,5 +92,3 @@ namespace GameOfLife.UnitTests.Library.Factories
         }
     }
 }
-
-// eof

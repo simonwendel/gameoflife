@@ -1,10 +1,10 @@
-﻿// <copyright file="GameSettings.cs" company="N/A"> 
+﻿// <copyright file="GameSettings.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 /*
- * This class is excluded from code coverage metrics because there is no 
- * reason to test it. It just wires up the command line parser, which we 
+ * This class is excluded from code coverage metrics because there is no
+ * reason to test it. It just wires up the command line parser, which we
  * see no reason not to trust.
  */
 
@@ -15,7 +15,6 @@ namespace GameOfLife.Console.Application
     using CommandLine;
     using CommandLine.Text;
     using GameOfLife.Library.Factories;
-    using GameOfLife.Library.LifeForms;
 
     /// <summary>
     /// The command line options for the console interface.
@@ -68,5 +67,3 @@ namespace GameOfLife.Console.Application
         }
     }
 }
-
-// eof

@@ -1,6 +1,6 @@
-﻿// <copyright file="Empty.cs" company="N/A"> 
+﻿// <copyright file="Empty.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.Library.LifeForms
 {
@@ -17,7 +17,7 @@ namespace GameOfLife.Library.LifeForms
         public Empty()
             : base(0, 0)
         {
-            var pattern = new[] 
+            var pattern = new[]
             {
                 new[] { 0 }
             };
@@ -26,5 +26,3 @@ namespace GameOfLife.Library.LifeForms
         }
     }
 }
-
-// eof

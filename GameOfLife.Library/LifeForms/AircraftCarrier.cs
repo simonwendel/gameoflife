@@ -1,13 +1,13 @@
-﻿// <copyright file="AircraftCarrier.cs" company="N/A"> 
+﻿// <copyright file="AircraftCarrier.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.Library.LifeForms
 {
     using GameOfLife.Basics;
 
     /// <summary>
-    /// The aircraft carrier is the smallest known still life with 
+    /// The aircraft carrier is the smallest known still life with
     /// more than one island.
     /// </summary>
     public class AircraftCarrier : LifeFormBase
@@ -30,5 +30,3 @@ namespace GameOfLife.Library.LifeForms
         }
     }
 }
-
-// eof

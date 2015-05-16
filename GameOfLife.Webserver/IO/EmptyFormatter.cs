@@ -22,5 +22,3 @@ namespace GameOfLife.Webserver.IO
         }
     }
 }
-
-// eof

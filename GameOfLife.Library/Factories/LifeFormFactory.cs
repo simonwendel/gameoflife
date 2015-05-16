@@ -1,6 +1,6 @@
-﻿// <copyright file="LifeFormFactory.cs" company="N/A"> 
+﻿// <copyright file="LifeFormFactory.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.Library.Factories
 {
@@ -31,15 +31,19 @@ namespace GameOfLife.Library.Factories
                 case LifeForm.Empty:
                     lifeForm = new Empty();
                     break;
+
                 case LifeForm.Acorn:
                     lifeForm = new Acorn();
                     break;
+
                 case LifeForm.AircraftCarrier:
                     lifeForm = new AircraftCarrier();
                     break;
+
                 case LifeForm.FivePoint:
                     lifeForm = new FivePoint();
                     break;
+
                 default:
                     lifeForm = new RandomPattern(
                         rows: RANDOMPATTERNHEIGHT,
@@ -51,5 +55,3 @@ namespace GameOfLife.Library.Factories
         }
     }
 }
-
-// eof

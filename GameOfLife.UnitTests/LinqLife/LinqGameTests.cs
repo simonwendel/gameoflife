@@ -82,5 +82,3 @@ namespace GameOfLife.UnitTests.LinqLife
         }
     }
 }
-
-// eof

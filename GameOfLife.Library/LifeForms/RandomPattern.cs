@@ -1,4 +1,4 @@
-﻿// <copyright file="RandomPattern.cs" company="N/A"> 
+﻿// <copyright file="RandomPattern.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
@@ -54,5 +54,3 @@ namespace GameOfLife.Library.LifeForms
         }
     }
 }
-
-// eof

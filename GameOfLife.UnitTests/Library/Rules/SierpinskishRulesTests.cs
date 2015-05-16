@@ -135,5 +135,3 @@ namespace GameOfLife.UnitTests.Library.Rules
         }
     }
 }
-
-// eof

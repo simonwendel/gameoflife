@@ -41,5 +41,3 @@ namespace GameOfLife.UnitTests.Console.Application
         }
     }
 }
-
-// eof

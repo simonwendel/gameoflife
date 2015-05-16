@@ -46,5 +46,3 @@ namespace GameOfLife.Webserver.Dependencies
         }
     }
 }
-
-// eof

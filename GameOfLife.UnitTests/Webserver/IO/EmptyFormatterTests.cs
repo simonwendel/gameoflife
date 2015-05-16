@@ -35,5 +35,3 @@ namespace GameOfLife.UnitTests.Webserver.IO
         }
     }
 }
-
-// eof

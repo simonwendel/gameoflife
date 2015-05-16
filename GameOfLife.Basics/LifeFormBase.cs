@@ -1,6 +1,6 @@
-﻿// <copyright file="LifeFormBase.cs" company="N/A"> 
+﻿// <copyright file="LifeFormBase.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.Basics
 {
@@ -55,7 +55,7 @@ namespace GameOfLife.Basics
         /// <summary>
         /// Gets the initial pattern.
         /// </summary>
-        /// <returns>A two-dimensional jagged array of integers representing the 
+        /// <returns>A two-dimensional jagged array of integers representing the
         /// initial pattern of the life form.</returns>
         public int[][] GetPattern()
         {
@@ -65,7 +65,7 @@ namespace GameOfLife.Basics
         /// <summary>
         /// Sets the initial pattern for the life form.
         /// </summary>
-        /// <param name="pattern">A two-dimensional array of integers representing the 
+        /// <param name="pattern">A two-dimensional array of integers representing the
         /// initial pattern of the life form.</param>
         protected void SetPattern(int[][] pattern)
         {
@@ -73,5 +73,3 @@ namespace GameOfLife.Basics
         }
     }
 }
-
-// eof

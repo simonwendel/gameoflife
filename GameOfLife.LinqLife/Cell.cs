@@ -1,6 +1,6 @@
-﻿// <copyright file="Cell.cs" company="N/A"> 
+﻿// <copyright file="Cell.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.LinqLife
 {
@@ -54,7 +54,7 @@ namespace GameOfLife.LinqLife
         /// Indicates whether the current Cell is equal to another Cell.
         /// </summary>
         /// <param name="other">A Cell object to compare with this Cell.</param>
-        /// <returns><value>true</value> if the current Cell is equal to the other Cell; 
+        /// <returns><value>true</value> if the current Cell is equal to the other Cell;
         /// otherwise, <value>false</value>.</returns>
         public bool Equals(Cell other)
         {
@@ -81,5 +81,3 @@ namespace GameOfLife.LinqLife
         }
     }
 }
-
-// eof

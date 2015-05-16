@@ -48,5 +48,3 @@ namespace GameOfLife.UnitTests.Library.LifeForms
         }
     }
 }
-
-// eof

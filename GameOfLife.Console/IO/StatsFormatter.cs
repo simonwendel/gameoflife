@@ -55,5 +55,3 @@ namespace GameOfLife.Console.IO
         }
     }
 }
-
-// eof

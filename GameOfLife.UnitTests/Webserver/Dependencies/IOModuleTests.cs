@@ -41,5 +41,3 @@ namespace GameOfLife.UnitTests.Webserver.Dependencies
         }
     }
 }
-
-// eof

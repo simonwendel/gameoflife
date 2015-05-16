@@ -1,6 +1,6 @@
-﻿// <copyright file="Universe.cs" company="N/A"> 
+﻿// <copyright file="Universe.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.LinqLife
 {
@@ -66,8 +66,8 @@ namespace GameOfLife.LinqLife
                 {
                     if (pattern[x][y] == 1)
                     {
-                        // we transpose the y coordinate so that the resulting 
-                        // universe is placed in the first quadrant of a 
+                        // we transpose the y coordinate so that the resulting
+                        // universe is placed in the first quadrant of a
                         // cartesian coordinate system.
                         Add(
                             x: x,
@@ -78,7 +78,7 @@ namespace GameOfLife.LinqLife
         }
 
         /// <summary>
-        /// Initializes a new instance of the Universe class, copying contents from 
+        /// Initializes a new instance of the Universe class, copying contents from
         /// another Universe.
         /// </summary>
         /// <param name="source">The source universe to copy cells from.</param>
@@ -119,7 +119,7 @@ namespace GameOfLife.LinqLife
         /// </summary>
         /// <param name="x">The x-coordinate of the new cell.</param>
         /// <param name="y">The y-coordinate of the new cell.</param>
-        /// <returns><value>true</value> if successful, <value>false</value> if a cell 
+        /// <returns><value>true</value> if successful, <value>false</value> if a cell
         /// already exists at those coordinates.</returns>
         public bool Add(int x, int y)
         {
@@ -130,7 +130,7 @@ namespace GameOfLife.LinqLife
         /// Adds a cell to the universe.
         /// </summary>
         /// <param name="cell">The cell to add.</param>
-        /// <returns><value>true</value> if successful, <value>false</value> if a cell 
+        /// <returns><value>true</value> if successful, <value>false</value> if a cell
         /// already exists at the same coordinates.</returns>
         public bool Add(Cell cell)
         {
@@ -141,8 +141,8 @@ namespace GameOfLife.LinqLife
         /// Removes a cell from the universe.
         /// </summary>
         /// <param name="cell">The cell to remove.</param>
-        /// <returns><value>true</value> if the cell was successfully removed; 
-        /// otherwise, <value>false</value>. This method also returns <value>false</value> if 
+        /// <returns><value>true</value> if the cell was successfully removed;
+        /// otherwise, <value>false</value>. This method also returns <value>false</value> if
         /// the cell is not found in the universe.</returns>
         public bool Remove(Cell cell)
         {
@@ -193,7 +193,7 @@ namespace GameOfLife.LinqLife
         /// </summary>
         /// <param name="x">The x-coordinate of the location to list.</param>
         /// <param name="y">The y-coordinate of the location to list.</param>
-        /// <returns>An enumerable collection of cells neighboring the 
+        /// <returns>An enumerable collection of cells neighboring the
         /// location.</returns>
         public IEnumerable<Cell> ListNeighbors(int x, int y)
         {
@@ -212,5 +212,3 @@ namespace GameOfLife.LinqLife
         }
     }
 }
-
-// eof
