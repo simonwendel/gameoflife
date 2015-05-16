@@ -2,7 +2,7 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
-namespace GameOfLife.UnitTests.WebServer.Dependencies
+namespace GameOfLife.UnitTests.Webserver.Dependencies
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
