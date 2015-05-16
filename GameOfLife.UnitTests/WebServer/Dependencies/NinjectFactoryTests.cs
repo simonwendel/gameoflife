@@ -33,14 +33,16 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
         {
             // arrange
             var expected = new TestClass();
-            var module = new TestModule(typeof(ITestInterface), expected);
-            var factory = new NinjectFactory(module);
+            using (var module = new TestModule(typeof(ITestInterface), expected))
+            {
+                var factory = new NinjectFactory(module);
 
-            // act
-            var actual = factory.Build(typeof(ITestInterface));
+                // act
+                var actual = factory.Build(typeof(ITestInterface));
 
-            // assert
-            Assert.AreSame(actual, expected, "The correct reference was not returned.");
+                // assert
+                Assert.AreSame(actual, expected, "The correct reference was not returned.");
+            }
         }
 
         /// <summary>
@@ -51,14 +53,16 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
         {
             // arrange
             var expected = new TestClass();
-            var module = new TestModule(typeof(ITestInterface), expected);
-            var factory = new NinjectFactory(module);
+            using (var module = new TestModule(typeof(ITestInterface), expected))
+            {
+                var factory = new NinjectFactory(module);
 
-            // act
-            var actual = factory.Build<ITestInterface>();
+                // act
+                var actual = factory.Build<ITestInterface>();
 
-            // assert
-            Assert.AreSame(actual, expected, "The correct reference was not returned.");
+                // assert
+                Assert.AreSame(actual, expected, "The correct reference was not returned.");
+            }
         }
 
         /// <summary>
