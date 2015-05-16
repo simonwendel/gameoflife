@@ -11,7 +11,7 @@ namespace GameOfLife.WebServer.Dependencies
     /// <summary>
     /// An <see cref="IObjectFactory"/> implementation based on Ninject as an IoC container.
     /// </summary>
-    internal class NinjectFactory : IObjectFactory
+    internal class NinjectFactory : IObjectFactory, IDisposable
     {
         private IKernel kernel;
 
@@ -53,6 +53,33 @@ namespace GameOfLife.WebServer.Dependencies
         public object Build(Type type)
         {
             return kernel.Get(type);
+        }
+
+        /// <summary>
+        /// Disposes the disposable resources used by the NinjectFactory instance.
+        /// </summary>
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Disposes the disposable resources used by the NinjectFactory instance.
+        /// </summary>
+        /// <param name="disposing">
+        /// If true, the disposable resources of the NinjectFactory instance will be disposed.
+        /// </param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (kernel != null)
+                {
+                    kernel.Dispose();
+                    kernel = null;
+                }
+            }
         }
     }
 }

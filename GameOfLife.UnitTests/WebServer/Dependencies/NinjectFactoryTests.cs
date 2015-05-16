@@ -34,9 +34,8 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
             // arrange
             var expected = new TestClass();
             using (var module = new TestModule(typeof(ITestInterface), expected))
+            using (var factory = new NinjectFactory(module))
             {
-                var factory = new NinjectFactory(module);
-
                 // act
                 var actual = factory.Build(typeof(ITestInterface));
 
@@ -54,9 +53,8 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
             // arrange
             var expected = new TestClass();
             using (var module = new TestModule(typeof(ITestInterface), expected))
+            using (var factory = new NinjectFactory(module))
             {
-                var factory = new NinjectFactory(module);
-
                 // act
                 var actual = factory.Build<ITestInterface>();
 
@@ -74,6 +72,7 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
         public void ProvideOfT_GivenTypeAndObject_BindsObjectWithNinject()
         {
             using (ShimsContext.Create())
+            using (var factory = new NinjectFactory())
             {
                 // arrange
                 var mockSyntax = Mock.Of<IBindingToSyntax<object>>();
@@ -85,8 +84,6 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
 
                 ShimBindingRoot.AllInstances
                     .RebindOf1<object>((val) => mockBindingRoot.Object.Rebind<object>());
-
-                var factory = new NinjectFactory();
 
                 // act
                 factory.Provide<object>(new object());
