@@ -129,7 +129,6 @@
     <Compile Include="Library\LifeForms\RandomPatternTests.cs" />
     <Compile Include="Library\LifeForms\FivePointTests.cs" />
     <Compile Include="Library\LifeForms\EmptyTests.cs" />
-    <Compile Include="Library\Rules\SierpinskishRulesConstructorTests.cs" />
     <Compile Include="Library\Rules\SierpinskishRulesTests.cs" />
     <Compile Include="Library\Rules\StandardRulesTests.cs" />
     <Compile Include="Library\Factories\RuleFactoryTests.cs" />
