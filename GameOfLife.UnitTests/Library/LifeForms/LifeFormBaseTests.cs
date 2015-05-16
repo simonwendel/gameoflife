@@ -4,14 +4,13 @@
 
 namespace GameOfLife.UnitTests.Library.LifeForms
 {
-    using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Basics;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
     /// Unit tests the LifeFormBase class from the GameOfLife.Library.LifeForms namespace.
     /// </summary>
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass]
     public class LifeFormBaseTests
     {
         /// <summary>

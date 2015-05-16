@@ -4,7 +4,6 @@
 
 namespace GameOfLife.UnitTests.Console.Application
 {
-    using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Basics;
     using GameOfLife.Console.Application;
     using GameOfLife.Console.IO;
@@ -15,7 +14,7 @@ namespace GameOfLife.UnitTests.Console.Application
     /// Tests the IOModule class from the GameOfLife.Console.Application
     /// namespace.
     /// </summary>
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass]
     public class IOModuleTests
     {
         /// <summary>

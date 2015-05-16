@@ -4,7 +4,6 @@
 
 namespace GameOfLife.UnitTests.Library.LifeForms
 {
-    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using GameOfLife.Library.LifeForms;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -12,7 +11,7 @@ namespace GameOfLife.UnitTests.Library.LifeForms
     /// <summary>
     /// Unit tests the FivePoint class from the GameOfLife.Library.LifeForms namespace.
     /// </summary>
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass]
     public class FivePointTests
     {
         /// <summary>

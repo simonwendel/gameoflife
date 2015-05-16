@@ -5,7 +5,6 @@
 namespace GameOfLife.UnitTests.Console.IO
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Basics;
     using GameOfLife.Console.IO;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -14,7 +13,7 @@ namespace GameOfLife.UnitTests.Console.IO
     /// <summary>
     /// Unit tests the StatsFormatter class from the GameOfLife.Application.IO namespace.
     /// </summary>
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass]
     public class StatsFormatterTests
     {
         /// <summary>The target stats formatter to test.</summary>

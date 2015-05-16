@@ -4,14 +4,13 @@
 
 namespace GameOfLife.UnitTests.LinqLife
 {
-    using System.Diagnostics.CodeAnalysis;
     using GameOfLife.LinqLife;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
     /// Unit tests the Cell class from the GameOfLife.LinqLife namespace.
     /// </summary>
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass]
     public class CellTests
     {
         /// <summary>

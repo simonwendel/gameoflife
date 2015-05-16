@@ -4,7 +4,6 @@
 
 namespace GameOfLife.UnitTests.Library.Rules
 {
-    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using GameOfLife.Library.Rules;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -15,7 +14,7 @@ namespace GameOfLife.UnitTests.Library.Rules
     /// <remarks>
     /// These tests might be overkill, but it's nice to know that expectations are met.
     /// </remarks>
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass]
     public class StandardRulesTests
     {
         /// <summary>A constant representing a dead cell.</summary>

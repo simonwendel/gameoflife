@@ -4,14 +4,13 @@
 
 namespace GameOfLife.UnitTests.Webserver.IO
 {
-    using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Webserver.IO;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
     /// Unit tests the EmptyFormatter class from the GameOfLife.WebServer.IO namespace.
     /// </summary>
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass]
     public class EmptyFormatterTests
     {
         /// <summary>

@@ -4,7 +4,6 @@
 
 namespace GameOfLife.UnitTests.Webserver.Dependencies
 {
-    using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Basics;
     using GameOfLife.Webserver.Dependencies;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -15,7 +14,7 @@ namespace GameOfLife.UnitTests.Webserver.Dependencies
     /// Unit tests (and somewhat integration tests) the GameModule class from
     /// the GameOfLife.WebServer.Dependencies namespace.
     /// </summary>
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass]
     public class GameModuleTests
     {
         /// <summary>

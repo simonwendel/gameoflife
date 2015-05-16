@@ -5,7 +5,6 @@
 namespace GameOfLife.UnitTests.Webserver.Dependencies
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Webserver.Dependencies;
     using Microsoft.QualityTools.Testing.Fakes;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -18,7 +17,7 @@ namespace GameOfLife.UnitTests.Webserver.Dependencies
     /// Unit tests the NinjectFactory class from the GameOfLife.WebServer.Dependencies
     /// namespace.
     /// </summary>
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass]
     public class NinjectFactoryTests
     {
         private interface ITestInterface

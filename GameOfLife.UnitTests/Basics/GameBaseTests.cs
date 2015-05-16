@@ -5,7 +5,6 @@
 namespace GameOfLife.UnitTests.Basics
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Basics;
     using GameOfLife.Library.Rules;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -15,7 +14,7 @@ namespace GameOfLife.UnitTests.Basics
     /// Tests the abstract GameBase class from the GameOfLife.Basics
     /// namespace by creating a proxy test class.
     /// </summary>
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass]
     public class GameBaseTests
     {
         /// <summary>

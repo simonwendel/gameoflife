@@ -4,7 +4,6 @@
 
 namespace GameOfLife.UnitTests.Library.Factories
 {
-    using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Library.Factories;
     using GameOfLife.Library.LifeForms;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -13,7 +12,7 @@ namespace GameOfLife.UnitTests.Library.Factories
     /// Static unit tests for the LifeFormFactory class from the
     /// GameOfLife.Library.Factories namespace.
     /// </summary>
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass]
     public class LifeFormFactoryTests
     {
         /// <summary>

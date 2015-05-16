@@ -5,7 +5,6 @@
 namespace GameOfLife.UnitTests.LinqLife
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Basics;
     using GameOfLife.Library.LifeForms;
     using GameOfLife.LinqLife;
@@ -15,7 +14,7 @@ namespace GameOfLife.UnitTests.LinqLife
     /// <summary>
     /// Unit tests the LinqGame class from the GameOfLife.LinqLife namespace.
     /// </summary>
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass]
     public class LinqGameTests
     {
         /// <summary>

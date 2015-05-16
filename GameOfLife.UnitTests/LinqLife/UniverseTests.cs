@@ -6,7 +6,6 @@ namespace GameOfLife.UnitTests.LinqLife
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using GameOfLife.Library.LifeForms;
     using GameOfLife.LinqLife;
@@ -15,7 +14,7 @@ namespace GameOfLife.UnitTests.LinqLife
     /// <summary>
     /// Unit tests the Universe class from the GameOfLife.LinqLife namespace.
     /// </summary>
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass]
     public class UniverseTests
     {
         /// <summary>The target Universe object to unit test.</summary>

@@ -4,7 +4,6 @@
 
 namespace GameOfLife.UnitTests.Library.Factories
 {
-    using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Library.Factories;
     using GameOfLife.Library.Rules;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -13,7 +12,7 @@ namespace GameOfLife.UnitTests.Library.Factories
     /// Static unit tests of the RuleFactory class from the
     /// GameOfLife.Library.Rules
     /// </summary>
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass]
     public class RuleFactoryTests
     {
         /// <summary>

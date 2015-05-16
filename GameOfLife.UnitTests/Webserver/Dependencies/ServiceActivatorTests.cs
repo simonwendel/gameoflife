@@ -5,7 +5,6 @@
 namespace GameOfLife.UnitTests.Webserver.Dependencies
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using System.Net.Http;
     using System.Web.Http.Controllers;
     using GameOfLife.Webserver.Dependencies;
@@ -16,7 +15,7 @@ namespace GameOfLife.UnitTests.Webserver.Dependencies
     /// Tests the service activator used for resolving dependencies and wiring up
     /// API controllers.
     /// </summary>
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass]
     public class ServiceActivatorTests
     {
         /// <summary>

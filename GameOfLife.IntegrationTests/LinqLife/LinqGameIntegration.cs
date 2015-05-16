@@ -4,7 +4,6 @@
 
 namespace GameOfLife.IntegrationTests.LinqLife
 {
-    using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Basics;
     using GameOfLife.Library.LifeForms;
     using GameOfLife.Library.Rules;
@@ -15,7 +14,7 @@ namespace GameOfLife.IntegrationTests.LinqLife
     /// <summary>
     /// Does integration testing of rules, patterns and the LinqGame.
     /// </summary>
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass]
     public class LinqGameIntegration
     {
         /// <summary>

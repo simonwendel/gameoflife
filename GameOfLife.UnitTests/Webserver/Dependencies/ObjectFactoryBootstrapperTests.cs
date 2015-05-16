@@ -5,7 +5,6 @@
 namespace GameOfLife.UnitTests.Webserver.Dependencies
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Basics;
     using GameOfLife.Webserver.Dependencies;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -15,7 +14,7 @@ namespace GameOfLife.UnitTests.Webserver.Dependencies
     /// Unit tests the ObjectFactoryBootstrapper class from the GameOfLife.WebServer.Dependencies
     /// namespace.
     /// </summary>
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass]
     public class ObjectFactoryBootstrapperTests
     {
         /// <summary>

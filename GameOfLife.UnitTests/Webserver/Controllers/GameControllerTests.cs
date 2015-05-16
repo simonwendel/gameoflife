@@ -5,7 +5,6 @@
 namespace GameOfLife.UnitTests.Webserver.Controllers
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using System.Web.Http;
     using GameOfLife.Basics;
     using GameOfLife.Library.Factories;
@@ -19,7 +18,7 @@ namespace GameOfLife.UnitTests.Webserver.Controllers
     /// <summary>
     /// Unit tests the GameController class from the GameOfLife.WebServer.Controllers namespace.
     /// </summary>
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass]
     public class GameControllerTests
     {
         /// <summary>

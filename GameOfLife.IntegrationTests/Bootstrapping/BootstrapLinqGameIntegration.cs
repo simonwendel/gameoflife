@@ -4,7 +4,6 @@
 
 namespace GameOfLife.IntegrationTests.Bootstrapping
 {
-    using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Console.Application;
     using GameOfLife.Library.LifeForms;
     using GameOfLife.Library.Rules;
@@ -14,7 +13,7 @@ namespace GameOfLife.IntegrationTests.Bootstrapping
     /// <summary>
     /// Does some integration testing by using the Bootstrapper and LinqGame.
     /// </summary>
-    [TestClass, ExcludeFromCodeCoverage]
+    [TestClass]
     public class BootstrapLinqGameIntegration
     {
         /// <summary>
