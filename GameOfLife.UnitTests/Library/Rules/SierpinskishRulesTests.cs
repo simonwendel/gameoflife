@@ -42,7 +42,7 @@ namespace GameOfLife.UnitTests.Library.Rules
         /// approximations to the Sierpiński triangle when applied on 1 living cell.
         /// </summary>
         [TestMethod]
-        public void TheSierpinskishRulesConstructorInitializesCorrectly()
+        public void Constructor_WhenInvoked_PreparesSierpinskishRulesCorrectly()
         {
             // arrange
             var birthCount = new[] { 1 };
@@ -62,7 +62,7 @@ namespace GameOfLife.UnitTests.Library.Rules
         /// Dead cell evaluated for number of neighbors n:[0->8].
         /// </summary>
         [TestMethod]
-        public void DeadCellEvaluatedSierpinskishRules()
+        public void AliveNextGeneration_GivenDeadCell_ReturnsStateAccordingToSierpinskish()
         {
             // arrange
             var expectedStates = new[]
@@ -100,7 +100,7 @@ namespace GameOfLife.UnitTests.Library.Rules
         /// Live cell evaluated for number of neighbors n:[0->8].
         /// </summary>
         [TestMethod]
-        public void LiveCellEvaluatedSierpinskishRules()
+        public void AliveNextGeneration_GivenLiveCell_ReturnsStateAccordingToSierpinskish()
         {
             // arrange
             var expectedStates = new[]
