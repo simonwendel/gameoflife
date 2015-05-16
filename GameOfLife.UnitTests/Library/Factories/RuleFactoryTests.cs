@@ -35,7 +35,7 @@ namespace GameOfLife.UnitTests.Library.Factories
         /// The factory successfully builds a SierpinskishRules object when asked to.
         /// </summary>
         [TestMethod]
-        public void Build_GivenSierpinskish_ReturnesSierpinskishRulesObject()
+        public void Build_GivenSierpinskish_ReturnsSierpinskishRulesObject()
         {
             // act
             var rules = RuleFactory.Build(Rule.Sierpinskish) as SierpinskishRules;
