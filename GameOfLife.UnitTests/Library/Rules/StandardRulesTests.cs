@@ -59,7 +59,7 @@ namespace GameOfLife.UnitTests.Library.Rules
         }
 
         /// <summary>
-        /// Dead cell evaluated for number of neighbors n:[0->8].
+        /// Dead cell evaluated for number of neighbors n∈[0,8].
         /// </summary>
         [TestMethod]
         public void AliveNextGeneration_GivenDeadCell_ReturnsStateAccordingToStandard()
@@ -97,7 +97,7 @@ namespace GameOfLife.UnitTests.Library.Rules
         }
 
         /// <summary>
-        /// Live cell evaluated for number of neighbors n:[0->8].
+        /// Live cell evaluated for number of neighbors n∈[0,8].
         /// </summary>
         [TestMethod]
         public void AliveNextGeneration_GivenLiveCell_ReturnsStateAccordingToStandard()
