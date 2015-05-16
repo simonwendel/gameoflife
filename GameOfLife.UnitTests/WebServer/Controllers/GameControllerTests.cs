@@ -29,7 +29,7 @@ namespace GameOfLife.UnitTests.WebServer.Controllers
         [TestMethod]
         [ExpectedException(
             typeof(NullReferenceException))]
-        public void NullGameSettingsPassedIntoRunGameThrowsException()
+        public void Post_GivenNullGameSettings_ThrowsException()
         {
             // arrange
             using (var target = new GameController(Mock.Of<IBootstrapper>()))
@@ -46,7 +46,7 @@ namespace GameOfLife.UnitTests.WebServer.Controllers
         [TestMethod]
         [ExpectedException(
             typeof(HttpResponseException))]
-        public void RunningGameFailsWhenBootstrapperFailsToBootGame()
+        public void Post_WhenBootstrappingFails_ThrowsException()
         {
             // arrange
             var mockBoot = new Mock<IBootstrapper>();
@@ -74,7 +74,7 @@ namespace GameOfLife.UnitTests.WebServer.Controllers
         /// If all goes well, the Post action returns an GameBase with state.
         /// </summary>
         [TestMethod]
-        public void PostSucceedsWhenGameSuccessfullyRuns()
+        public void Post_WhenGameRunsThrough_ReturnsGameState()
         {
             // arrange
             string formattedOutput = "Some kind of output expected.";
@@ -120,12 +120,6 @@ namespace GameOfLife.UnitTests.WebServer.Controllers
             }
         }
 
-        /// <summary>
-        /// Creates a mock GameBase derived object, that appears to
-        /// be fully functional.
-        /// </summary>
-        /// <param name="formattedOutput">The string outputted by the Format method.</param>
-        /// <returns>A mocked GameBase for testing.</returns>
         private static Mock<GameBase> BuildMockGame(string formattedOutput)
         {
             var mockGame = new Mock<GameBase>(
