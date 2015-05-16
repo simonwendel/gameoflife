@@ -23,7 +23,7 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
         /// the bindings we expect are actually bound.
         /// </summary>
         [TestMethod]
-        public void WebIOModuleTestsLoadCorrectlyBindsServices()
+        public void Load_WhenPassedToKernel_CorrectlyBindsServices()
         {
             // act
             using (var module = new IOModule())
