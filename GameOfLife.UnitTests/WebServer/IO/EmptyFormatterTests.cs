@@ -5,7 +5,7 @@
 namespace GameOfLife.UnitTests.WebServer.IO
 {
     using System.Diagnostics.CodeAnalysis;
-    using GameOfLife.WebServer.IO;
+    using GameOfLife.Webserver.IO;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>

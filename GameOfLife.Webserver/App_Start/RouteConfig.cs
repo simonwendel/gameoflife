@@ -1,8 +1,8 @@
-﻿// <copyright file="RouteConfig.cs" company="N/A"> 
+﻿// <copyright file="RouteConfig.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
-namespace GameOfLife.WebServer
+namespace GameOfLife.Webserver
 {
     using System.Web.Mvc;
     using System.Web.Routing;

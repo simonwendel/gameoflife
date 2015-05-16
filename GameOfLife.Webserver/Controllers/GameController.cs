@@ -2,7 +2,7 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright> 
 
-namespace GameOfLife.WebServer.Controllers
+namespace GameOfLife.Webserver.Controllers
 {
     using System;
     using System.Net;
@@ -11,8 +11,8 @@ namespace GameOfLife.WebServer.Controllers
     using GameOfLife.Basics;
     using GameOfLife.Library.Factories;
     using GameOfLife.LinqLife;
-    using GameOfLife.WebServer.Filters;
-    using GameOfLife.WebServer.Models;
+    using GameOfLife.Webserver.Filters;
+    using GameOfLife.Webserver.Models;
 
     /// <summary>
     /// Controller serving /API/game/* that handles creating and running games.

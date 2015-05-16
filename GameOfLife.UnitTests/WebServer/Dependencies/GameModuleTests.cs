@@ -6,7 +6,7 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
 {
     using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Basics;
-    using GameOfLife.WebServer.Dependencies;
+    using GameOfLife.Webserver.Dependencies;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Moq;
     using Ninject;
@@ -33,7 +33,7 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
 
                 // assert
                 Assert.IsTrue(
-                    kernel.HasModule("GameOfLife.WebServer.Dependencies.GameModule"),
+                    kernel.HasModule("GameOfLife.Webserver.Dependencies.GameModule"),
                     message: "The Game module was not loaded");
 
                 Assert.IsNotNull(

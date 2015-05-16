@@ -2,7 +2,7 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
-namespace GameOfLife.WebServer.Dependencies
+namespace GameOfLife.Webserver.Dependencies
 {
     using System;
     using Ninject;

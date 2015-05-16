@@ -6,7 +6,7 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using GameOfLife.WebServer.Dependencies;
+    using GameOfLife.Webserver.Dependencies;
     using Microsoft.QualityTools.Testing.Fakes;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Moq;

@@ -6,8 +6,8 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
 {
     using System.Diagnostics.CodeAnalysis;
     using GameOfLife.Basics;
-    using GameOfLife.WebServer.Dependencies;
-    using GameOfLife.WebServer.IO;
+    using GameOfLife.Webserver.Dependencies;
+    using GameOfLife.Webserver.IO;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Ninject;
 
@@ -31,7 +31,7 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
             {
                 // assert
                 Assert.IsTrue(
-                    kernel.HasModule("GameOfLife.WebServer.Dependencies.IOModule"),
+                    kernel.HasModule("GameOfLife.Webserver.Dependencies.IOModule"),
                     message: "The IO module was not loaded");
 
                 Assert.IsNotNull(

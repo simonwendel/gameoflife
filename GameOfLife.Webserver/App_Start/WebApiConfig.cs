@@ -2,13 +2,13 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
-namespace GameOfLife.WebServer
+namespace GameOfLife.Webserver
 {
     using System.Web.Http;
     using System.Web.Http.Dispatcher;
     using System.Web.Http.Filters;
-    using GameOfLife.WebServer.Dependencies;
-    using GameOfLife.WebServer.Filters;
+    using GameOfLife.Webserver.Dependencies;
+    using GameOfLife.Webserver.Filters;
     using Ninject.Modules;
 
     /// <summary>

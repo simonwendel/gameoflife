@@ -2,10 +2,10 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
-namespace GameOfLife.WebServer.Dependencies
+namespace GameOfLife.Webserver.Dependencies
 {
     using GameOfLife.Basics;
-    using GameOfLife.WebServer.IO;
+    using GameOfLife.Webserver.IO;
     using Ninject.Modules;
 
     /// <summary>

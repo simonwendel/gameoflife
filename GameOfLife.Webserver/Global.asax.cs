@@ -2,12 +2,12 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright> 
 
-namespace GameOfLife.WebServer
+namespace GameOfLife.Webserver
 {
     using System.Web.Http;
     using System.Web.Mvc;
     using System.Web.Routing;
-    using GameOfLife.WebServer.Dependencies;
+    using GameOfLife.Webserver.Dependencies;
 
     /// <summary>
     /// The main API application for Game Of Life.

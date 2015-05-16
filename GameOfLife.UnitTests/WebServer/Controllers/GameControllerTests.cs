@@ -11,8 +11,8 @@ namespace GameOfLife.UnitTests.WebServer.Controllers
     using GameOfLife.Library.Factories;
     using GameOfLife.Library.Rules;
     using GameOfLife.LinqLife;
-    using GameOfLife.WebServer.Controllers;
-    using GameOfLife.WebServer.Models;
+    using GameOfLife.Webserver.Controllers;
+    using GameOfLife.Webserver.Models;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Moq;
 
