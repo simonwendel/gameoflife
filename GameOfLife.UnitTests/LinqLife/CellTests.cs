@@ -1,6 +1,6 @@
-﻿// <copyright file="CellTests.cs" company="N/A"> 
+﻿// <copyright file="CellTests.cs" company="N/A">
 //      Copyright (C) Simon Wendel 2013-2015.
-// </copyright> 
+// </copyright>
 
 namespace GameOfLife.UnitTests.LinqLife
 {
@@ -15,11 +15,11 @@ namespace GameOfLife.UnitTests.LinqLife
     public class CellTests
     {
         /// <summary>
-        /// Cells in the Linq version of the game constructs properly, 
+        /// Cells in the Linq version of the game constructs properly,
         /// setting the coordinate properties as expected.
         /// </summary>
         [TestMethod]
-        public void LinqCellConstructsSuccessfully()
+        public void Constructor_GivenCoordinates_PreparesCellCorrectly()
         {
             // act
             var cell = new Cell(x: 1, y: 2);
@@ -40,7 +40,7 @@ namespace GameOfLife.UnitTests.LinqLife
         /// Two Cell structs with the same coordinates are considered equal.
         /// </summary>
         [TestMethod]
-        public void LinqCellsEqual()
+        public void Equals_GivenCellWithSameCoordinates_ReturnsTrue()
         {
             // arrange
             var cell1 = new Cell(3, 4);
@@ -53,11 +53,11 @@ namespace GameOfLife.UnitTests.LinqLife
         }
 
         /// <summary>
-        /// Two Cell structs where the coordinate properties does not match 
+        /// Two Cell structs where the coordinate properties does not match
         /// are not considered equal.
         /// </summary>
         [TestMethod]
-        public void LinqCellsDoesNotEqual()
+        public void Equals_GivenCellWithNotSameCoordinates_ReturnsFalse()
         {
             // arrange
             var cell1 = new Cell(3, 4);
@@ -73,7 +73,7 @@ namespace GameOfLife.UnitTests.LinqLife
         /// The GetHashCode of the Cell class works as expected.
         /// </summary>
         [TestMethod]
-        public void LinqCellGetHashCodeWorksAsExpected()
+        public void GetHashCode_WhenInvoked_ReturnsCorrectHashCode()
         {
             // arrange
             var cell = new Cell(1, 2);
