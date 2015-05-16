@@ -23,7 +23,7 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
         /// and use the product as a return statement.
         /// </summary>
         [TestMethod]
-        public void BootCallsObjectFactoryAndResultsTheProduct()
+        public void Boot_GivenRulesBase_CallsObjectFactoryAndReturnsGame()
         {
             // arrange
             var expected = CreateMockGameBaseImplementation();
@@ -53,7 +53,7 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
         [ExpectedException(
             typeof(BootFailedException),
             "Boot method did not throw correct exception.")]
-        public void BootThrowsBootFailedExceptionIfObjectFactoryThrowsException()
+        public void Boot_WhenObjectFactoryThrowsException_ThrowsException()
         {
             // arrange
             var mockFactory = new Mock<IObjectFactory>();
@@ -70,16 +70,16 @@ namespace GameOfLife.UnitTests.WebServer.Dependencies
             bootstrapper.Boot<GameBase>(CreateMockRulesBaseImplementation());
         }
 
-        private static RulesBase CreateMockRulesBaseImplementation()
-        {
-            var mockRulesBase = new Mock<RulesBase>(new int[] { }, new int[] { });
-            return mockRulesBase.Object;
-        }
-
         private static GameBase CreateMockGameBaseImplementation()
         {
             var mockGameBase = new Mock<GameBase>(Mock.Of<IFormatter>(), CreateMockRulesBaseImplementation());
             return mockGameBase.Object;
+        }
+
+        private static RulesBase CreateMockRulesBaseImplementation()
+        {
+            var mockRulesBase = new Mock<RulesBase>(new int[] { }, new int[] { });
+            return mockRulesBase.Object;
         }
     }
 }
