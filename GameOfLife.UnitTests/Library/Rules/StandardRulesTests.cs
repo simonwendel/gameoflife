@@ -81,17 +81,17 @@ namespace GameOfLife.UnitTests.Library.Rules
             var states = new bool[9];
 
             // act
-            for (int i = 0; i < 9; ++i)
+            for (int n = 0; n < 9; ++n)
             {
-                states[i] = rules.AliveNextGeneration(DEAD, i);
+                states[n] = rules.AliveNextGeneration(DEAD, n);
             }
 
             // assert
-            for (int i = 0; i < 9; ++i)
+            for (int n = 0; n < 9; ++n)
             {
                 Assert.AreEqual(
-                    expected: expectedStates[i],
-                    actual: states[i],
+                    expected: expectedStates[n],
+                    actual: states[n],
                     message: "Rule yielded unexpected result as to whether the cell is alive or not.");
             }
         }
@@ -119,17 +119,17 @@ namespace GameOfLife.UnitTests.Library.Rules
             var states = new bool[9];
 
             // act
-            for (int i = 0; i < 9; ++i)
+            for (int n = 0; n < 9; ++n)
             {
-                states[i] = rules.AliveNextGeneration(LIVE, i);
+                states[n] = rules.AliveNextGeneration(LIVE, n);
             }
 
             // assert
-            for (int i = 0; i < 9; ++i)
+            for (int n = 0; n < 9; ++n)
             {
                 Assert.AreEqual(
-                    expected: expectedStates[i],
-                    actual: states[i],
+                    expected: expectedStates[n],
+                    actual: states[n],
                     message: "Rule yielded unexpected result as to whether the cell is alive or not.");
             }
         }
