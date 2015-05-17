@@ -18,59 +18,37 @@ namespace GameOfLife.UnitTests.Basics
     public class GameBaseTests
     {
         /// <summary>
-        /// The RunThrough method on all GamesBase derived classes correctly
-        /// steps the game forward.
-        /// </summary>
-        [TestMethod]
-        public void RunThrough_GivenInteger_StepsForwardInTime()
-        {
-            // arrange
-            var game = new TestGame(Mock.Of<IFormatter>(), new StandardRules());
-
-            // act
-            game.RunThrough(10);
-
-            // assert
-            Assert.AreEqual(
-                expected: 10,
-                actual: game.Generation,
-                message: "Game did not step forward correctly.");
-        }
-
-        /// <summary>
         /// If passing a null reference IFormatter to the GameBase constructor it
         /// will throw an exception.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage(
-            "Microsoft.Usage",
-            "CA1806:DoNotIgnoreMethodResults",
-            MessageId = "GameOfLife.UnitTests.Basics.GameBaseTests+TestGame",
-            Justification = "The object can never be used, since we expect an exception.")]
         [TestMethod]
-        [ExpectedException(
-            typeof(ArgumentNullException))]
         public void Constructor_GivenNullFormatter_ThrowsException()
         {
-            // act
-            new TestGame(null, new StandardRules());
+            // arrange
+            TestGame game;
+
+            // act:ish
+            Action action = () => game = new TestGame(null, new StandardRules());
+
+            // assert
+            AssertExtension.Throws<ArgumentNullException>(action);
         }
 
         /// <summary>
         /// If passing a null reference RulesBase to the GameBase constructor
         /// it will throw an exception.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage(
-            "Microsoft.Usage",
-            "CA1806:DoNotIgnoreMethodResults",
-            MessageId = "GameOfLife.UnitTests.Basics.GameBaseTests+TestGame",
-            Justification = "The object can never be used, since we expect an exception.")]
         [TestMethod]
-        [ExpectedException(
-            typeof(ArgumentNullException))]
         public void Constructor_GivenNullRules_ThrowsException()
         {
-            // act
-            new TestGame(Mock.Of<IFormatter>(), null);
+            // arrange
+            TestGame game;
+
+            // act:ish
+            Action action = () => game = new TestGame(Mock.Of<IFormatter>(), null);
+
+            // assert
+            AssertExtension.Throws<ArgumentNullException>(action);
         }
 
         /// <summary>
@@ -117,6 +95,26 @@ namespace GameOfLife.UnitTests.Basics
         }
 
         /// <summary>
+        /// The RunThrough method on all GamesBase derived classes correctly
+        /// steps the game forward.
+        /// </summary>
+        [TestMethod]
+        public void RunThrough_GivenInteger_StepsForwardInTime()
+        {
+            // arrange
+            var game = new TestGame(Mock.Of<IFormatter>(), new StandardRules());
+
+            // act
+            game.RunThrough(10);
+
+            // assert
+            Assert.AreEqual(
+                expected: 10,
+                actual: game.Generation,
+                message: "Game did not step forward correctly.");
+        }
+
+        /// <summary>
         /// A test GamesBase derived class for checking base functionality.
         /// </summary>
         private class TestGame : GameBase
@@ -129,14 +127,14 @@ namespace GameOfLife.UnitTests.Basics
                 generation = 0;
             }
 
-            public override int Population
-            {
-                get { throw new NotImplementedException(); }
-            }
-
             public override int Generation
             {
                 get { return generation; }
+            }
+
+            public override int Population
+            {
+                get { throw new NotImplementedException(); }
             }
 
             public new RulesBase Rules
@@ -147,14 +145,14 @@ namespace GameOfLife.UnitTests.Basics
                 }
             }
 
-            public override void StepForward()
-            {
-                ++generation;
-            }
-
             public override void InitializeFrom(int[][] pattern)
             {
                 throw new NotImplementedException();
+            }
+
+            public override void StepForward()
+            {
+                ++generation;
             }
         }
     }
