@@ -20,27 +20,6 @@ namespace GameOfLife.UnitTests.Console.IO
         private StatsFormatter target;
 
         /// <summary>
-        /// Sets up the test fixture.
-        /// </summary>
-        [TestInitialize]
-        public void Setup()
-        {
-            target = new StatsFormatter();
-        }
-
-        /// <summary>
-        /// Passing a null reference game to the Format method throws an exception.
-        /// </summary>
-        [TestMethod]
-        [ExpectedException(
-            typeof(ArgumentNullException))]
-        public void Format_GivenNullGameBase_ThrowsException()
-        {
-            // act
-            target.Format(null);
-        }
-
-        /// <summary>
         /// Formatting a game to works.
         /// </summary>
         [TestMethod]
@@ -68,6 +47,28 @@ namespace GameOfLife.UnitTests.Console.IO
                 Times.Once());
 
             Assert.AreNotEqual(string.Empty, actual);
+        }
+
+        /// <summary>
+        /// Passing a null reference game to the Format method throws an exception.
+        /// </summary>
+        [TestMethod]
+        public void Format_GivenNullGameBase_ThrowsException()
+        {
+            // act:ish
+            Action action = () => target.Format(null);
+
+            // assert
+            AssertExtension.Throws<ArgumentNullException>(action);
+        }
+
+        /// <summary>
+        /// Sets up the test fixture.
+        /// </summary>
+        [TestInitialize]
+        public void Setup()
+        {
+            target = new StatsFormatter();
         }
     }
 }
