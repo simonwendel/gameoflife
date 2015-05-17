@@ -14,16 +14,35 @@ namespace GameOfLife.UnitTests
     /// </summary>
     public static class AssertExtension
     {
+        private const string WrongExceptionTypeMessage =
+            "AssertExtension.Throws<T> failed. Expected:<{0}>. Actual:<{1}>.";
+
+        private const string NoExceptionMessage =
+            "AssertExtension.Throws<T> failed. No exception was thrown.";
+
         /// <summary>
         /// When passed in an action, that action should be invoked and checked for throwing
         /// an exception of specified type.
         /// </summary>
         /// <typeparam name="T">The type of exception to check for.</typeparam>
-        /// <param name="action">The action to be invoked.</param>
+        /// <param name="action">The action to be invoked and checked for exceptions.</param>
         /// <exception cref="AssertFailedException">
         /// Thrown if the action does not throw an exception of type T.
         /// </exception>
         public static void Throws<T>(Action action) where T : Exception
+        {
+            Throws<T>(action, string.Empty);
+        }
+
+        /// <summary>
+        /// When passed in an action, that action should be invoked and checked for throwing
+        /// an exception of specified type.
+        /// </summary>
+        /// <typeparam name="T">The type of exception to check for.</typeparam>
+        /// <param name="action">The action to be invoked and checked for exceptions.</param>
+        /// <param name="message">A message to display if the assertion fails. This message can be seen in the unit test results.</param>
+        /// <param name="parameters">An array of parameters to use when formatting <paramref name="message"/>.</param>
+        public static void Throws<T>(Action action, string message, params object[] parameters) where T : Exception
         {
             if (action == null)
             {
@@ -40,18 +59,31 @@ namespace GameOfLife.UnitTests
             }
             catch (Exception ex)
             {
-                var expectedType = typeof(T).GetType().Name;
-                var actualType = ex.GetType().Name;
-                var message = string.Format(
-                    CultureInfo.CurrentCulture,
-                    "Exception of type {0} expected, was of type {1}.",
-                    expectedType,
-                    actualType);
-
+                message = BuildMessageForWrongException<T>(message, parameters, ex);
                 throw new AssertFailedException(message, ex);
             }
 
-            throw new AssertFailedException("No exception thrown.");
+            throw new AssertFailedException(NoExceptionMessage);
+        }
+
+        private static string BuildMessageForWrongException<ExpectedType>(string message, object[] parameters, Exception actualException) where ExpectedType : Exception
+        {
+            var expectedType = typeof(ExpectedType).GetType().Name;
+            var actualType = actualException.GetType().Name;
+
+            message = string.Format(
+                CultureInfo.CurrentCulture,
+                WrongExceptionTypeMessage,
+                expectedType,
+                actualType);
+
+            if (parameters.Length > 0)
+            {
+                message = string.Concat(message, " {0}");
+                message = string.Format(message, parameters);
+            }
+
+            return message;
         }
     }
 }

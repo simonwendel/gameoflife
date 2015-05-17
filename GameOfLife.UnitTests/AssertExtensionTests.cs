@@ -33,7 +33,35 @@ namespace GameOfLife.UnitTests
             {
                 // assert
                 var expectedMessage =
-                    "No exception thrown.";
+                    "AssertExtension.Throws<T> failed. No exception was thrown.";
+
+                Assert.AreEqual(expectedMessage, ex.Message);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// When Throws{T} is given an action that does not throw an exception,
+        /// an AssertFailedException is thrown instead. The exception message
+        /// includes the formatted message.
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(AssertFailedException))]
+        public void ThrowsOfT_GivenMessageAndActionNotThrowingAtAll_ThrowsException()
+        {
+            // arrange
+            var obj = new object();
+
+            try
+            {
+                // act
+                AssertExtension.Throws<Exception>(() => { obj = null; }, "some mess{0}.", "age");
+            }
+            catch (AssertFailedException ex)
+            {
+                // assert
+                var expectedMessage =
+                    "AssertExtension.Throws<T> failed. No exception thrown. some message.";
 
                 Assert.AreEqual(expectedMessage, ex.Message);
                 throw;
@@ -57,7 +85,33 @@ namespace GameOfLife.UnitTests
             {
                 // assert
                 var expectedMessage =
-                    "Exception of type ArgumentException expected, was of type NotImplementedException.";
+                    "AssertExtension.Throws<T> failed. Expected:<ArgumentException>. Actual:<NotImplementedException>.";
+
+                Assert.AreEqual(expectedMessage, ex.Message);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The Throws{T} should throw AssertFailedException when the action
+        /// passed in throws an exception not of type T. The exception message
+        /// includes the formatted message.
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(AssertFailedException))]
+        public void ThrowsOfT_GivenMessageAndActionThrowingNotT_ThrowsException()
+        {
+            try
+            {
+                // act
+                AssertExtension.Throws<ArgumentException>(
+                    () => { throw new NotImplementedException(); }, "some mess{0}.", "age");
+            }
+            catch (AssertFailedException ex)
+            {
+                // assert
+                var expectedMessage =
+                    "AssertExtension.Throws<T> failed. Expected:<ArgumentException>. Actual:<NotImplementedException>. some message.";
 
                 Assert.AreEqual(expectedMessage, ex.Message);
                 throw;
