@@ -26,15 +26,16 @@ namespace GameOfLife.UnitTests.Webserver.Controllers
         /// throws an exception.
         /// </summary>
         [TestMethod]
-        [ExpectedException(
-            typeof(NullReferenceException))]
         public void Post_GivenNullGameSettings_ThrowsException()
         {
             // arrange
             using (var target = new GameController(Mock.Of<IBootstrapper>()))
             {
-                // act
-                target.Post(null);
+                // act:ish
+                Action action = () => target.Post(null);
+
+                // assert
+                AssertExtension.Throws<NullReferenceException>(action);
             }
         }
 
@@ -43,8 +44,6 @@ namespace GameOfLife.UnitTests.Webserver.Controllers
         /// the game will be aborted.
         /// </summary>
         [TestMethod]
-        [ExpectedException(
-            typeof(HttpResponseException))]
         public void Post_WhenBootstrappingFails_ThrowsException()
         {
             // arrange
@@ -64,8 +63,11 @@ namespace GameOfLife.UnitTests.Webserver.Controllers
             {
                 RequestFactory.CreateRequestFor(target);
 
-                // act
-                target.Post(settings);
+                // act:ish
+                Action action = () => target.Post(settings);
+
+                // assert
+                AssertExtension.Throws<HttpResponseException>(action);
             }
         }
 
