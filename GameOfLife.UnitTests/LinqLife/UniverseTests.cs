@@ -74,14 +74,7 @@ namespace GameOfLife.UnitTests.LinqLife
         /// When passed a pattern where all columns are not of equal height, that is the pattern is
         /// not perfectly rectangular, the Universe constructor will throw an exception.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage(
-            "Microsoft.Usage",
-            "CA1806:DoNotIgnoreMethodResults",
-            MessageId = "GameOfLife.LinqLife.Universe",
-            Justification = "The object can never be used, since we expect an exception.")]
         [TestMethod]
-        [ExpectedException(
-            typeof(ArgumentException))]
         public void Constructor_GivenIrregularPattern_ThrowsException()
         {
             // arrange
@@ -92,44 +85,39 @@ namespace GameOfLife.UnitTests.LinqLife
                 new[] { 0 }
             };
 
-            // act
-            new Universe(pattern);
+            // act:ish
+            Action action = () => universe = new Universe(pattern);
+
+            // assert
+            AssertExtension.Throws<ArgumentException>(action);
         }
 
         /// <summary>
         /// When the Universe pattern constructor is passed a null pattern,
         /// it will throw an exception.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage(
-            "Microsoft.Usage",
-            "CA1806:DoNotIgnoreMethodResults",
-            MessageId = "GameOfLife.LinqLife.Universe",
-            Justification = "The object can never be used, since we expect an exception.")]
         [TestMethod]
-        [ExpectedException(
-            typeof(ArgumentNullException))]
         public void Constructor_GivenNullPattern_ThrowsException()
         {
+            // act:ish
+            Action action = () => universe = new Universe(pattern: null);
+
             // assert
-            new Universe(pattern: null);
+            AssertExtension.Throws<ArgumentNullException>(action);
         }
 
         /// <summary>
         /// When the Universe copy constructor is passed a null universe to copy,
         /// it will throw an exception.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage(
-            "Microsoft.Usage",
-            "CA1806:DoNotIgnoreMethodResults",
-            MessageId = "GameOfLife.LinqLife.Universe",
-            Justification = "The object can never be used, since we expect an exception.")]
         [TestMethod]
-        [ExpectedException(
-            typeof(ArgumentNullException))]
         public void Constructor_GivenNullSourceUniverse_ThrowsException()
         {
+            // act:ish
+            Action action = () => universe = new Universe(source: null);
+
             // assert
-            new Universe(source: null);
+            AssertExtension.Throws<ArgumentNullException>(action);
         }
 
         /// <summary>
@@ -215,41 +203,33 @@ namespace GameOfLife.UnitTests.LinqLife
         /// <summary>
         /// When passed in a zero height pattern, the Universe constructor throws an exception.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage(
-            "Microsoft.Usage",
-            "CA1806:DoNotIgnoreMethodResults",
-            MessageId = "GameOfLife.LinqLife.Universe",
-            Justification = "The object can never be used, since we expect an exception.")]
         [TestMethod]
-        [ExpectedException(
-            typeof(ArgumentException))]
         public void Constructor_GivenZeroHeightPattern_ThrowsException()
         {
             // arrange
             var pattern = new int[][] { new int[] { } };
 
-            // act
-            new Universe(pattern);
+            // act:ish
+            Action action = () => universe = new Universe(pattern);
+
+            // assert
+            AssertExtension.Throws<ArgumentException>(action);
         }
 
         /// <summary>
         /// When passed in a zero width pattern, the Universe constructor throws an exception.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage(
-            "Microsoft.Usage",
-            "CA1806:DoNotIgnoreMethodResults",
-            MessageId = "GameOfLife.LinqLife.Universe",
-            Justification = "The object can never be used, since we expect an exception.")]
         [TestMethod]
-        [ExpectedException(
-            typeof(ArgumentException))]
         public void Constructor_GivenZeroWidthPattern_ThrowsException()
         {
             // arrange
             var pattern = new int[][] { };
 
-            // act
-            new Universe(pattern);
+            // act:ish
+            Action action = () => universe = new Universe(pattern);
+
+            // assert
+            AssertExtension.Throws<ArgumentException>(action);
         }
 
         /// <summary>
