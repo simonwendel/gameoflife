@@ -49,9 +49,6 @@ namespace GameOfLife.UnitTests.Webserver.Dependencies
         /// application specific BootFailedException.
         /// </summary>
         [TestMethod]
-        [ExpectedException(
-            typeof(BootFailedException),
-            "Boot method did not throw correct exception.")]
         public void Boot_WhenObjectFactoryThrowsException_ThrowsException()
         {
             // arrange
@@ -65,8 +62,11 @@ namespace GameOfLife.UnitTests.Webserver.Dependencies
 
             var bootstrapper = new ObjectFactoryBootstrapper(mockFactory.Object);
 
-            // act
-            bootstrapper.Boot<GameBase>(CreateMockRulesBaseImplementation());
+            // act:ish
+            Action action = () => bootstrapper.Boot<GameBase>(CreateMockRulesBaseImplementation());
+
+            // assert
+            AssertExtension.Throws<BootFailedException>(action);
         }
 
         private static GameBase CreateMockGameBaseImplementation()
