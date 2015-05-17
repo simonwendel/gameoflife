@@ -131,7 +131,7 @@ namespace GameOfLife.UnitTests.Basics
 
             public override int Population
             {
-                get { return 0; }
+                get { throw new NotImplementedException(); }
             }
 
             public override int Generation
