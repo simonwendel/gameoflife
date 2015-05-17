@@ -68,11 +68,12 @@ namespace GameOfLife.UnitTests
 
         private static string BuildMessageForWrongException<ExpectedType>(string message, object[] parameters, Exception actualException) where ExpectedType : Exception
         {
+            var culture = CultureInfo.CurrentCulture;
             var expectedType = typeof(ExpectedType).GetType().Name;
             var actualType = actualException.GetType().Name;
 
             message = string.Format(
-                CultureInfo.CurrentCulture,
+                culture,
                 WrongExceptionTypeMessage,
                 expectedType,
                 actualType);
@@ -80,7 +81,7 @@ namespace GameOfLife.UnitTests
             if (parameters.Length > 0)
             {
                 message = string.Concat(message, " {0}");
-                message = string.Format(message, parameters);
+                message = string.Format(culture, message, parameters);
             }
 
             return message;
