@@ -68,16 +68,17 @@ namespace GameOfLife.UnitTests.LinqLife
         /// LinqGame will throw an exception.
         /// </summary>
         [TestMethod]
-        [ExpectedException(
-            typeof(ArgumentNullException))]
         public void InitializeFrom_GivenNullPattern_ThrowsException()
         {
             // arrange
             var mockRules = new Mock<RulesBase>(new[] { 1 }, new[] { 2 });
             var game = new LinqGame(Mock.Of<IFormatter>(), mockRules.Object);
 
-            // act
-            game.InitializeFrom(null);
+            // act:ish
+            Action action = () => game.InitializeFrom(null);
+
+            // assert
+            AssertExtension.Throws<ArgumentNullException>(action);
         }
     }
 }
