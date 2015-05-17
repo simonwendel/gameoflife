@@ -118,6 +118,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AssertExtension.cs" />
+    <Compile Include="AssertExtensionTests.cs" />
     <Compile Include="Console\Application\IOModuleTests.cs" />
     <Compile Include="Console\IO\StatsFormatterTests.cs" />
     <Compile Include="Basics\GameBaseTests.cs" />
