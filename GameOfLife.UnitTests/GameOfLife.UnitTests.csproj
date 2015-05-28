@@ -139,6 +139,7 @@
     <Compile Include="LinqLife\UniverseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestUsing.cs" />
+    <Compile Include="Webserver\ContextFactory.cs" />
     <Compile Include="Webserver\Controllers\GameControllerTests.cs" />
     <Compile Include="Webserver\Dependencies\GameModuleTests.cs" />
     <Compile Include="Webserver\Dependencies\IOModuleTests.cs" />
