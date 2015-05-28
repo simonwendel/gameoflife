@@ -6,10 +6,9 @@ namespace GameOfLife.UnitTests.Webserver
 {
     using System.Net.Http;
     using System.Web.Http;
-    using System.Web.Http.Hosting;
 
     /// <summary>
-    /// Produces request for API controllers, to be used in testing.
+    /// Produces requests for API controllers, to be used in testing.
     /// </summary>
     internal static class RequestFactory
     {
