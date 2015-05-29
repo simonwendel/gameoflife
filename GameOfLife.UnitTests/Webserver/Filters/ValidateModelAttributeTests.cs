@@ -17,6 +17,27 @@ namespace GameOfLife.UnitTests.Webserver.Filters
     public class ValidateModelAttributeTests
     {
         /// <summary>
+        /// If the model state includes errors a HTTP 400 - Bad Request
+        /// should be set in response.
+        /// </summary>
+        [TestMethod]
+        public void OnActionExecuting_GivenInvalidModel_CreatesBadRequestResponse()
+        {
+            // arrange
+            var context = ContextFactory.CreateActionContext();
+            context.ModelState.AddModelError("error", "an error has occurred");
+
+            var filter = new ValidateModelAttribute();
+
+            // act
+            filter.OnActionExecuting(context);
+
+            // assert
+            Assert.IsNotNull(context.Response);
+            Assert.AreEqual(context.Response.StatusCode, HttpStatusCode.BadRequest);
+        }
+
+        /// <summary>
         /// If the model state is valid, no change in the response should be made.
         /// </summary>
         [TestMethod]
@@ -31,27 +52,6 @@ namespace GameOfLife.UnitTests.Webserver.Filters
 
             // assert
             Assert.IsNull(context.Response);
-        }
-
-        /// <summary>
-        /// If the model state includes errors a HTTP 400 - Bad Request
-        /// should be set in response.
-        /// </summary>
-        [TestMethod]
-        public void OnActionExecuting_GivenNotValidModel_CreatesBadRequestResponse()
-        {
-            // arrange
-            var context = ContextFactory.CreateActionContext();
-            context.ModelState.AddModelError("error", "an error has occurred");
-
-            var filter = new ValidateModelAttribute();
-
-            // act
-            filter.OnActionExecuting(context);
-
-            // assert
-            Assert.IsNotNull(context.Response);
-            Assert.AreEqual(context.Response.StatusCode, HttpStatusCode.BadRequest);
         }
     }
 }
