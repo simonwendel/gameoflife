@@ -146,6 +146,7 @@
     <Compile Include="Webserver\Dependencies\NinjectFactoryTests.cs" />
     <Compile Include="Webserver\Dependencies\ObjectFactoryBootstrapperTests.cs" />
     <Compile Include="Webserver\Dependencies\ServiceActivatorTests.cs" />
+    <Compile Include="Webserver\Filters\NoNullArgumentsAttributeTests.cs" />
     <Compile Include="Webserver\Filters\ValidateModelAttributeTests.cs" />
     <Compile Include="Webserver\IO\EmptyFormatterTests.cs" />
     <Compile Include="Webserver\RequestFactory.cs" />
