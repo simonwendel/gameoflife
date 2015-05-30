@@ -11,7 +11,7 @@ namespace GameOfLife.UnitTests.Webserver.Filters
 
     /// <summary>
     /// Unit tests the action filter that makes sure all parameters to an
-    /// API controller are actually correct after model binding.
+    /// API controller action method are actually correct after model binding.
     /// </summary>
     [TestClass]
     public class ValidateModelAttributeTests
