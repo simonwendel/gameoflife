@@ -51,20 +51,20 @@ namespace GameOfLife.UnitTests.Library.LifeForms
                 message: "The life form was stable.");
         }
 
-        private class UnstableLifeForm : LifeFormBase
+        private class StableLifeForm : LifeFormBase
         {
-            public UnstableLifeForm()
-                : base()
+            public StableLifeForm()
+                : base(0, 0)
             {
                 var pattern = new[] { new[] { 0 } };
                 SetPattern(pattern);
             }
         }
 
-        private class StableLifeForm : LifeFormBase
+        private class UnstableLifeForm : LifeFormBase
         {
-            public StableLifeForm()
-                : base(0, 0)
+            public UnstableLifeForm()
+                : base()
             {
                 var pattern = new[] { new[] { 0 } };
                 SetPattern(pattern);

@@ -16,21 +16,6 @@ namespace GameOfLife.UnitTests.Library.Factories
     public class LifeFormFactoryTests
     {
         /// <summary>
-        /// The factory successfully builds the Empty life form when asked to.
-        /// </summary>
-        [TestMethod]
-        public void Build_GivenEmptyLifeForm_ReturnsEmptyLifeFormObject()
-        {
-            // act
-            var lifeForm = LifeFormFactory.Build(LifeForm.Empty) as Empty;
-
-            // assert
-            Assert.IsNotNull(
-                lifeForm,
-                message: "Life form not built as per expectation.");
-        }
-
-        /// <summary>
         /// The factory successfully builds the Acorn life form when asked to.
         /// </summary>
         [TestMethod]
@@ -53,6 +38,21 @@ namespace GameOfLife.UnitTests.Library.Factories
         {
             // act
             var lifeForm = LifeFormFactory.Build(LifeForm.AircraftCarrier) as AircraftCarrier;
+
+            // assert
+            Assert.IsNotNull(
+                lifeForm,
+                message: "Life form not built as per expectation.");
+        }
+
+        /// <summary>
+        /// The factory successfully builds the Empty life form when asked to.
+        /// </summary>
+        [TestMethod]
+        public void Build_GivenEmptyLifeForm_ReturnsEmptyLifeFormObject()
+        {
+            // act
+            var lifeForm = LifeFormFactory.Build(LifeForm.Empty) as Empty;
 
             // assert
             Assert.IsNotNull(

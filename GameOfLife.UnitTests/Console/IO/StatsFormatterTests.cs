@@ -20,6 +20,15 @@ namespace GameOfLife.UnitTests.Console.IO
         private StatsFormatter target;
 
         /// <summary>
+        /// Sets up the test fixture.
+        /// </summary>
+        [TestInitialize]
+        public void Setup()
+        {
+            target = new StatsFormatter();
+        }
+
+        /// <summary>
         /// Formatting a game to works.
         /// </summary>
         [TestMethod]
@@ -60,15 +69,6 @@ namespace GameOfLife.UnitTests.Console.IO
 
             // assert
             AssertExtension.Throws<ArgumentNullException>(action);
-        }
-
-        /// <summary>
-        /// Sets up the test fixture.
-        /// </summary>
-        [TestInitialize]
-        public void Setup()
-        {
-            target = new StatsFormatter();
         }
     }
 }

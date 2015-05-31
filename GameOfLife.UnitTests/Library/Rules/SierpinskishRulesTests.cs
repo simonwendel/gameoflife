@@ -36,28 +36,6 @@ namespace GameOfLife.UnitTests.Library.Rules
         }
 
         /// <summary>
-        /// When the constructor of the SierpinskishRules class is called, the survival count and
-        /// birth count sequences are correctly initialized so the game will evolve into four close
-        /// approximations to the Sierpiński triangle when applied on 1 living cell.
-        /// </summary>
-        [TestMethod]
-        public void Constructor_WhenInvoked_PreparesSierpinskishRulesCorrectly()
-        {
-            // arrange
-            var birthCount = new[] { 1 };
-            var survivalCount = new[] { 1, 2 };
-
-            // assert
-            Assert.IsTrue(
-                rules.BirthCount.SequenceEqual(birthCount),
-                message: "The birth count sequences was not equal.");
-
-            Assert.IsTrue(
-                rules.SurvivalCount.SequenceEqual(survivalCount),
-                message: "The survival count sequences was not equal.");
-        }
-
-        /// <summary>
         /// Dead cell evaluated for number of neighbors n∈[0,8].
         /// </summary>
         [TestMethod]
@@ -131,6 +109,28 @@ namespace GameOfLife.UnitTests.Library.Rules
                     actual: states[n],
                     message: "Rule yielded unexpected result as to whether the cell is alive or not.");
             }
+        }
+
+        /// <summary>
+        /// When the constructor of the SierpinskishRules class is called, the survival count and
+        /// birth count sequences are correctly initialized so the game will evolve into four close
+        /// approximations to the Sierpiński triangle when applied on 1 living cell.
+        /// </summary>
+        [TestMethod]
+        public void Constructor_WhenInvoked_PreparesSierpinskishRulesCorrectly()
+        {
+            // arrange
+            var birthCount = new[] { 1 };
+            var survivalCount = new[] { 1, 2 };
+
+            // assert
+            Assert.IsTrue(
+                rules.BirthCount.SequenceEqual(birthCount),
+                message: "The birth count sequences was not equal.");
+
+            Assert.IsTrue(
+                rules.SurvivalCount.SequenceEqual(survivalCount),
+                message: "The survival count sequences was not equal.");
         }
     }
 }

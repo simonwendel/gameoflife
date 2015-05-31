@@ -14,11 +14,11 @@ namespace GameOfLife.UnitTests
     /// </summary>
     public static class AssertExtension
     {
-        private const string WrongExceptionTypeMessage =
-            "AssertExtension.Throws<T> failed. Expected:<{0}>. Actual:<{1}>.";
-
         private const string NoExceptionMessage =
             "AssertExtension.Throws<T> failed. No exception was thrown.";
+
+        private const string WrongExceptionTypeMessage =
+            "AssertExtension.Throws<T> failed. Expected:<{0}>. Actual:<{1}>.";
 
         /// <summary>
         /// When passed in an action, that action should be invoked and checked for throwing

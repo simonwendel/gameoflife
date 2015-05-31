@@ -43,6 +43,24 @@ namespace GameOfLife.UnitTests.LinqLife
         }
 
         /// <summary>
+        /// When passed a null integer pattern to the InitializeFrom method, the
+        /// LinqGame will throw an exception.
+        /// </summary>
+        [TestMethod]
+        public void InitializeFrom_GivenNullPattern_ThrowsException()
+        {
+            // arrange
+            var mockRules = new Mock<RulesBase>(new[] { 1 }, new[] { 2 });
+            var game = new LinqGame(Mock.Of<IFormatter>(), mockRules.Object);
+
+            // act:ish
+            Action action = () => game.InitializeFrom(null);
+
+            // assert
+            AssertExtension.Throws<ArgumentNullException>(action);
+        }
+
+        /// <summary>
         /// LinqGame correctly initializes from an integer pattern.
         /// </summary>
         [TestMethod]
@@ -61,24 +79,6 @@ namespace GameOfLife.UnitTests.LinqLife
                 expected: 5,
                 actual: game.Population,
                 message: "The universe population was not initialized correctly.");
-        }
-
-        /// <summary>
-        /// When passed a null integer pattern to the InitializeFrom method, the
-        /// LinqGame will throw an exception.
-        /// </summary>
-        [TestMethod]
-        public void InitializeFrom_GivenNullPattern_ThrowsException()
-        {
-            // arrange
-            var mockRules = new Mock<RulesBase>(new[] { 1 }, new[] { 2 });
-            var game = new LinqGame(Mock.Of<IFormatter>(), mockRules.Object);
-
-            // act:ish
-            Action action = () => game.InitializeFrom(null);
-
-            // assert
-            AssertExtension.Throws<ArgumentNullException>(action);
         }
     }
 }

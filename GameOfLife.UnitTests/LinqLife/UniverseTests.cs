@@ -21,6 +21,15 @@ namespace GameOfLife.UnitTests.LinqLife
         private Universe universe;
 
         /// <summary>
+        /// Sets up the test fixture.
+        /// </summary>
+        [TestInitialize]
+        public void Setup()
+        {
+            universe = new Universe();
+        }
+
+        /// <summary>
         /// Adding cell at a location works.
         /// </summary>
         [TestMethod]
@@ -332,15 +341,6 @@ namespace GameOfLife.UnitTests.LinqLife
                 expected: 0,
                 actual: population,
                 message: "The universe was not empty.");
-        }
-
-        /// <summary>
-        /// Sets up the test fixture.
-        /// </summary>
-        [TestInitialize]
-        public void Setup()
-        {
-            universe = new Universe();
         }
     }
 }

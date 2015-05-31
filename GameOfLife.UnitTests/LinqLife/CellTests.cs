@@ -36,22 +36,6 @@ namespace GameOfLife.UnitTests.LinqLife
         }
 
         /// <summary>
-        /// Two Cell structs with the same coordinates are considered equal.
-        /// </summary>
-        [TestMethod]
-        public void Equals_GivenCellWithSameCoordinates_ReturnsTrue()
-        {
-            // arrange
-            var cell1 = new Cell(3, 4);
-            var cell2 = new Cell(y: 4, x: 3);
-
-            // assert
-            Assert.IsTrue(
-                cell1.Equals(cell2),
-                message: "The cells were not equal.");
-        }
-
-        /// <summary>
         /// Two Cell structs where the coordinate properties does not match
         /// are not considered equal.
         /// </summary>
@@ -66,6 +50,22 @@ namespace GameOfLife.UnitTests.LinqLife
             Assert.IsFalse(
                 cell1.Equals(cell2),
                 message: "The cells were equal.");
+        }
+
+        /// <summary>
+        /// Two Cell structs with the same coordinates are considered equal.
+        /// </summary>
+        [TestMethod]
+        public void Equals_GivenCellWithSameCoordinates_ReturnsTrue()
+        {
+            // arrange
+            var cell1 = new Cell(3, 4);
+            var cell2 = new Cell(y: 4, x: 3);
+
+            // assert
+            Assert.IsTrue(
+                cell1.Equals(cell2),
+                message: "The cells were not equal.");
         }
 
         /// <summary>
