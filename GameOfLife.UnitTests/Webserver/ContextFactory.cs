@@ -60,17 +60,19 @@ namespace GameOfLife.UnitTests.Webserver
 
         private static HttpControllerContext CreateControllerContext()
         {
-            var configuration = new HttpConfiguration();
             var route = new HttpRouteData(new HttpRoute());
 
-            var request = new HttpRequestMessage();
-            request.SetConfiguration(configuration);
-            request.SetRouteData(route);
+            using(var configuration = new HttpConfiguration())
+            using (var request = new HttpRequestMessage())
+            {
+                request.SetConfiguration(configuration);
+                request.SetRouteData(route);
 
-            var context = new HttpControllerContext(configuration, route, request);
-            context.ControllerDescriptor = CreateControllerDescriptor(configuration);
+                var context = new HttpControllerContext(configuration, route, request);
+                context.ControllerDescriptor = CreateControllerDescriptor(configuration);
 
-            return context;
+                return context;
+            }
         }
 
         private static HttpControllerDescriptor CreateControllerDescriptor(HttpConfiguration configuration)
