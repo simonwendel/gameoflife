@@ -1,0 +1,121 @@
+$icon-font-path: '../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/';
+
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+/* General styles for elements
+-----------------------------------------------------------*/
+
+body {
+    font-size: .85em;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif, sans-serif;
+    color: #232323;
+    background: #000 url('../images/pattern.png');
+}
+
+header,
+footer,
+nav,
+section {
+    display: block;
+}
+
+/* CSS for the sw-game-start-dialog directive
+-----------------------------------------------------------*/
+
+.sw-dialog {
+    position: absolute;
+    height: auto;
+    width: auto;
+    top: 20px;
+    left: 20px;
+    display: block;
+
+    .ui-dialog-content {
+        width: auto;
+        min-height:
+        71px;
+        max-height: none;
+        height: auto;
+    }
+
+    .ui-dialog-buttonset {
+        padding: 5px 0;
+    }
+}
+
+/* Warning for old  browsers with browsehappy link
+-----------------------------------------------------------*/
+
+.outdated-browser-warning {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    position: relative;
+    margin: 0.5em 0 0 0;
+    width: 100%;
+
+    input {
+        padding: 2px;
+        width: 100%;
+    }
+
+    select {
+        padding: 1px 0;
+        width: 100%;
+        line-height: normal;
+        height: 18px;
+    }
+}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+
+.field-validation-error {
+    color: #ff0000;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid {
+    display: none;
+}
