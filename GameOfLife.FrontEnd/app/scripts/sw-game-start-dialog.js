@@ -45,7 +45,11 @@
     }
 
     function runGame() {
-        var options = jQuery('.sw-dialog :input').serialize();
+        var options = {
+            numberOfGenerations: vm.numberOfGenerations,
+            rules: vm.selectedRule,
+            lifeForm: vm.selectedLifeForm
+        };
 
         vm.results.success = false;
         vm.error.failed = false;

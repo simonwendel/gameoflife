@@ -37,8 +37,14 @@
     }
 
     function runGame(options) {
-        return jQuery.post(
+        var query = {
+              numberOfGenerations: options.numberOfGenerations,
+              lifeForm: options.lifeForm.value,
+              rules: options.rules.value
+          };
+
+      return jQuery.post(
             '/api/game',
-            options);
+            query);
     }
 })();
