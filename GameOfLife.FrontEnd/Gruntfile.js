@@ -134,6 +134,18 @@ module.exports = function (grunt) {
             }
         },
 
+        // run JSCS style checker
+        jscs: {
+            src: [
+                'Gruntfile.js',
+                '<%= yeoman.app %>/scripts/{,*/}*.js'
+            ],
+            options: {
+                config: ".jscsrc",
+                requireCurlyBraces: [ "if" ]
+            }
+        },
+
         // Empties folders to start fresh
         clean: {
             dist: {
