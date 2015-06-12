@@ -9,7 +9,7 @@
 describe('Directive: swGameStartDialog', function () {
 
   // load the directive's module
-  beforeEach(module('gameOfLife.app'));
+  beforeEach(module('gameOfLife'));
 
   var element,
     scope;

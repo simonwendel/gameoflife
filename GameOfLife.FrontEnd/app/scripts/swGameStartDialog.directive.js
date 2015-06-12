@@ -8,7 +8,7 @@
     'use strict';
 
     angular
-        .module('gameOfLife.app')
+        .module('gameOfLife')
         .directive('swGameStartDialog', gameStartDialog);
 
     /** @ngInject */
