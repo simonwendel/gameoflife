@@ -1,6 +1,8 @@
-// <copyright file="game.js" company="N/A">
-//      Copyright (C) Simon Wendel 2013-2015.
-// </copyright>
+/*
+    <copyright file="game.js" company="N/A">
+        Copyright (C) Simon Wendel 2013-2015.
+    </copyright>
+ */
 
 ;(function() {
     'use strict';
@@ -38,12 +40,12 @@
 
     function runGame(options) {
         var query = {
-              numberOfGenerations: options.numberOfGenerations,
-              lifeForm: options.lifeForm.value,
-              rules: options.rules.value
-          };
+            numberOfGenerations: options.numberOfGenerations,
+            lifeForm: options.lifeForm.value,
+            rules: options.rules.value
+        };
 
-      return jQuery.post(
+        return jQuery.post(
             '/api/game',
             query);
     }
