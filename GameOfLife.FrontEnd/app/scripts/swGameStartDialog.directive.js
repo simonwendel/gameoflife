@@ -16,7 +16,7 @@
         gameService = game;
 
         return {
-            templateUrl: 'views/sw-game-start-dialog.html',
+            templateUrl: 'views/swGameStartDialog.directive.html',
             restrict: 'E',
             controller: DialogController,
             controllerAs: 'vm'
