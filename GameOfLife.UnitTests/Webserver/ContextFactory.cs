@@ -62,7 +62,7 @@ namespace GameOfLife.UnitTests.Webserver
         {
             var route = new HttpRouteData(new HttpRoute());
 
-            using(var configuration = new HttpConfiguration())
+            using (var configuration = new HttpConfiguration())
             using (var request = new HttpRequestMessage())
             {
                 request.SetConfiguration(configuration);
