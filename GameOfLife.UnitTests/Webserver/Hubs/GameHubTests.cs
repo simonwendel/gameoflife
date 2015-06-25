@@ -28,24 +28,6 @@ namespace GameOfLife.UnitTests.Webserver.Hubs
         private Mock<IBootstrapper> mockBoot;
 
         /// <summary>
-        /// Contract all game clients should implement on the receiving side.
-        /// </summary>
-        public interface IGameClientContract
-        {
-            /// <summary>
-            /// Displays an error to the user.
-            /// </summary>
-            /// <param name="error">The complete error output.</param>
-            void DisplayError(string error);
-
-            /// <summary>
-            /// Displays the results of a game run to the user.
-            /// </summary>
-            /// <param name="results">The results to render/display.</param>
-            void DisplayResults(GameBase results);
-        }
-
-        /// <summary>
         /// Sets up the test fixture and initializes shared objects.
         /// </summary>
         [TestInitialize]
