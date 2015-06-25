@@ -1,5 +1,5 @@
 /*
-    <copyright file="game.js" company="N/A">
+    <copyright file="gameOfLife.app.js" company="N/A">
         Copyright (C) Simon Wendel 2013-2015.
     </copyright>
  */
