@@ -172,6 +172,7 @@
     <Compile Include="Webserver\Dependencies\ServiceActivatorTests.cs" />
     <Compile Include="Webserver\Filters\NoNullArgumentsAttributeTests.cs" />
     <Compile Include="Webserver\Filters\ValidateModelAttributeTests.cs" />
+    <Compile Include="Webserver\Hubs\GameHubTests.cs" />
     <Compile Include="Webserver\IO\EmptyFormatterTests.cs" />
     <Compile Include="Webserver\RequestFactory.cs" />
   </ItemGroup>

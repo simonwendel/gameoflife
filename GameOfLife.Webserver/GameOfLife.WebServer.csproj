@@ -192,6 +192,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Hubs\GameHub.cs" />
     <Compile Include="IO\EmptyFormatter.cs" />
     <Compile Include="Models\GameSettingsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
