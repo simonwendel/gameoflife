@@ -56,11 +56,13 @@ module.exports = function(config) {
             'PhantomJS'
         ],
 
+        reporters: ['progress', 'coverage'],
+
         preprocessors: {
             // source files, that you wanna generate coverage for
             // do not include tests or libraries
             // (these files will be instrumented by Istanbul)
-            'src/*.js': ['coverage']
+            'app/scripts/*.js': ['coverage']
         },
 
         // Which plugins to enable
