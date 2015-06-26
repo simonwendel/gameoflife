@@ -58,8 +58,12 @@
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
 <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+<script src="bower_components/signalr/jquery.signalR.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
+
+<!-- we need to include the signalr hubs from server as well -->
+<script src="signalr/hubs"></script>
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/gameOfLife.app.js"></script>
