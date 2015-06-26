@@ -19,6 +19,16 @@
             expect(gameClient).toBeDefined();
         });
 
+        it('should have a function for retrieving initial game settings.', function() {
+            var settings = gameClient.getInitialSettings();
+
+            expect(settings.numberOfGenerations).toBe(30);
+            expect(settings.selectedRule).toEqual({value: 0, name: 'Standard'});
+            expect(settings.selectedLifeForm).toEqual({value: 4, name: 'RandomPattern'});
+            expect(settings.lifeForms.length).toBe(5);
+            expect(settings.rules.length).toBe(2);
+        });
+
     });
 
     function fixtureSetup(_gameClient_) {
