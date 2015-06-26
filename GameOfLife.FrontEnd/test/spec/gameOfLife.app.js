@@ -4,13 +4,15 @@
     </copyright>
  */
 
-'use strict';
+;(function() {
+    'use strict';
 
-describe('Module: gameOfLife.app', function() {
+    describe('Module: gameOfLife', function() {
 
-    it('should be registered with angular.', function() {
-        var module = angular.module('gameOfLife');
-        expect(module).toBeDefined();
+        it('should be registered with angular.', function() {
+            var module = angular.module('gameOfLife');
+            expect(module).toBeDefined();
+        });
+
     });
-
-});
+})();
