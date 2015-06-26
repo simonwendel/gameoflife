@@ -30,7 +30,8 @@ module.exports = function(config) {
             'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
             'bower_components/jquery-ui/jquery-ui.js',
             'bower_components/angular-mocks/angular-mocks.js',
-            // endbower
+            // endbower,
+            'app/scripts/gameOfLife.app.js',
             'app/scripts/**/*.*.js',
             'app/scripts/**/*.js',
             'test/mock/**/*.js',
