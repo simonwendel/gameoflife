@@ -138,7 +138,8 @@ module.exports = function(grunt) {
         jscs: {
             src: [
                 'Gruntfile.js',
-                '<%= yeoman.app %>/scripts/{,*/}*.js'
+                '<%= yeoman.app %>/scripts/{,*/}*.js',
+                'test/spec/{,*/}*.js'
             ],
             options: {
                 config: '.jscsrc'
