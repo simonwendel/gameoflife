@@ -55,6 +55,9 @@
         "describe": false,
         "angular": false,
         "browser": false,
-        "inject": false
+        "inject": false,
+        "beforeEach": false,
+        "it": false,
+        "expect": false
     }
 }
