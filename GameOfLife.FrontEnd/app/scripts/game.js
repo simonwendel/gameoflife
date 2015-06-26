@@ -7,7 +7,8 @@
 ;(function() {
     'use strict';
 
-    angular.module('gameOfLife')
+    angular
+        .module('gameOfLife')
         .factory('game', game);
 
     /** @ngInject */
