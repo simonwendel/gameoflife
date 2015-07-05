@@ -162,7 +162,6 @@
     <Compile Include="LinqLife\LinqGameTests.cs" />
     <Compile Include="LinqLife\UniverseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestUsing.cs" />
     <Compile Include="Webserver\Hubs\GameHubTests.cs" />
     <Compile Include="Webserver\IO\EmptyFormatterTests.cs" />
   </ItemGroup>
