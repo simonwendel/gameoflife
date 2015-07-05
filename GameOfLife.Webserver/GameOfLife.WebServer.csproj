@@ -180,9 +180,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Dependencies\NinjectDependencyResolver.cs" />
-    <Compile Include="Dependencies\NinjectFactory.cs" />
-    <Compile Include="Dependencies\IObjectFactory.cs" />
-    <Compile Include="Dependencies\ObjectFactoryBootstrapper.cs" />
+    <Compile Include="Dependencies\NinjectBootstrapper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

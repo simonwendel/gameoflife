@@ -25,8 +25,8 @@ namespace GameOfLife.Webserver.App_Start
         public void Configuration(IAppBuilder application)
         {
             var kernel = new StandardKernel();
-            kernel.Bind<IObjectFactory>().ToConstant<NinjectFactory>(new NinjectFactory(kernel));
-            kernel.Bind<IBootstrapper>().To<ObjectFactoryBootstrapper>();
+
+            kernel.Bind<IBootstrapper>().ToConstant(new NinjectBootstrapper(kernel));
             kernel.Bind<IFormatter>().ToConstant(new EmptyFormatter());
 
             var resolver = new NinjectDependencyResolver(kernel);

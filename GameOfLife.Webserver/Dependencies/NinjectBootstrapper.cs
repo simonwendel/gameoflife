@@ -6,22 +6,23 @@ namespace GameOfLife.Webserver.Dependencies
 {
     using System;
     using GameOfLife.Basics;
+    using Ninject;
 
     /// <summary>
-    /// Provides an <see cref="IBootstrapper"/> implementation using the <see cref="IObjectFactory"/>
+    /// Provides an <see cref="IBootstrapper"/> implementation using the <see cref="IKernel"/>
     /// service to wire up dependencies.
     /// </summary>
-    internal class ObjectFactoryBootstrapper : IBootstrapper
+    internal class NinjectBootstrapper : IBootstrapper
     {
-        private IObjectFactory factory;
+        private IKernel kernel;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ObjectFactoryBootstrapper"/> class.
+        /// Initializes a new instance of the <see cref="NinjectBootstrapper"/> class.
         /// </summary>
-        /// <param name="factory">The <see cref="IObjectFactory"/> instance to use for building games.</param>
-        public ObjectFactoryBootstrapper(IObjectFactory factory)
+        /// <param name="kernel">The <see cref="IKernel"/> instance to use for building games.</param>
+        public NinjectBootstrapper(IKernel kernel)
         {
-            this.factory = factory;
+            this.kernel = kernel;
         }
 
         /// <summary>
@@ -34,8 +35,8 @@ namespace GameOfLife.Webserver.Dependencies
         {
             try
             {
-                factory.Provide<RulesBase>(rules);
-                return factory.Build<T>();
+                kernel.Rebind<RulesBase>().ToConstant(rules);
+                return kernel.Get<T>();
             }
             catch (Exception ex)
             {

@@ -164,7 +164,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestUsing.cs" />
     <Compile Include="Webserver\ContextFactory.cs" />
-    <Compile Include="Webserver\Dependencies\ObjectFactoryBootstrapperTests.cs" />
     <Compile Include="Webserver\Hubs\GameHubTests.cs" />
     <Compile Include="Webserver\IO\EmptyFormatterTests.cs" />
     <Compile Include="Webserver\RequestFactory.cs" />
