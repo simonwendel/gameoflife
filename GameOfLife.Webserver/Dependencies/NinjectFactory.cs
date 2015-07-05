@@ -6,7 +6,6 @@ namespace GameOfLife.Webserver.Dependencies
 {
     using System;
     using Ninject;
-    using Ninject.Modules;
 
     /// <summary>
     /// An <see cref="IObjectFactory"/> implementation based on Ninject as an IoC container.
@@ -18,11 +17,10 @@ namespace GameOfLife.Webserver.Dependencies
         /// <summary>
         /// Initializes a new instance of the <see cref="NinjectFactory"/> class.
         /// </summary>
-        /// <param name="modules">Ninject modules binding dependencies to implementations.</param>
-        public NinjectFactory(params INinjectModule[] modules)
+        /// <param name="kernel">The <see cref="IKernel"/> providing dependency registration.</param>
+        public NinjectFactory(IKernel kernel)
         {
-            kernel = new StandardKernel(modules);
-            kernel.Bind<IObjectFactory>().ToConstant<NinjectFactory>(this);
+            this.kernel = kernel;
         }
 
         /// <summary>

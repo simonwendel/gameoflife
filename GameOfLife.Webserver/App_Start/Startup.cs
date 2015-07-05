@@ -6,7 +6,9 @@
 
 namespace GameOfLife.Webserver.App_Start
 {
+    using GameOfLife.Basics;
     using GameOfLife.Webserver.Dependencies;
+    using GameOfLife.Webserver.IO;
     using Microsoft.AspNet.SignalR;
     using Ninject;
     using Owin;
@@ -23,8 +25,11 @@ namespace GameOfLife.Webserver.App_Start
         public void Configuration(IAppBuilder application)
         {
             var kernel = new StandardKernel();
-            var resolver = new NinjectDependencyResolver(kernel);
+            kernel.Bind<IObjectFactory>().ToConstant<NinjectFactory>(new NinjectFactory(kernel));
+            kernel.Bind<IBootstrapper>().To<ObjectFactoryBootstrapper>();
+            kernel.Bind<IFormatter>().ToConstant(new EmptyFormatter());
 
+            var resolver = new NinjectDependencyResolver(kernel);
             var config = new HubConfiguration();
             config.Resolver = resolver;
 
