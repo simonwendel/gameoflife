@@ -19,7 +19,7 @@ namespace GameOfLife.Webserver.App_Start
     public class Startup
     {
         /// <summary>
-        /// Configures an OWIN application.
+        /// Configures OWIN application for SignalR.
         /// </summary>
         /// <param name="application"><see cref="IAppBuilder" /> to configure.</param>
         public void Configuration(IAppBuilder application)
