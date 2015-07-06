@@ -18,6 +18,6 @@ namespace GameOfLife.Basics
         /// <returns>A new game object, or <value>null</value> if resolution fails.</returns>
         /// <exception cref="BootFailedException">Thrown if the boot fails for
         /// some reason.</exception>
-        GameBase Boot<T>(RulesBase rules) where T : GameBase;
+        T Boot<T>(RulesBase rules) where T : GameBase;
     }
 }

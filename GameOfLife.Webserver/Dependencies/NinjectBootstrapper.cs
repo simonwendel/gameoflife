@@ -31,7 +31,7 @@ namespace GameOfLife.Webserver.Dependencies
         /// <typeparam name="T">The type of the game to boot.</typeparam>
         /// <param name="rules">The rules to use when running the game.</param>
         /// <returns>A new game object.</returns>
-        public GameBase Boot<T>(RulesBase rules) where T : GameBase
+        public T Boot<T>(RulesBase rules) where T : GameBase
         {
             try
             {

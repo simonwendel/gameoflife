@@ -38,7 +38,7 @@ namespace GameOfLife.Console.Application
         /// <param name="rules">The rules of the game.</param>
         /// <returns>An instance of the specified type, or <value>null</value> if
         /// unsuccessful resolving dependencies.</returns>
-        public GameBase Boot<T>(RulesBase rules) where T : GameBase
+        public T Boot<T>(RulesBase rules) where T : GameBase
         {
             try
             {

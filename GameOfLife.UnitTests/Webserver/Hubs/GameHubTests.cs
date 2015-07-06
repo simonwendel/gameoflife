@@ -158,9 +158,9 @@ namespace GameOfLife.UnitTests.Webserver.Hubs
             }
         }
 
-        private static Mock<GameBase> BuildMockGame()
+        private static Mock<LinqGame> BuildMockGame()
         {
-            var mockGame = new Mock<GameBase>(
+            var mockGame = new Mock<LinqGame>(
                 Mock.Of<IFormatter>(),
                 new StandardRules());
 
