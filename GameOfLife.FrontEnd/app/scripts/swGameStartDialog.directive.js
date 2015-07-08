@@ -12,8 +12,8 @@
         .directive('swGameStartDialog', gameStartDialog);
 
     /** @ngInject */
-    function gameStartDialog(game) {
-        gameService = game;
+    function gameStartDialog(gameClient) {
+        game = gameClient;
 
         return {
             templateUrl: 'views/swGameStartDialog.directive.html',
@@ -23,13 +23,13 @@
         };
     }
 
-    var gameService,
+    var game,
         vm,
         scope;
 
     /** @ngInject */
     function DialogController($scope) {
-        var initSettings = gameService.getInitialSettings();
+        var initSettings = game.getInitialSettings();
 
         vm = this;
         scope = $scope;
@@ -44,30 +44,34 @@
         vm.error = {failed: false};
 
         vm.runGame = runGame;
+        game.init(displayResults, displayError);
+    }
+
+    function displayError(message) {
+        vm.error.failed = true;
+        vm.failed.message = message;
+        scope.$apply();
+    }
+
+    function displayResults(results) {
+        vm.results.success = true;
+        vm.results.population = results.Population;
+        vm.results.generation = results.Generation;
+        vm.results.lastRuntime = results.LastRuntime;
+        scope.$apply();
     }
 
     function runGame() {
         var options = {
             numberOfGenerations: vm.numberOfGenerations,
-            rules: vm.selectedRule,
-            lifeForm: vm.selectedLifeForm
+            rules: vm.selectedRule.value,
+            lifeForm: vm.selectedLifeForm.value
         };
 
         vm.results.success = false;
         vm.error.failed = false;
 
-        gameService
-            .runGame(options)
-            .done(function(data) {
-                vm.results.success = true;
-                vm.results.population = data.Population;
-                vm.results.generation = data.Generation;
-                vm.results.lastRuntime = data.LastRuntime;
-                scope.$apply();
-            }).fail(function(data) {
-                vm.error.failed = true;
-                vm.error.message = data.Message;
-                scope.$apply();
-            });
+        game
+            .runGame(options);
     }
 })();

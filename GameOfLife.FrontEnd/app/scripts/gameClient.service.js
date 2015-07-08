@@ -13,9 +13,21 @@
 
     /** @ngInject */
     function gameClient() {
+        game = $.connection.gameHub;
+
         return {
-            getInitialSettings: initialSettings
+            init: init,
+            getInitialSettings: initialSettings,
+            runGame: runGame
         };
+    }
+
+    var game;
+
+    function init(resultsCallback, errorCallback) {
+        game.client.displayError = errorCallback;
+        game.client.displayResults = resultsCallback;
+        $.connection.hub.start();
     }
 
     function initialSettings() {
@@ -36,5 +48,9 @@
             lifeForms: availableLifeForms,
             selectedLifeForm: availableLifeForms[4]
         };
+    }
+
+    function runGame(options) {
+        game.server.startGame(options);
     }
 })();
