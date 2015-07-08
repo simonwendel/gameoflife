@@ -35,6 +35,7 @@ module.exports = function(config) {
             'app/scripts/gameOfLife.app.js',
             'app/scripts/**/*.*.js',
             'app/scripts/**/*.js',
+            'app/views/**/*.html',
             'test/mock/**/*.js',
             'test/spec/**/*.js'
         ],
@@ -63,14 +64,23 @@ module.exports = function(config) {
             // source files, that you wanna generate coverage for
             // do not include tests or libraries
             // (these files will be instrumented by Istanbul)
-            'app/scripts/*.js': ['coverage']
+            'app/scripts/*.js': ['coverage'],
+
+            // for unit testing directives with partial html file urls
+            'app/views/**/*.html': ['ng-html2js']
+        },
+
+        ngHtml2JsPreprocessor: {
+            stripPrefix: 'app/',
+            moduleName: 'gameOfLife.templates'
         },
 
         // Which plugins to enable
         plugins: [
             'karma-phantomjs-launcher',
             'karma-jasmine',
-            'karma-coverage'
+            'karma-coverage',
+            'karma-ng-html2js-preprocessor'
         ],
 
         // Continuous Integration mode
