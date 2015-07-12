@@ -33,6 +33,11 @@ namespace GameOfLife.LinqLife
         }
 
         /// <summary>
+        /// Event fired after the game steps one generation into the future.
+        /// </summary>
+        public event EventHandler<GameStepEventArgs> GameStepEvent;
+
+        /// <summary>
         /// Gets the current population of the universe.
         /// </summary>
         public override int Population
@@ -54,38 +59,41 @@ namespace GameOfLife.LinqLife
         public override void StepForward()
         {
             ++generation;
-            if (Population == 0)
+            if (Population > 0)
             {
-                return;
+                var currentState = new Universe(universe); // copy the state of the universe
+                List<Cell> cellsToCheck = currentState.AllCells;
+
+                // linq magic, where we check all cells already in the universe
+                // and also all of their neighbors. since the speed of light is
+                // 1 in game of life, this is sufficient.
+                cellsToCheck.AddRange(
+                    from cell in currentState.AllCells
+                    from neighbor in currentState.ListNeighbors(cell.X, cell.Y)
+                    where !cellsToCheck.Contains(neighbor)
+                    select neighbor);
+
+                foreach (var cell in cellsToCheck)
+                {
+                    int numberOfNeighbors = currentState.Neighbors(cell.X, cell.Y);
+                    bool aliveNow = currentState.HasCell(cell.X, cell.Y);
+                    bool aliveNext = Rules.AliveNextGeneration(aliveNow, numberOfNeighbors);
+
+                    if (aliveNow && !aliveNext)
+                    {
+                        universe.Remove(cell);
+                    }
+
+                    if (!aliveNow && aliveNext)
+                    {
+                        universe.Add(cell);
+                    }
+                }
             }
 
-            var currentState = new Universe(universe); // copy the state of the universe
-            List<Cell> cellsToCheck = currentState.AllCells;
-
-            // linq magic, where we check all cells already in the universe
-            // and also all of their neighbors. since the speed of light is
-            // 1 in game of life, this is sufficient.
-            cellsToCheck.AddRange(
-                from cell in currentState.AllCells
-                from neighbor in currentState.ListNeighbors(cell.X, cell.Y)
-                where !cellsToCheck.Contains(neighbor)
-                select neighbor);
-
-            foreach (var cell in cellsToCheck)
+            if (GameStepEvent != null)
             {
-                int numberOfNeighbors = currentState.Neighbors(cell.X, cell.Y);
-                bool aliveNow = currentState.HasCell(cell.X, cell.Y);
-                bool aliveNext = Rules.AliveNextGeneration(aliveNow, numberOfNeighbors);
-
-                if (aliveNow && !aliveNext)
-                {
-                    universe.Remove(cell);
-                }
-
-                if (!aliveNow && aliveNext)
-                {
-                    universe.Add(cell);
-                }
+                GameStepEvent(this, null);
             }
         }
 

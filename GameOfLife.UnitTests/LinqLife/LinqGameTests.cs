@@ -80,5 +80,26 @@ namespace GameOfLife.UnitTests.LinqLife
                 actual: game.Population,
                 message: "The universe population was not initialized correctly.");
         }
+
+        /// <summary>
+        /// If the client attaches an event handler to the GameStepEvent event, the StepForward
+        /// method will call the registered handler.
+        /// </summary>
+        [TestMethod]
+        public void StepForward_GivenEventHandlerIsAttached_CallsHandler()
+        {
+            // arrange
+            var mockRules = new Mock<RulesBase>(new[] { 1 }, new[] { 2 });
+            var game = new LinqGame(Mock.Of<IFormatter>(), mockRules.Object);
+
+            int numberOfTimesCalled = 0;
+            game.GameStepEvent += (sender, args) => { ++numberOfTimesCalled; };
+
+            // act
+            game.StepForward();
+
+            // assert
+            Assert.AreEqual(1, numberOfTimesCalled);
+        }
     }
 }
