@@ -18,36 +18,6 @@ namespace GameOfLife.IntegrationTests.LinqLife
     public class LinqGameIntegration
     {
         /// <summary>
-        /// Runs the Acorn life form to stable population after 5206 gens.
-        /// </summary>
-        /// <remarks>
-        /// This is ignored now, since the LinqLife performance is poor and
-        /// the test takes 3 minutes to completion.
-        /// </remarks>
-        [TestMethod, Ignore]
-        public void RunThrough_GivenAcornAndStabilizingStep_ResultsInAcornStablePopulation()
-        {
-            // arrange
-            var pattern = new Acorn();
-            var game = new LinqGame(Mock.Of<IFormatter>(), new StandardRules());
-            game.InitializeFrom(pattern.GetPattern());
-
-            // act
-            game.RunThrough(pattern.StabilizesAt + 1);
-
-            // assert
-            Assert.AreEqual(
-                expected: pattern.StablePopulation,
-                actual: game.Population,
-                message: "The universe does not contain exactly 4 cells.");
-
-            Assert.AreEqual(
-                expected: pattern.StabilizesAt + 1,
-                actual: game.Generation,
-                message: "The game did not progress by one generation.");
-        }
-
-        /// <summary>
         /// Steps an empty universe once with the standard rules, which
         /// yield an empty universe when done.
         /// </summary>
