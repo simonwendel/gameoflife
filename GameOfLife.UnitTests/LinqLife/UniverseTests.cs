@@ -7,6 +7,7 @@ namespace GameOfLife.UnitTests.LinqLife
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using GameOfLife.Basics;
     using GameOfLife.Library.LifeForms;
     using GameOfLife.LinqLife;
     using Microsoft.VisualStudio.TestTools.UnitTesting;

@@ -48,7 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cell.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="LinqGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

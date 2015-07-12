@@ -158,7 +158,7 @@
     <Compile Include="Library\Rules\SierpinskishRulesTests.cs" />
     <Compile Include="Library\Rules\StandardRulesTests.cs" />
     <Compile Include="Library\Factories\RuleFactoryTests.cs" />
-    <Compile Include="LinqLife\CellTests.cs" />
+    <Compile Include="Basics\CellTests.cs" />
     <Compile Include="LinqLife\LinqGameTests.cs" />
     <Compile Include="LinqLife\UniverseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

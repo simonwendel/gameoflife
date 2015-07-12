@@ -2,19 +2,19 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
-namespace GameOfLife.UnitTests.LinqLife
+namespace GameOfLife.UnitTests.Basics
 {
-    using GameOfLife.LinqLife;
+    using GameOfLife.Basics;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
-    /// Unit tests the Cell class from the GameOfLife.LinqLife namespace.
+    /// Unit tests the Cell class from the GameOfLife.Basics namespace.
     /// </summary>
     [TestClass]
     public class CellTests
     {
         /// <summary>
-        /// Cells in the Linq version of the game constructs properly,
+        /// Cells in the game constructs properly,
         /// setting the coordinate properties as expected.
         /// </summary>
         [TestMethod]

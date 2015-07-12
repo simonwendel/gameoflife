@@ -2,14 +2,14 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
-namespace GameOfLife.LinqLife
+namespace GameOfLife.Basics
 {
     using System;
 
     /// <summary>
     /// Represents a live cell in the universe.
     /// </summary>
-    internal struct Cell : IEquatable<Cell>
+    public struct Cell : IEquatable<Cell>
     {
         /// <summary>The x-coordinate of the cell.</summary>
         private readonly int x;

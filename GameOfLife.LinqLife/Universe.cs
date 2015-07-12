@@ -7,6 +7,7 @@ namespace GameOfLife.LinqLife
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using GameOfLife.Basics;
 
     /// <summary>
     /// The universe implemented for the LinqLife algorithm.

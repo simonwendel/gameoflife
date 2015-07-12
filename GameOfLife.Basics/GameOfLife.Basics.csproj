@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BootFailedException.cs" />
+    <Compile Include="Cell.cs" />
     <Compile Include="GameBase.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IBootstrapper.cs" />
