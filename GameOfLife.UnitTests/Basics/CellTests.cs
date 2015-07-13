@@ -87,5 +87,121 @@ namespace GameOfLife.UnitTests.Basics
                 actual: hash,
                 message: "The expected hash was not returned.");
         }
+
+        /// <summary>
+        /// Two Cell structs where the coordinate properties does not match
+        /// are not considered equal.
+        /// </summary>
+        [TestMethod]
+        public void ObjectEquals_GivenCellWithNotSameCoordinates_ReturnsFalse()
+        {
+            // arrange
+            var cell1 = new Cell(3, 4);
+            object cell2 = new Cell(4, 3);
+
+            // assert
+            Assert.IsFalse(
+                cell1.Equals(cell2),
+                message: "The cells were equal.");
+        }
+
+        /// <summary>
+        /// Given an object that is of the wrong type, the object.Equals method
+        /// returns false.
+        /// </summary>
+        [TestMethod]
+        public void ObjectEquals_GivenCellWithNotSameType_ReturnsFalse()
+        {
+            // arrange
+            var cell = new Cell(3, 4);
+            var notACell = new object();
+
+            // assert
+            Assert.IsFalse(
+                cell.Equals(notACell),
+                message: "The objects were equal.");
+        }
+
+        /// <summary>
+        /// Two Cell structs with the same coordinates are considered equal.
+        /// </summary>
+        [TestMethod]
+        public void ObjectEquals_GivenCellWithSameCoordinates_ReturnsTrue()
+        {
+            // arrange
+            var cell1 = new Cell(3, 4);
+            object cell2 = new Cell(y: 4, x: 3);
+
+            // assert
+            Assert.IsTrue(
+                cell1.Equals(cell2),
+                message: "The cells were not equal.");
+        }
+
+        /// <summary>
+        /// Two Cell structs where the coordinate properties does not match
+        /// are not considered equal.
+        /// </summary>
+        [TestMethod]
+        public void OperatorEquals_GivenCellWithNotSameCoordinates_ReturnsFalse()
+        {
+            // arrange
+            var cell1 = new Cell(3, 4);
+            var cell2 = new Cell(4, 3);
+
+            // assert
+            Assert.IsFalse(
+                cell1 == cell2,
+                message: "The cells were equal.");
+        }
+
+        /// <summary>
+        /// Two Cell structs with the same coordinates are considered equal.
+        /// </summary>
+        [TestMethod]
+        public void OperatorEquals_GivenCellWithSameCoordinates_ReturnsTrue()
+        {
+            // arrange
+            var cell1 = new Cell(3, 4);
+            var cell2 = new Cell(y: 4, x: 3);
+
+            // assert
+            Assert.IsTrue(
+                cell1 == cell2,
+                message: "The cells were not equal.");
+        }
+
+        /// <summary>
+        /// Two Cell structs where the coordinate properties does not match
+        /// are not considered equal.
+        /// </summary>
+        [TestMethod]
+        public void OperatorNotEquals_GivenCellWithNotSameCoordinates_ReturnsTrue()
+        {
+            // arrange
+            var cell1 = new Cell(3, 4);
+            var cell2 = new Cell(4, 3);
+
+            // assert
+            Assert.IsTrue(
+                cell1 != cell2,
+                message: "The cells were equal.");
+        }
+
+        /// <summary>
+        /// Two Cell structs with the same coordinates are considered equal.
+        /// </summary>
+        [TestMethod]
+        public void OperatorNotEquals_GivenCellWithSameCoordinates_ReturnsFalse()
+        {
+            // arrange
+            var cell1 = new Cell(3, 4);
+            var cell2 = new Cell(y: 4, x: 3);
+
+            // assert
+            Assert.IsFalse(
+                cell1 != cell2,
+                message: "The cells were not equal.");
+        }
     }
 }

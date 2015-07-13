@@ -51,6 +51,28 @@ namespace GameOfLife.Basics
         }
 
         /// <summary>
+        /// Indicates whether two Cell instances are not equal.
+        /// </summary>
+        /// <param name="cell">First cell.</param>
+        /// <param name="otherCell">Second cell.</param>
+        /// <returns><value>false</value> if equal; <value>true</value> if not.</returns>
+        public static bool operator !=(Cell cell, Cell otherCell)
+        {
+            return !cell.Equals(otherCell);
+        }
+
+        /// <summary>
+        /// Indicates whether two Cell instances are equal.
+        /// </summary>
+        /// <param name="cell">First cell.</param>
+        /// <param name="otherCell">Second cell.</param>
+        /// <returns><value>true</value> if equal; <value>false</value> if not.</returns>
+        public static bool operator ==(Cell cell, Cell otherCell)
+        {
+            return cell.Equals(otherCell);
+        }
+
+        /// <summary>
         /// Indicates whether the current Cell is equal to another Cell.
         /// </summary>
         /// <param name="other">A Cell object to compare with this Cell.</param>
@@ -59,6 +81,24 @@ namespace GameOfLife.Basics
         public bool Equals(Cell other)
         {
             return x == other.x && y == other.y;
+        }
+
+        /// <summary>
+        /// Determines whether the specified object is equal to the current object.
+        /// </summary>
+        /// <param name="obj">The object to compare with the current object.</param>
+        /// <returns>
+        /// <value>true</value> if the specified object is equal to the current object;
+        /// otherwise, <value>false</value>.
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Cell))
+            {
+                return false;
+            }
+
+            return Equals((Cell)obj);
         }
 
         /// <summary>
