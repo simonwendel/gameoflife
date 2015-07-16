@@ -2,7 +2,7 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
-[assembly: Microsoft.Owin.OwinStartup(typeof(GameOfLife.Webserver.Startup))]
+[assembly: Microsoft.Owin.OwinStartup("GameOfLife.SignalR", typeof(GameOfLife.Webserver.Startup))]
 
 namespace GameOfLife.Webserver
 {
