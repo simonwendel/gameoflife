@@ -2,9 +2,9 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
-[assembly: Microsoft.Owin.OwinStartup(typeof(GameOfLife.Webserver.App_Start.Startup))]
+[assembly: Microsoft.Owin.OwinStartup(typeof(GameOfLife.Webserver.Startup))]
 
-namespace GameOfLife.Webserver.App_Start
+namespace GameOfLife.Webserver
 {
     using GameOfLife.Basics;
     using GameOfLife.Webserver.Dependencies;
