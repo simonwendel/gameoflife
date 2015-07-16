@@ -12,7 +12,7 @@ namespace GameOfLife.LinqLife
     /// <summary>
     /// The universe implemented for the LinqLife algorithm.
     /// </summary>
-    internal class Universe
+    internal class Universe : UniverseBase
     {
         /// <summary>The universe holding all cells in a set.</summary>
         private ISet<Cell> universe;
@@ -96,7 +96,7 @@ namespace GameOfLife.LinqLife
         /// <summary>
         /// Gets the current number of cells in the universe.
         /// </summary>
-        public int Population
+        public override int Population
         {
             get
             {
