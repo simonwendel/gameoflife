@@ -2,9 +2,9 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
-namespace GameOfLife.UnitTests.Webserver.IO
+namespace GameOfLife.UnitTests.Server.IO
 {
-    using GameOfLife.Webserver.IO;
+    using GameOfLife.Server.IO;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>

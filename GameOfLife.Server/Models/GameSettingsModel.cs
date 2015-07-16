@@ -2,7 +2,7 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
-namespace GameOfLife.Webserver.Models
+namespace GameOfLife.Server.Models
 {
     using GameOfLife.Library.Factories;
 

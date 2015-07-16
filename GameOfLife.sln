@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.LinqLife", "Game
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.IntegrationTests", "GameOfLife.IntegrationTests\GameOfLife.IntegrationTests.csproj", "{CB373919-B1B7-4EAD-AC49-2EA2D95C478B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.Webserver", "GameOfLife.WebServer\GameOfLife.Webserver.csproj", "{992DDB6B-1025-493F-95A6-E79EBC77FF73}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.Server", "GameOfLife.Server\GameOfLife.Server.csproj", "{992DDB6B-1025-493F-95A6-E79EBC77FF73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

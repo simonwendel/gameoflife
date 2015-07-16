@@ -2,13 +2,13 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
-[assembly: Microsoft.Owin.OwinStartup("GameOfLife.SignalR", typeof(GameOfLife.Webserver.Startup))]
+[assembly: Microsoft.Owin.OwinStartup("GameOfLife.SignalR", typeof(GameOfLife.Server.Startup))]
 
-namespace GameOfLife.Webserver
+namespace GameOfLife.Server
 {
     using GameOfLife.Basics;
-    using GameOfLife.Webserver.Dependencies;
-    using GameOfLife.Webserver.IO;
+    using GameOfLife.Server.Dependencies;
+    using GameOfLife.Server.IO;
     using Microsoft.AspNet.SignalR;
     using Ninject;
     using Owin;

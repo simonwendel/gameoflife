@@ -2,13 +2,13 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
-namespace GameOfLife.Webserver.Hubs
+namespace GameOfLife.Server.Hubs
 {
     using System;
     using GameOfLife.Basics;
     using GameOfLife.Library.Factories;
     using GameOfLife.LinqLife;
-    using GameOfLife.Webserver.Models;
+    using GameOfLife.Server.Models;
     using Microsoft.AspNet.SignalR;
 
     /// <summary>

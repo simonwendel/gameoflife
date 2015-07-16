@@ -162,8 +162,8 @@
     <Compile Include="LinqLife\LinqGameTests.cs" />
     <Compile Include="LinqLife\UniverseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Webserver\Hubs\GameHubTests.cs" />
-    <Compile Include="Webserver\IO\EmptyFormatterTests.cs" />
+    <Compile Include="Server\Hubs\GameHubTests.cs" />
+    <Compile Include="Server\IO\EmptyFormatterTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameOfLife.Console\GameOfLife.Console.csproj">
@@ -182,9 +182,9 @@
       <Project>{c614b613-1aff-4c15-8db7-6ab7952fdda6}</Project>
       <Name>GameOfLife.LinqLife</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GameOfLife.WebServer\GameOfLife.Webserver.csproj">
+    <ProjectReference Include="..\GameOfLife.Server\GameOfLife.Server.csproj">
       <Project>{992ddb6b-1025-493f-95a6-e79ebc77ff73}</Project>
-      <Name>GameOfLife.Webserver</Name>
+      <Name>GameOfLife.Server</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

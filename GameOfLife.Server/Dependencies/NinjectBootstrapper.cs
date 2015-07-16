@@ -2,7 +2,7 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
-namespace GameOfLife.Webserver.Dependencies
+namespace GameOfLife.Server.Dependencies
 {
     using System;
     using GameOfLife.Basics;

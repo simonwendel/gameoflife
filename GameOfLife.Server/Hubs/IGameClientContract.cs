@@ -2,7 +2,7 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
-namespace GameOfLife.Webserver.Hubs
+namespace GameOfLife.Server.Hubs
 {
     using GameOfLife.Basics;
 

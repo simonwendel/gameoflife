@@ -2,15 +2,15 @@
 //      Copyright (C) Simon Wendel 2013-2015.
 // </copyright>
 
-namespace GameOfLife.UnitTests.Webserver.Hubs
+namespace GameOfLife.UnitTests.Server.Hubs
 {
     using System;
     using GameOfLife.Basics;
     using GameOfLife.Library.Factories;
     using GameOfLife.Library.Rules;
     using GameOfLife.LinqLife;
-    using GameOfLife.Webserver.Hubs;
-    using GameOfLife.Webserver.Models;
+    using GameOfLife.Server.Hubs;
+    using GameOfLife.Server.Models;
     using Microsoft.AspNet.SignalR.Hubs;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Moq;
