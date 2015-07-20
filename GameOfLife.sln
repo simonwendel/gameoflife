@@ -15,11 +15,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.Basics", "GameOf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.Library", "GameOfLife.Library\GameOfLife.Library.csproj", "{94D38DE1-196E-4FFD-B1D7-FE0D67B901B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.UnitTests", "GameOfLife.UnitTests\GameOfLife.UnitTests.csproj", "{CC060C10-DA9F-4FDC-893C-E4768C41B487}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.Tests", "GameOfLife.Tests\GameOfLife.Tests.csproj", "{CC060C10-DA9F-4FDC-893C-E4768C41B487}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.LinqLife", "GameOfLife.LinqLife\GameOfLife.LinqLife.csproj", "{C614B613-1AFF-4C15-8DB7-6AB7952FDDA6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.IntegrationTests", "GameOfLife.IntegrationTests\GameOfLife.IntegrationTests.csproj", "{CB373919-B1B7-4EAD-AC49-2EA2D95C478B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.Server", "GameOfLife.Server\GameOfLife.Server.csproj", "{992DDB6B-1025-493F-95A6-E79EBC77FF73}"
 EndProject
@@ -49,10 +47,6 @@ Global
 		{C614B613-1AFF-4C15-8DB7-6AB7952FDDA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C614B613-1AFF-4C15-8DB7-6AB7952FDDA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C614B613-1AFF-4C15-8DB7-6AB7952FDDA6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CB373919-B1B7-4EAD-AC49-2EA2D95C478B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CB373919-B1B7-4EAD-AC49-2EA2D95C478B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CB373919-B1B7-4EAD-AC49-2EA2D95C478B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CB373919-B1B7-4EAD-AC49-2EA2D95C478B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{992DDB6B-1025-493F-95A6-E79EBC77FF73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{992DDB6B-1025-493F-95A6-E79EBC77FF73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{992DDB6B-1025-493F-95A6-E79EBC77FF73}.Release|Any CPU.ActiveCfg = Release|Any CPU
