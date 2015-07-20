@@ -13,14 +13,25 @@ namespace GameOfLife.LinqLife
     /// </summary>
     public class GameStepEventArgs : EventArgs
     {
-        public IEnumerable<Cell> StepChanges { get; private set; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="GameStepEventArgs" /> class.
         /// </summary>
-        public GameStepEventArgs(IEnumerable<Cell> stepChanges)
+        /// <param name="deadCells">A collection of cells that have died.</param>
+        /// <param name="newCells">A collection of cells that have been born.</param>
+        public GameStepEventArgs(IEnumerable<Cell> deadCells, IEnumerable<Cell> newCells)
         {
-            StepChanges = stepChanges;
+            DeadCells = deadCells;
+            NewCells = newCells;
         }
+
+        /// <summary>
+        /// Gets an enumerable collection of cells that has died during the step.
+        /// </summary>
+        public IEnumerable<Cell> DeadCells { get; private set; }
+
+        /// <summary>
+        /// Gets an enumerable collection of cells that have been born during the step.
+        /// </summary>
+        public IEnumerable<Cell> NewCells { get; private set; }
     }
 }

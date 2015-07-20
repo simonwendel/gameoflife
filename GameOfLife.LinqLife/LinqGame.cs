@@ -58,6 +58,9 @@ namespace GameOfLife.LinqLife
         /// </summary>
         public override void StepForward()
         {
+            var deadCells = new List<Cell>();
+            var newCells = new List<Cell>();
+
             ++generation;
             if (Population > 0)
             {
@@ -82,18 +85,21 @@ namespace GameOfLife.LinqLife
                     if (aliveNow && !aliveNext)
                     {
                         universe.Remove(cell);
+                        deadCells.Add(cell);
                     }
 
                     if (!aliveNow && aliveNext)
                     {
                         universe.Add(cell);
+                        newCells.Add(cell);
                     }
                 }
             }
 
             if (GameStepEvent != null)
             {
-                GameStepEvent(this, null);
+                var stepInformation = new GameStepEventArgs(deadCells, newCells);
+                GameStepEvent(this, stepInformation);
             }
         }
 
