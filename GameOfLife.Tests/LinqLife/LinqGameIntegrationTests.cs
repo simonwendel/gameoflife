@@ -21,6 +21,7 @@ namespace GameOfLife.Tests.LinqLife
         /// Steps an empty universe once with the standard rules, which
         /// yield an empty universe when done.
         /// </summary>
+        [TestCategory(TestType.IntegrationTest)]
         [TestMethod]
         public void StepForward_GivenEmptyUniverse_ResultsInEmptyUniverse()
         {
@@ -46,6 +47,7 @@ namespace GameOfLife.Tests.LinqLife
         /// Steps a FivePoint pattern one step forward, so it reaches
         /// it's stable population of 4 cells.
         /// </summary>
+        [TestCategory(TestType.IntegrationTest)]
         [TestMethod]
         public void StepForward_GivenFivePoint_ResultsInPopulationOfFour()
         {

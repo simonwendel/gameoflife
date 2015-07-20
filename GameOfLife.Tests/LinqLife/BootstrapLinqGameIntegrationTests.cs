@@ -20,6 +20,7 @@ namespace GameOfLife.Tests.LinqLife
         /// Bootstraps a LinqGame with standard rules and the FivePoint pattern,
         /// steps it, and correct results are returned.
         /// </summary>
+        [TestCategory(TestType.IntegrationTest)]
         [TestMethod]
         public void StepForward_InitializedAndBootstrapped_AdvancesUniverse()
         {

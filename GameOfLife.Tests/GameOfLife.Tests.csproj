@@ -159,13 +159,14 @@
     <Compile Include="Library\Rules\StandardRulesTests.cs" />
     <Compile Include="Library\Factories\RuleFactoryTests.cs" />
     <Compile Include="Basics\CellTests.cs" />
-    <Compile Include="LinqLife\BootstrapLinqGameIntegration.cs" />
-    <Compile Include="LinqLife\LinqGameIntegration.cs" />
+    <Compile Include="LinqLife\BootstrapLinqGameIntegrationTests.cs" />
+    <Compile Include="LinqLife\LinqGameIntegrationTests.cs" />
     <Compile Include="LinqLife\LinqGameTests.cs" />
     <Compile Include="LinqLife\UniverseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server\Hubs\GameHubTests.cs" />
     <Compile Include="Server\IO\EmptyFormatterTests.cs" />
+    <Compile Include="TestType.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameOfLife.Console\GameOfLife.Console.csproj">
