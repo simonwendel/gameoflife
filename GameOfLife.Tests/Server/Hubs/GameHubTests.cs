@@ -35,7 +35,7 @@ namespace GameOfLife.Tests.Server.Hubs
         {
             mockBoot = new Mock<IBootstrapper>();
 
-            hub = new GameHub(mockBoot.Object);
+            hub = new GameHub(mockBoot.Object, Mock.Of<IThreadSleeper>());
 
             var mockContext = new Mock<IHubCallerConnectionContext<dynamic>>();
             hub.Clients = mockContext.Object;

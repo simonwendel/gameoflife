@@ -18,13 +18,19 @@ namespace GameOfLife.Server.Hubs
     {
         private IBootstrapper bootstrapper;
 
+        private IThreadSleeper sleeper;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="GameHub" /> class.
         /// </summary>
         /// <param name="bootstrapper">The bootstrapper used to create a game prior to running.</param>
-        public GameHub(IBootstrapper bootstrapper)
+        /// <param name="sleeper">
+        /// A <see cref="IThreadSleeper" /> to sleep the thread after each game step, thereby throttling
+        /// the game enough to record progress visually, if needed.</param>
+        public GameHub(IBootstrapper bootstrapper, IThreadSleeper sleeper)
         {
             this.bootstrapper = bootstrapper;
+            this.sleeper = sleeper;
         }
 
         /// <summary>
@@ -46,6 +52,9 @@ namespace GameOfLife.Server.Hubs
 
                 var game = bootstrapper.Boot<LinqGame>(rules);
                 game.InitializeFrom(lifeForm.GetPattern());
+
+                game.GameStepEvent += OnGameStepEvent;
+
                 game.RunThrough(settings.NumberOfGenerations);
 
                 Clients.All.DisplayResults(game);
@@ -55,6 +64,11 @@ namespace GameOfLife.Server.Hubs
                 var message = "Booting the game failed.";
                 Clients.All.DisplayError(message);
             }
+        }
+
+        private void OnGameStepEvent(object sender, GameStepEventArgs e)
+        {
+            sleeper.Sleep();
         }
     }
 }
