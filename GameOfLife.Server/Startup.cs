@@ -8,6 +8,7 @@ namespace GameOfLife.Server
 {
     using GameOfLife.Basics;
     using GameOfLife.Server.Dependencies;
+    using GameOfLife.Server.Hubs;
     using GameOfLife.Server.IO;
     using Microsoft.AspNet.SignalR;
     using Ninject;
@@ -28,6 +29,7 @@ namespace GameOfLife.Server
 
             kernel.Bind<IBootstrapper>().ToConstant(new NinjectBootstrapper(kernel));
             kernel.Bind<IFormatter>().ToConstant(new EmptyFormatter());
+            kernel.Bind<IThreadSleeper>().To<ThreadSleeper>().InThreadScope();
 
             var resolver = new NinjectDependencyResolver(kernel);
             var config = new HubConfiguration();
