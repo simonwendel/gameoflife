@@ -170,16 +170,16 @@ namespace GameOfLife.LinqLife
         public int Neighbors(int x, int y)
         {
             int neighbors = 0;
-            for (int i = -1; i <= 1; ++i)
+            for (int xOffset = -1; xOffset <= 1; ++xOffset)
             {
-                for (int j = -1; j <= 1; ++j)
+                for (int yOffset = -1; yOffset <= 1; ++yOffset)
                 {
-                    if (i == 0 && j == 0)
+                    if (xOffset == 0 && yOffset == 0)
                     {
                         continue;
                     }
 
-                    if (HasCell(x + i, y + j))
+                    if (HasCell(x + xOffset, y + yOffset))
                     {
                         ++neighbors;
                     }
