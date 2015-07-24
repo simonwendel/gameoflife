@@ -170,9 +170,9 @@ namespace GameOfLife.LinqLife
         public int CountLivingNeighbors(int x, int y)
         {
             return
-                ListAllPossibleNeighbors(x, y)
-                .Where(c => universe.Contains(c))
-                .Count();
+                (from cell in ListAllPossibleNeighbors(x, y)
+                 where universe.Contains(cell)
+                 select cell).Count();
         }
 
         /// <summary>
