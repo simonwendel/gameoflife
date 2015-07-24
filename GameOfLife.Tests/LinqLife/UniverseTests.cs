@@ -297,7 +297,7 @@ namespace GameOfLife.Tests.LinqLife
             }
 
             // act
-            int neighbors = universe.Neighbors(1, 1);
+            int neighbors = universe.CountLivingNeighbors(1, 1);
 
             // assert
             Assert.AreEqual(
@@ -319,7 +319,7 @@ namespace GameOfLife.Tests.LinqLife
             universe.Add(2, 0);
 
             // act
-            int neighbors = universe.Neighbors(2, 1);
+            int neighbors = universe.CountLivingNeighbors(2, 1);
 
             // assert
             Assert.AreEqual(

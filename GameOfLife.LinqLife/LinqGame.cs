@@ -78,7 +78,7 @@ namespace GameOfLife.LinqLife
 
                 foreach (var cell in cellsToCheck)
                 {
-                    int numberOfNeighbors = currentState.Neighbors(cell.X, cell.Y);
+                    int numberOfNeighbors = currentState.CountLivingNeighbors(cell.X, cell.Y);
                     bool aliveNow = currentState.HasCell(cell.X, cell.Y);
                     bool aliveNext = Rules.AliveNextGeneration(aliveNow, numberOfNeighbors);
 

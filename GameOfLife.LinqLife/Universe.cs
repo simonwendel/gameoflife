@@ -167,7 +167,7 @@ namespace GameOfLife.LinqLife
         /// <param name="x">The x-coordinate of the location to check.</param>
         /// <param name="y">The y-coordinate of the location to check.</param>
         /// <returns>The number of live cells surrounding the location.</returns>
-        public int Neighbors(int x, int y)
+        public int CountLivingNeighbors(int x, int y)
         {
             return
                 ListNeighbors(x, y)
