@@ -72,7 +72,7 @@ namespace GameOfLife.LinqLife
                 // 1 in game of life, this is sufficient.
                 cellsToCheck.AddRange(
                     from cell in currentState.AllCells
-                    from neighbor in currentState.ListNeighbors(cell.X, cell.Y)
+                    from neighbor in currentState.ListAllPossibleNeighbors(cell.X, cell.Y)
                     where !cellsToCheck.Contains(neighbor)
                     select neighbor);
 

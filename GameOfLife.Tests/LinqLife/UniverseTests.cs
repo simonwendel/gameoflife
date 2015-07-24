@@ -265,7 +265,7 @@ namespace GameOfLife.Tests.LinqLife
             }
 
             // act
-            IEnumerable<Cell> neighbors = universe.ListNeighbors(1, 1);
+            IEnumerable<Cell> neighbors = universe.ListAllPossibleNeighbors(1, 1);
 
             // assert
             Assert.AreEqual(

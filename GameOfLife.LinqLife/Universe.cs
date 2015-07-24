@@ -170,7 +170,7 @@ namespace GameOfLife.LinqLife
         public int CountLivingNeighbors(int x, int y)
         {
             return
-                ListNeighbors(x, y)
+                ListAllPossibleNeighbors(x, y)
                 .Where(c => universe.Contains(c))
                 .Count();
         }
@@ -182,7 +182,7 @@ namespace GameOfLife.LinqLife
         /// <param name="y">The y-coordinate of the location to list.</param>
         /// <returns>An enumerable collection of cells neighboring the
         /// location.</returns>
-        public IEnumerable<Cell> ListNeighbors(int x, int y)
+        public IEnumerable<Cell> ListAllPossibleNeighbors(int x, int y)
         {
             for (int xOffset = -1; xOffset <= 1; ++xOffset)
             {
