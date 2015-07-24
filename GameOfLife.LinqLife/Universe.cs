@@ -32,50 +32,8 @@ namespace GameOfLife.LinqLife
         public Universe(int[][] pattern)
             : this()
         {
-            if (pattern == null)
-            {
-                throw new ArgumentNullException(paramName: "pattern");
-            }
-
-            int width = pattern.Length;
-            if (width == 0)
-            {
-                throw new ArgumentException(
-                    message: "The pattern must have a width > 0.",
-                    paramName: "pattern");
-            }
-
-            int height = pattern[0].Length;
-
-            if (!pattern.All(x => x.Length == height))
-            {
-                throw new ArgumentException(
-                    message: "The pattern must have all columns of equal height.",
-                    paramName: "pattern");
-            }
-
-            if (height == 0)
-            {
-                throw new ArgumentException(
-                    message: "The pattern must have a height > 0.",
-                    paramName: "pattern");
-            }
-
-            for (int x = 0; x < width; ++x)
-            {
-                for (int y = 0; y < height; ++y)
-                {
-                    if (pattern[x][y] == 1)
-                    {
-                        // we transpose the y coordinate so that the resulting
-                        // universe is placed in the first quadrant of a
-                        // cartesian coordinate system.
-                        Add(
-                            x: x,
-                            y: height - 1 - y);
-                    }
-                }
-            }
+            CheckConstructorArgument(pattern);
+            ConstructTransposedUniverseFrom(pattern);
         }
 
         /// <summary>
@@ -189,6 +147,58 @@ namespace GameOfLife.LinqLife
                    from yOffset in range
                    where !(xOffset == 0 && yOffset == 0)
                    select new Cell(x + xOffset, y + yOffset);
+        }
+
+        private void ConstructTransposedUniverseFrom(int[][] pattern)
+        {
+            int width = pattern.Length;
+            int height = pattern[0].Length;
+            for (int x = 0; x < width; ++x)
+            {
+                for (int y = 0; y < height; ++y)
+                {
+                    if (pattern[x][y] == 1)
+                    {
+                        // we transpose the y coordinate so that the resulting
+                        // universe is placed in the first quadrant of a
+                        // cartesian coordinate system.
+                        Add(
+                            x: x,
+                            y: height - 1 - y);
+                    }
+                }
+            }
+        }
+
+        private void CheckConstructorArgument(int[][] pattern)
+        {
+            if (pattern == null)
+            {
+                throw new ArgumentNullException(paramName: "pattern");
+            }
+
+            int width = pattern.Length;
+            if (width == 0)
+            {
+                throw new ArgumentException(
+                    message: "The pattern must have a width > 0.",
+                    paramName: "pattern");
+            }
+
+            int height = pattern[0].Length;
+            if (!pattern.All(x => x.Length == height))
+            {
+                throw new ArgumentException(
+                    message: "The pattern must have all columns of equal height.",
+                    paramName: "pattern");
+            }
+
+            if (height == 0)
+            {
+                throw new ArgumentException(
+                    message: "The pattern must have a height > 0.",
+                    paramName: "pattern");
+            }
         }
     }
 }
