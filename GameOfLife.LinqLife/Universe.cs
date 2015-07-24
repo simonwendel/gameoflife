@@ -169,24 +169,10 @@ namespace GameOfLife.LinqLife
         /// <returns>The number of live cells surrounding the location.</returns>
         public int Neighbors(int x, int y)
         {
-            int neighbors = 0;
-            for (int xOffset = -1; xOffset <= 1; ++xOffset)
-            {
-                for (int yOffset = -1; yOffset <= 1; ++yOffset)
-                {
-                    if (xOffset == 0 && yOffset == 0)
-                    {
-                        continue;
-                    }
-
-                    if (HasCell(x + xOffset, y + yOffset))
-                    {
-                        ++neighbors;
-                    }
-                }
-            }
-
-            return neighbors;
+            return
+                ListNeighbors(x, y)
+                .Where(c => universe.Contains(c))
+                .Count();
         }
 
         /// <summary>
