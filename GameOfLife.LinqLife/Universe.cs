@@ -184,18 +184,11 @@ namespace GameOfLife.LinqLife
         /// location.</returns>
         public IEnumerable<Cell> ListAllPossibleNeighbors(int x, int y)
         {
-            for (int xOffset = -1; xOffset <= 1; ++xOffset)
-            {
-                for (int yOffset = -1; yOffset <= 1; ++yOffset)
-                {
-                    if (xOffset == 0 && yOffset == 0)
-                    {
-                        continue;
-                    }
-
-                    yield return new Cell(x + xOffset, y + yOffset);
-                }
-            }
+            var range = Enumerable.Range(-1, 3);
+            return from xOffset in range
+                   from yOffset in range
+                   where !(xOffset == 0 && yOffset == 0)
+                   select new Cell(x + xOffset, y + yOffset);
         }
     }
 }
