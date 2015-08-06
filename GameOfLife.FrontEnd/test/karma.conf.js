@@ -64,7 +64,7 @@ module.exports = function(config) {
             // source files, that you wanna generate coverage for
             // do not include tests or libraries
             // (these files will be instrumented by Istanbul)
-            'app/scripts/*.js': ['coverage'],
+            'app/**/*.js': ['coverage'],
 
             // for unit testing directives with partial html file urls
             'app/views/**/*.html': ['ng-html2js']
