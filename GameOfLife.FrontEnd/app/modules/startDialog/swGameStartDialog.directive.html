@@ -8,36 +8,33 @@
         class="ui-dialog-title">Game Of Life</span>
     </div>
     <div class="ui-dialog-content ui-widget-content">
-        <div id="options">
+        <div>
             <div class="editor-label">
-                <label for="NumberOfGenerations">Number of generations</label>
+                <label>Number of generations</label>
             </div>
             <div class="editor-field">
-                <input class="text-box single-line" id="NumberOfGenerations"
-                       name="NumberOfGenerations" type="text" ng-model="vm.numberOfGenerations">
+                <input class="text-box single-line" type="number" ng-model="vm.numberOfGenerations">
             </div>
             <div class="editor-label">
-                <label for="Rules">Game rules</label>
+                <label>Game rules</label>
             </div>
             <div class="editor-field">
-                <select id="Rules" name="Rules"
-                        ng-model="vm.selectedRule"
-                        ng-options="rule as rule.name for rule in vm.rules">
+                <select ng-model="vm.selectedRule" ng-options="rule as rule.name for rule in vm.rules">
                 </select>
             </div>
             <div class="editor-label">
-                <label for="LifeForm">Life form</label>
+                <label>Life form</label>
             </div>
             <div class="editor-field">
-                <select id="LifeForm" name="LifeForm"
-                        ng-model="vm.selectedLifeForm"
-                        ng-options="lifeForm as lifeForm.name for lifeForm in vm.lifeForms">
-                </select>
+                <select ng-model="vm.selectedLifeForm"
+                        ng-options="lifeForm as lifeForm.name for lifeForm in vm.lifeForms"></select>
             </div>
             <div ng-show="vm.results.success">
                 <hr/>
                 <p>Population: {{ vm.results.population }}. </p>
+
                 <p>Generation: {{ vm.results.generation }}. </p>
+
                 <p>Time spent: {{ vm.results.lastRuntime }} milliseconds.</p>
             </div>
             <div ng-show="vm.error.failed">
@@ -48,7 +45,7 @@
     </div>
     <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
         <div class="ui-dialog-buttonset">
-            <button type="button" ng-click="vm.runGame()">Run game</button>
+            <button ng-click="vm.runGame()">Run game</button>
         </div>
     </div>
 </div>
