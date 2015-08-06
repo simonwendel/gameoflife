@@ -36,6 +36,8 @@ module.exports = function(config) {
             'app/scripts/**/*.*.js',
             'app/scripts/**/*.js',
             'app/views/**/*.html',
+            'app/modules/**/*.js',
+            'app/modules/**/*.html',
             'test/mock/**/*.js',
             'test/spec/**/*.js'
         ],
@@ -67,7 +69,8 @@ module.exports = function(config) {
             'app/**/*.js': ['coverage'],
 
             // for unit testing directives with partial html file urls
-            'app/views/**/*.html': ['ng-html2js']
+            'app/views/**/*.html': ['ng-html2js'],
+            'app/modules/**/*.html': ['ng-html2js']
         },
 
         ngHtml2JsPreprocessor: {

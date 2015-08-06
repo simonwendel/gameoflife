@@ -8,13 +8,13 @@
     'use strict';
 
     angular
-        .module('gameOfLife')
+        .module('gameOfLife.grid')
         .directive('swGrid', grid);
 
     /** @ngInject */
     function grid() {
         return {
-            templateUrl: 'views/swGrid.directive.html',
+            templateUrl: 'modules/grid/swGrid.directive.html',
             restrict: 'E',
             controller: GridController,
             controllerAs: 'vm'
