@@ -8,5 +8,7 @@
     'use strict';
 
     angular
-        .module('gameOfLife', []);
+        .module('gameOfLife', [
+            'gameOfLife.startDialog'
+        ]);
 })();

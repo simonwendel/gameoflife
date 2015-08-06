@@ -8,7 +8,7 @@
     'use strict';
 
     angular
-        .module('gameOfLife')
+        .module('gameOfLife.startDialog')
         .directive('swGameStartDialog', gameStartDialog);
 
     /** @ngInject */
@@ -16,7 +16,7 @@
         game = gameClient;
 
         return {
-            templateUrl: 'views/swGameStartDialog.directive.html',
+            templateUrl: 'modules/startDialog/swGameStartDialog.directive.html',
             restrict: 'E',
             controller: DialogController,
             controllerAs: 'vm'
