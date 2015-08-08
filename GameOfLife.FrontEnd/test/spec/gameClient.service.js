@@ -9,7 +9,7 @@
 
     var gameClient;
 
-    describe('Factory: gameClient', function() {
+    describe('Service: gameClient', function() {
 
         beforeEach(module('gameOfLife'));
 
