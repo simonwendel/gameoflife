@@ -9,6 +9,7 @@
 
     angular
         .module('gameOfLife', [
-            'gameOfLife.startDialog'
+            'gameOfLife.startDialog',
+            'gameOfLife.grid'
         ]);
 })();
