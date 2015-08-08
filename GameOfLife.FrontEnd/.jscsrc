@@ -53,7 +53,7 @@
     "typeof"
   ],
   "safeContextKeyword": ["vm", "this"],
-  "validateLineBreaks": "LF",
+  "validateLineBreaks": "CRLF",
   "validateQuoteMarks": "'",
   "validateIndentation": 4
 }
