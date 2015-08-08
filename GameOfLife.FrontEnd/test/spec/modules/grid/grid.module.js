@@ -7,8 +7,6 @@
 ;(function() {
     'use strict';
 
-    var element;
-
     describe('Module: gameOfLife.grid', function() {
 
         it('should be defined and accessible.', function() {
