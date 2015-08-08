@@ -16,7 +16,7 @@ module.exports = function(config) {
         // testing framework to use (jasmine/mocha/qunit/...)
         // as well as any additional frameworks (requirejs/chai/sinon/...)
         frameworks: [
-            'jasmine'
+            'jasmine', 'sinon'
         ],
 
         // list of files / patterns to load in the browser
@@ -83,7 +83,8 @@ module.exports = function(config) {
             'karma-phantomjs-launcher',
             'karma-jasmine',
             'karma-coverage',
-            'karma-ng-html2js-preprocessor'
+            'karma-ng-html2js-preprocessor',
+            'karma-sinon'
         ],
 
         // Continuous Integration mode
