@@ -7,25 +7,46 @@
 ;(function() {
     'use strict';
 
+    var gameClient,
+        element,
+        scope;
+
     describe('Directive: swGameStartDialog', function() {
 
         beforeEach(module('gameOfLife.startDialog', 'gameOfLife.templates', setupMock));
 
-        it('should be defined and accessible.', inject(function($compile, $rootScope) {
-            var element = $compile(
-                '<sw-game-start-dialog></sw-game-start-dialog>')($rootScope);
-            $rootScope.$digest();
+        beforeEach(inject(buildElement));
 
+        it('should be defined and accessible.', function() {
             expect(element).toBeDefined();
-        }));
+        });
+
+        describe('Function: runGame', function() {
+
+            it('should call the runGame function on the gameClient.', function() {
+                scope.vm.runGame();
+                expect(gameClient.runGame.calledOnce).toBeTruthy();
+            });
+
+        });
 
     });
 
-    function setupMock($provide) {
-        $provide.factory('gameClient', gameClientMock);
+    function buildElement($compile, $rootScope) {
+        element = $compile(
+            '<sw-game-start-dialog></sw-game-start-dialog>')($rootScope);
+        $rootScope.$digest();
+        scope = element.scope();
     }
 
-    function gameClientMock() {
+    function setupMock($provide) {
+        gameClient = mockGameClient();
+        sinon.spy(gameClient, 'runGame');
+
+        $provide.value('gameClient', gameClient);
+    }
+
+    function mockGameClient() {
         return {
             init: function() {},
             getInitialSettings: function() {
@@ -36,7 +57,8 @@
                     lifeForms: [],
                     selectedLifeForm: 0
                 };
-            }
+            },
+            runGame: function () {}
         };
     }
 })();
