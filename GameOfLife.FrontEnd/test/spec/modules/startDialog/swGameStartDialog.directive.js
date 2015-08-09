@@ -9,12 +9,7 @@
 
     describe('Directive: swGameStartDialog', function() {
 
-        beforeEach(module(
-            'gameOfLife.startDialog',
-            'gameOfLife.templates',
-            function($provide) {
-                $provide.factory('gameClient', gameClientMock);
-            }));
+        beforeEach(module('gameOfLife.startDialog', 'gameOfLife.templates', setupMock));
 
         it('should be defined and accessible.', inject(function($compile, $rootScope) {
             var element = $compile(
@@ -25,6 +20,10 @@
         }));
 
     });
+
+    function setupMock($provide) {
+        $provide.factory('gameClient', gameClientMock);
+    }
 
     function gameClientMock() {
         return {
