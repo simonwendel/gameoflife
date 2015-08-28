@@ -16,7 +16,7 @@
         beforeEach(inject(fixtureSetup));
 
         it('should be defined and accessible.', function() {
-            expect(element).toBeDefined();
+            expect(element.text()).not.toBe('');
         });
 
     });
