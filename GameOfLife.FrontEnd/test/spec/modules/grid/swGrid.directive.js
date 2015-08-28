@@ -11,7 +11,7 @@
 
     describe('Directive: swGrid', function() {
 
-        beforeEach(module('gameOfLife.grid', 'gameOfLife.templates'));
+        beforeEach(module('gameOfLife.grid', 'gameOfLife.test.templates'));
 
         beforeEach(inject(fixtureSetup));
 

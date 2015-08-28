@@ -13,7 +13,7 @@
 
     describe('Directive: swGameStartDialog', function() {
 
-        beforeEach(module('gameOfLife.startDialog', 'gameOfLife.templates', setupMock));
+        beforeEach(module('gameOfLife.startDialog', 'gameOfLife.test.templates', setupMock));
 
         beforeEach(inject(buildElement));
 

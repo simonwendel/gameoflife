@@ -75,7 +75,7 @@ module.exports = function(config) {
 
         ngHtml2JsPreprocessor: {
             stripPrefix: 'app/',
-            moduleName: 'gameOfLife.templates'
+            moduleName: 'gameOfLife.test.templates'
         },
 
         // Which plugins to enable
