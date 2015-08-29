@@ -1,0 +1,23 @@
+/* CSS for the sw-game-start-dialog directive
+-----------------------------------------------------------*/
+
+.sw-dialog {
+    position: absolute;
+    height: auto;
+    width: auto;
+    top: 20px;
+    left: 20px;
+    display: block;
+
+    .ui-dialog-content {
+        width: auto;
+        min-height:
+        71px;
+        max-height: none;
+        height: auto;
+    }
+
+    .ui-dialog-buttonset {
+        padding: 5px 0;
+    }
+}
