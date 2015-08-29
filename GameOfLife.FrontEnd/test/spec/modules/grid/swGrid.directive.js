@@ -9,7 +9,7 @@
 
     var element;
 
-    describe('Directive: swGrid', function() {
+    describe('Directive: gameOfLife.grid.swGrid', function() {
 
         beforeEach(module('gameOfLife.grid', 'gameOfLife.test.templates'));
 

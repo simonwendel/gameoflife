@@ -9,7 +9,7 @@
 
     var element;
 
-    describe('Directive: statistics', function() {
+    describe('Directive: gameOfLife.statistics.swStatistics', function() {
 
         beforeEach(module('gameOfLife.statistics', 'gameOfLife.test.templates'));
 

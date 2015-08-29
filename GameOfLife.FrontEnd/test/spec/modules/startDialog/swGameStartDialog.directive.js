@@ -11,7 +11,7 @@
         element,
         scope;
 
-    describe('Directive: swGameStartDialog', function() {
+    describe('Directive: gameOfLife.startDialog.swGameStartDialog', function() {
 
         beforeEach(module('gameOfLife.startDialog', 'gameOfLife.test.templates', setupMock));
 

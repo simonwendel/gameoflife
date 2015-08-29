@@ -9,7 +9,7 @@
 
     var gridApi;
 
-    describe('Service: gridApi', function() {
+    describe('Service: gameOfLife.grid.gridApi', function() {
 
         beforeEach(module('gameOfLife.grid'));
 
