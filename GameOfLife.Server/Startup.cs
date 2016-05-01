@@ -9,7 +9,6 @@ namespace GameOfLife.Server
     using GameOfLife.Basics;
     using GameOfLife.Server.Dependencies;
     using GameOfLife.Server.Hubs;
-    using GameOfLife.Server.IO;
     using Microsoft.AspNet.SignalR;
     using Ninject;
     using Owin;
@@ -28,7 +27,6 @@ namespace GameOfLife.Server
             var kernel = new StandardKernel();
 
             kernel.Bind<IBootstrapper>().ToConstant(new NinjectBootstrapper(kernel));
-            kernel.Bind<IFormatter>().ToConstant(new EmptyFormatter());
             kernel.Bind<IThreadSleeper>().To<ThreadSleeper>().InThreadScope();
 
             var resolver = new NinjectDependencyResolver(kernel);

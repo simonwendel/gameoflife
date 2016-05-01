@@ -122,10 +122,6 @@ namespace GameOfLife.Tests.Server.Hubs
                 x => x.RunThrough(It.IsAny<int>()),
                 Times.Once());
 
-            mockGame.Verify(
-                x => x.Format(),
-                Times.Never());
-
             clients.Verify(
                 x => x.DisplayResults(It.Is<GameBase>(r => r == mockGame.Object)),
                 Times.Once());
@@ -161,7 +157,6 @@ namespace GameOfLife.Tests.Server.Hubs
         private static Mock<LinqGame> BuildMockGame()
         {
             var mockGame = new Mock<LinqGame>(
-                Mock.Of<IFormatter>(),
                 new StandardRules());
 
             mockGame
@@ -169,10 +164,6 @@ namespace GameOfLife.Tests.Server.Hubs
 
             mockGame
                 .Setup(x => x.RunThrough(It.IsAny<int>()));
-
-            mockGame
-                .Setup(x => x.Format())
-                .Returns(string.Empty);
 
             return mockGame;
         }

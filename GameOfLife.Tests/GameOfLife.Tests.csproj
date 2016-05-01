@@ -162,7 +162,6 @@
     <Compile Include="LinqLife\UniverseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server\Hubs\GameHubTests.cs" />
-    <Compile Include="Server\IO\EmptyFormatterTests.cs" />
     <Compile Include="TestType.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -189,9 +188,6 @@
     </CodeAnalysisDictionary>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\GameOfLife.Console\App.config">
-      <Link>App.config</Link>
-    </None>
     <Fakes Include="Fakes\Ninject.fakes" />
     <None Include="packages.config" />
     <None Include="Scripts\jquery-1.10.2.min.map" />

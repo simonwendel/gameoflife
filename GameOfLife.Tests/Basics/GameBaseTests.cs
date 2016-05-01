@@ -18,23 +18,6 @@ namespace GameOfLife.Tests.Basics
     public class GameBaseTests
     {
         /// <summary>
-        /// If passing a null reference IFormatter to the GameBase constructor it
-        /// will throw an exception.
-        /// </summary>
-        [TestMethod]
-        public void Constructor_GivenNullFormatter_ThrowsException()
-        {
-            // arrange
-            TestGame game;
-
-            // act:ish
-            Action action = () => game = new TestGame(null, new StandardRules());
-
-            // assert
-            AssertExtension.Throws<ArgumentNullException>(action);
-        }
-
-        /// <summary>
         /// If passing a null reference RulesBase to the GameBase constructor
         /// it will throw an exception.
         /// </summary>
@@ -45,32 +28,10 @@ namespace GameOfLife.Tests.Basics
             TestGame game;
 
             // act:ish
-            Action action = () => game = new TestGame(Mock.Of<IFormatter>(), null);
+            Action action = () => game = new TestGame(null);
 
             // assert
             AssertExtension.Throws<ArgumentNullException>(action);
-        }
-
-        /// <summary>
-        /// The passed in IFormatter gets properly used by the GameBase Format method.
-        /// </summary>
-        [TestMethod]
-        public void Format_WhenInvoked_UsesFormatterInstance()
-        {
-            // arrange
-            var mockFormatter = new Mock<IFormatter>();
-            mockFormatter
-                .Setup(x => x.Format(It.IsAny<GameBase>()));
-
-            var game = new TestGame(mockFormatter.Object, new StandardRules());
-
-            // act
-            game.Format();
-
-            // assert
-            mockFormatter.Verify(
-                x => x.Format(It.IsAny<GameBase>()),
-                Times.Once());
         }
 
         /// <summary>
@@ -82,7 +43,7 @@ namespace GameOfLife.Tests.Basics
         {
             // arrange
             var rules = new StandardRules();
-            var game = new TestGame(Mock.Of<IFormatter>(), rules);
+            var game = new TestGame(rules);
 
             // act
             var property = game.Rules;
@@ -102,7 +63,7 @@ namespace GameOfLife.Tests.Basics
         public void RunThrough_GivenInteger_StepsForwardInTime()
         {
             // arrange
-            var game = new TestGame(Mock.Of<IFormatter>(), new StandardRules());
+            var game = new TestGame(new StandardRules());
 
             // act
             game.RunThrough(10);
@@ -121,8 +82,8 @@ namespace GameOfLife.Tests.Basics
         {
             private int generation;
 
-            public TestGame(IFormatter formatter, RulesBase rules)
-                : base(formatter, rules)
+            public TestGame(RulesBase rules)
+                : base(rules)
             {
                 generation = 0;
             }

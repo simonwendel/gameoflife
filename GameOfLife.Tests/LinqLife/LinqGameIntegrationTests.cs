@@ -28,7 +28,7 @@ namespace GameOfLife.Tests.LinqLife
         public void StepForward_GivenEmptyUniverse_ResultsInEmptyUniverse()
         {
             // arrange
-            var game = new LinqGame(Mock.Of<IFormatter>(), new StandardRules());
+            var game = new LinqGame(new StandardRules());
 
             // act
             game.StepForward();
@@ -55,7 +55,7 @@ namespace GameOfLife.Tests.LinqLife
         {
             // arrange
             var pattern = new FivePoint();
-            var game = new LinqGame(Mock.Of<IFormatter>(), new StandardRules());
+            var game = new LinqGame(new StandardRules());
             game.InitializeFrom(pattern.GetPattern());
 
             // act
@@ -83,7 +83,7 @@ namespace GameOfLife.Tests.LinqLife
         {
             // arrange
             var pattern = new FivePoint();
-            var game = new LinqGame(Mock.Of<IFormatter>(), new StandardRules());
+            var game = new LinqGame(new StandardRules());
 
             object sender = null;
             GameStepEventArgs eventArgs = null;

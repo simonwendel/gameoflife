@@ -28,7 +28,7 @@ namespace GameOfLife.Tests.LinqLife
             var mockRules = new Mock<RulesBase>(new[] { 1 }, new[] { 2 });
 
             // act
-            var game = new LinqGame(Mock.Of<IFormatter>(), mockRules.Object);
+            var game = new LinqGame(mockRules.Object);
 
             // assert
             Assert.AreEqual(
@@ -51,7 +51,7 @@ namespace GameOfLife.Tests.LinqLife
         {
             // arrange
             var mockRules = new Mock<RulesBase>(new[] { 1 }, new[] { 2 });
-            var game = new LinqGame(Mock.Of<IFormatter>(), mockRules.Object);
+            var game = new LinqGame(mockRules.Object);
 
             // act:ish
             Action action = () => game.InitializeFrom(null);
@@ -68,7 +68,7 @@ namespace GameOfLife.Tests.LinqLife
         {
             // arrange
             var mockRules = new Mock<RulesBase>(new[] { 1 }, new[] { 2 });
-            var game = new LinqGame(Mock.Of<IFormatter>(), mockRules.Object);
+            var game = new LinqGame(mockRules.Object);
             var pattern = new FivePoint();
 
             // act
@@ -90,7 +90,7 @@ namespace GameOfLife.Tests.LinqLife
         {
             // arrange
             var mockRules = new Mock<RulesBase>(new[] { 1 }, new[] { 2 });
-            var game = new LinqGame(Mock.Of<IFormatter>(), mockRules.Object);
+            var game = new LinqGame(mockRules.Object);
 
             int numberOfTimesCalled = 0;
             game.GameStepEvent += (sender, args) => { ++numberOfTimesCalled; };

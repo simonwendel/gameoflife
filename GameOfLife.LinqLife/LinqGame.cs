@@ -25,8 +25,8 @@ namespace GameOfLife.LinqLife
         /// </summary>
         /// <param name="formatter">The formatter to output state by.</param>
         /// <param name="rules">The rules for running the game.</param>
-        public LinqGame(IFormatter formatter, RulesBase rules)
-            : base(formatter, rules)
+        public LinqGame(RulesBase rules)
+            : base(rules)
         {
             generation = 0;
             universe = new Universe();

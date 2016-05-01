@@ -12,9 +12,6 @@ namespace GameOfLife.Basics
     /// </summary>
     public abstract class GameBase
     {
-        /// <summary>The object performing game state output.</summary>
-        private IFormatter formatter;
-
         /// <summary>The rules governing the game.</summary>
         private RulesBase rules;
 
@@ -26,19 +23,13 @@ namespace GameOfLife.Basics
         /// </summary>
         /// <param name="formatter">The object performing game state output.</param>
         /// <param name="rules">The rules to run the game.</param>
-        protected GameBase(IFormatter formatter, RulesBase rules)
+        protected GameBase(RulesBase rules)
         {
-            if (formatter == null)
-            {
-                throw new ArgumentNullException(paramName: "formatter");
-            }
-
             if (rules == null)
             {
                 throw new ArgumentNullException(paramName: "rules");
             }
-
-            this.formatter = formatter;
+            
             this.rules = rules;
             stopwatch = new Stopwatch();
         }
@@ -101,15 +92,6 @@ namespace GameOfLife.Basics
             }
 
             stopwatch.Stop();
-        }
-
-        /// <summary>
-        /// Formats the game perhaps for output.
-        /// </summary>
-        /// <returns>A string representation of the game state.</returns>
-        public virtual string Format()
-        {
-            return formatter.Format(this);
         }
     }
 }
