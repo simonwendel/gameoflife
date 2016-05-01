@@ -1,5 +1,5 @@
 ﻿// <copyright file="Startup.cs" company="N/A">
-//      Copyright (C) Simon Wendel 2013-2015.
+//      Copyright (C) Simon Wendel 2013-2016.
 // </copyright>
 
 [assembly: Microsoft.Owin.OwinStartup("GameOfLife.SignalR", typeof(GameOfLife.Server.Startup))]
